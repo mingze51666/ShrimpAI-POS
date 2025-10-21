@@ -48,6 +48,7 @@ class _CheckoutReceiptDialogState extends State<CheckoutReceiptDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: const .all(0),
+      scrollable: true,
       content: Stack(
         alignment: Alignment.center,
         children: [

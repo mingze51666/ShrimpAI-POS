@@ -7,6 +7,7 @@ import 'package:mockito/mockito.dart';
 import 'package:possystem/constants/icons.dart';
 import 'package:possystem/helpers/launcher.dart';
 import 'package:possystem/models/printer.dart';
+import 'package:possystem/models/repository/receipt_templates.dart';
 import 'package:possystem/routes.dart';
 import 'package:possystem/services/bluetooth.dart';
 import 'package:possystem/translator.dart';
@@ -260,9 +261,6 @@ void main() {
       await tester.tap(find.text(S.printerSettingsPaddingLabel));
       await tester.pumpAndSettle();
 
-      await tester.tap(find.byKey(const Key('modal.save')));
-      await tester.pumpAndSettle();
-
       expect(find.byKey(const Key('printer.settings')), findsOneWidget);
       verify(
         storage.set(any, {
@@ -297,6 +295,7 @@ void main() {
     initializeBlue();
     initializeStorage();
     initializeTranslator();
+    ReceiptTemplates.reset();
   });
 
   setUp(() {

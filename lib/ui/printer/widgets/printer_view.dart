@@ -219,36 +219,7 @@ class _PrinterViewState extends State<PrinterView> {
           children: [
             Padding(
               padding: const .only(left: 24.0, top: 16, right: 24.0, bottom: 24.0),
-              child: PrinterReceiptView(
-                controller: controller,
-                order: OrderObject(
-                  createdAt: .now(),
-                  price: 300,
-                  paid: 500,
-                  attributes: [
-                    OrderSelectedAttributeObject(
-                      optionName: S.orderAttributeExamplePlaceDineIn,
-                      mode: .changeDiscount,
-                      modeValue: 10,
-                    ),
-                  ],
-                  products: [
-                    OrderProductObject(
-                      productName: S.menuExampleProductCheeseBurger,
-                      count: 2,
-                      singlePrice: 60,
-                      originalPrice: 120,
-                      isDiscount: true,
-                    ),
-                    OrderProductObject(
-                      productName: S.menuExampleProductHamBurger,
-                      count: 1,
-                      singlePrice: 180,
-                      originalPrice: 180,
-                    ),
-                  ],
-                ),
-              ),
+              child: PrinterReceiptView(controller: controller, order: OrderObject.example()),
             ),
             ValueListenableBuilder(
               valueListenable: progress,
