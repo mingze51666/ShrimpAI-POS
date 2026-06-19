@@ -50,10 +50,7 @@ class ReplenishmentPage extends StatelessWidget {
     );
   }
 
-  Widget buildList(
-    Future<void> Function(Replenishment a, ReplenishActions b) actionHandler,
-    Widget leading,
-  ) {
+  Widget buildList(Future<void> Function(Replenishment a, ReplenishActions b) actionHandler, Widget leading) {
     return SlidableItemList<Replenishment, ReplenishActions>(
       leading: leading,
       delegate: SlidableItemDelegate(
@@ -83,10 +80,7 @@ class ReplenishmentPage extends StatelessWidget {
 
   Future<void> handleActions(BuildContext context, Replenishment item, ReplenishActions action) async {
     if (action == .preview) {
-      final confirmed = await context.pushNamed<bool>(
-        Routes.stockReplPreview,
-        pathParameters: {'id': item.id},
-      );
+      final confirmed = await context.pushNamed<bool>(Routes.stockReplPreview, pathParameters: {'id': item.id});
 
       if (confirmed == true && context.mounted) {
         PopButton.safePop(context, value: true);

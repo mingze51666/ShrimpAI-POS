@@ -124,9 +124,7 @@ class Printers extends ChangeNotifier with Repository<Printer>, RepositoryStorag
     Log.ger('update_repo', {'type': storageStore.name, 'density': density.index});
 
     await Storage.instance.set(storageStore, {
-      'setting': {
-        'density': density.index,
-      },
+      'setting': {'density': density.index},
     });
 
     notifyListeners();

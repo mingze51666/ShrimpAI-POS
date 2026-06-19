@@ -7,18 +7,11 @@ class ReceiptTemplateObject extends ModelObject<ReceiptTemplate> {
   final String? name;
   final List<ReceiptComponent>? components;
 
-  ReceiptTemplateObject({
-    this.id,
-    this.name,
-    this.components,
-  });
+  ReceiptTemplateObject({this.id, this.name, this.components});
 
   @override
   Map<String, Object> toMap() {
-    return {
-      'name': name!,
-      'components': components!.map((c) => c.toJson()).toList(),
-    };
+    return {'name': name!, 'components': components!.map((c) => c.toJson()).toList()};
   }
 
   @override
