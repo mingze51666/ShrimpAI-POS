@@ -169,6 +169,12 @@ receipt:
         strikeThrough: 刪除線
         underline: 底線
         placeholder: 插入動態資訊
+        _placeholder:
+          $prefix: placeholder
+          date:
+            label: 日期格式
+            hint: 例如 yyyy/MM/dd
+            helper: 相關格式可以參考[說明文件](https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html)
         placeholders:
         - title: 標題
           now: 現在時間

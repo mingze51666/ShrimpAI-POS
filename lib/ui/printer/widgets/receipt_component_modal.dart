@@ -1,13 +1,12 @@
 import 'package:editor_ant/editor_ant.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:possystem/components/dialog/single_text_dialog.dart';
+import 'package:possystem/components/linkify.dart';
 import 'package:possystem/components/scaffold/item_modal.dart';
 import 'package:possystem/components/style/hint_text.dart';
 import 'package:possystem/components/style/image_holder.dart';
 import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/helpers/launcher.dart';
 import 'package:possystem/helpers/validator.dart';
 import 'package:possystem/models/objects/order_object.dart';
 import 'package:possystem/models/receipt_component.dart';
@@ -554,12 +553,11 @@ class _TextEditorViewState extends State<_TextEditorView> {
     return showDialog<String>(
       context: context,
       builder: (context) {
-        final theme = Theme.of(context);
         return SingleTextDialog(
           initialValue: ph.meta,
-          validator: Validator.textLimit('日期格式', 1000),
+          validator: Validator.textLimit(S.printerReceiptComponentLabelTextPlaceholderDateLabel, 1000),
           keyboardType: .text,
-          title: const Text('日期格式'),
+          title: Text(S.printerReceiptComponentLabelTextPlaceholderDateLabel),
           hints: const [
             'yy/M/d',
             'yyyy/M/d',
@@ -570,29 +568,11 @@ class _TextEditorViewState extends State<_TextEditorView> {
             'MMMM dd, yyyy',
             'yyyy-MM-dd HH:mm:ss',
           ],
-          decoration: const InputDecoration(hintText: '例如 yyyy/MM/dd', border: OutlineInputBorder()),
-          footers: [
-            const SizedBox(height: 8),
-            RichText(
-              text: TextSpan(
-                style: TextStyle(color: theme.hintColor, fontSize: theme.textTheme.bodySmall?.fontSize),
-                children: [
-                  const TextSpan(text: '相關格式可以參考 '),
-                  TextSpan(
-                    text: '說明文件',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      decoration: .underline,
-                      fontSize: theme.textTheme.bodySmall?.fontSize,
-                    ),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () =>
-                          Launcher.launch('https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html'),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          decoration: InputDecoration(
+            hintText: S.printerReceiptComponentLabelTextPlaceholderDateHint,
+            border: const OutlineInputBorder(),
+            helper: Linkify.fromString(S.printerReceiptComponentLabelTextPlaceholderDateHelper),
+          ),
         );
       },
     );

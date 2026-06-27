@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:possystem/helpers/logger.dart';
+import 'package:possystem/models/model.dart';
 import 'package:possystem/models/objects/receipt_template_object.dart';
+import 'package:possystem/models/receipt_component.dart';
 import 'package:possystem/models/repository.dart';
-import 'package:possystem/models/repository/receipt_template.dart';
 import 'package:possystem/services/storage.dart';
+import 'package:possystem/translator.dart';
 
 const _defaultId = '__default';
 
@@ -23,8 +25,8 @@ class ReceiptTemplates extends ChangeNotifier with Repository<ReceiptTemplate>, 
   }
 
   @visibleForTesting
-  static reset() {
-    ReceiptTemplates()._prepareDefault();
+  static void reset() {
+    ReceiptTemplates().prepareDefault();
   }
 
   @override
@@ -34,7 +36,7 @@ class ReceiptTemplates extends ChangeNotifier with Repository<ReceiptTemplate>, 
     final data = await Storage.instance.get(storageStore, 'setting');
     selectedId = data['selectedId'] as String?;
 
-    _prepareDefault();
+    prepareDefault();
   }
 
   /// Get the current enabled template
@@ -50,7 +52,8 @@ class ReceiptTemplates extends ChangeNotifier with Repository<ReceiptTemplate>, 
     await _saveProperties();
   }
 
-  void _prepareDefault() async {
+  @visibleForTesting
+  void prepareDefault() async {
     await addItem(
       ReceiptTemplate(id: _defaultId, name: '', components: ReceiptTemplate.getDefaultComponents()),
       save: false,
@@ -65,5 +68,65 @@ class ReceiptTemplates extends ChangeNotifier with Repository<ReceiptTemplate>, 
     });
 
     notifyListeners();
+  }
+}
+
+class ReceiptTemplate extends Model<ReceiptTemplateObject> with ModelStorage<ReceiptTemplateObject> {
+  List<ReceiptComponent> components;
+
+  @override
+  final Stores storageStore = .receiptTemplates;
+
+  @override
+  ReceiptTemplates get repository => .instance;
+
+  @override
+  String get prefix => 'template.$id';
+
+  bool get isSelected => ReceiptTemplates.instance.selected.id == id;
+  bool get isDefault => id == '__default';
+
+  ReceiptTemplate({
+    super.id,
+    super.status = ModelStatus.normal,
+    super.name = 'receipt template',
+    List<ReceiptComponent>? components,
+  }) : components = components ?? const [];
+
+  factory ReceiptTemplate.fromObject(ReceiptTemplateObject object) =>
+      ReceiptTemplate(id: object.id, name: object.name!, components: object.components);
+
+  /// Get default receipt components matching the current hardcoded layout
+  static List<ReceiptComponent> getDefaultComponents() {
+    return [
+      TextFieldComponent(
+        texts: [
+          StyledPlaceholderObject.fromType(.title, fontSize: 28),
+          StyledTextObject.fromText('\n', fontSize: 8),
+          StyledPlaceholderObject.fromType(.orderedAt, meta: 'yMMMd Hms'),
+        ],
+        textAlign: .center,
+        padding: const .only(bottom: 1),
+      ),
+      OrderTableComponent(padding: const .only(bottom: 0)),
+      DiscountTableComponent(padding: const .only(bottom: 0)),
+      AttributeTableComponent(),
+      PriceTableComponent(padding: const .only(bottom: 0)),
+    ];
+  }
+
+  String get displayName => name == '' ? S.printerReceiptTemplateDefaultName : name;
+
+  @override
+  ReceiptTemplateObject toObject() {
+    return ReceiptTemplateObject(id: id, name: name, components: components);
+  }
+
+  @override
+  Future<void> update(ReceiptTemplateObject object, {String event = 'update'}) async {
+    // although default template is not editable in UI, but prevent updating by routing
+    if (!isDefault) {
+      await super.update(object, event: event);
+    }
   }
 }

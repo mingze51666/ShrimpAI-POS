@@ -13,7 +13,6 @@ import 'package:possystem/helpers/validator.dart';
 import 'package:possystem/models/objects/order_object.dart';
 import 'package:possystem/models/objects/receipt_template_object.dart';
 import 'package:possystem/models/receipt_component.dart';
-import 'package:possystem/models/repository/receipt_template.dart';
 import 'package:possystem/models/repository/receipt_templates.dart';
 import 'package:possystem/translator.dart';
 import 'package:possystem/ui/printer/widgets/printer_receipt_view.dart';

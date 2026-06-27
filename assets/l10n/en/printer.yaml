@@ -179,6 +179,12 @@ receipt:
         strikeThrough: Strike Through
         underline: Underline
         placeholder: Insert Placeholder
+        _placeholder:
+          $prefix: placeholder
+          date:
+            label: Date Format
+            hint: e.g., yyyy/MM/dd
+            helper: Related formats can be found in the [documentation](https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html)
         placeholders:
         - title: title
           now: now

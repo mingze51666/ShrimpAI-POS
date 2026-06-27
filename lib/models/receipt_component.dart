@@ -331,7 +331,7 @@ class TextFieldComponent extends ReceiptComponent {
 
   /// Format text with placeholders for date
   static String _formatWithDateTime(String format, DateTime dt) {
-    final formatter = format == ''
+    final formatter = format == '' || format == 'yMMMd Hms'
         ? (_defaultDateTimeFormatter ??= DateFormat.yMMMd().addPattern(' ').add_Hms())
         : DateFormat(format);
     return formatter.format(dt);
@@ -546,7 +546,7 @@ enum TextFieldPlaceholderType {
     return MenuPlaceholder<String>(
       id: name,
       text: S.printerReceiptComponentLabelTextPlaceholders(name),
-      meta: '',
+      meta: 'yMMMd Hms',
       onMenuSelected: onMenuSelected,
     );
   }

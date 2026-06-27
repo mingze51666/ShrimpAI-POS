@@ -8,7 +8,6 @@ import 'package:possystem/components/style/route_buttons.dart';
 import 'package:possystem/components/style/snackbar.dart';
 import 'package:possystem/constants/icons.dart';
 import 'package:possystem/models/printer.dart';
-import 'package:possystem/models/repository/receipt_template.dart';
 import 'package:possystem/models/repository/receipt_templates.dart';
 import 'package:possystem/routes.dart';
 import 'package:possystem/services/bluetooth.dart';

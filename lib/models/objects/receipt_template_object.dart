@@ -1,6 +1,6 @@
 import 'package:possystem/models/model_object.dart';
 import 'package:possystem/models/receipt_component.dart';
-import 'package:possystem/models/repository/receipt_template.dart';
+import 'package:possystem/models/repository/receipt_templates.dart';
 
 class ReceiptTemplateObject extends ModelObject<ReceiptTemplate> {
   final String? id;
