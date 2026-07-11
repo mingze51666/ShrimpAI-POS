@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:possystem/components/imageable_container.dart';
 import 'package:possystem/helpers/logger.dart';
@@ -8,9 +9,9 @@ import 'package:possystem/models/repository/receipt_templates.dart';
 import 'package:possystem/models/xfile.dart';
 import 'package:possystem/translator.dart';
 
-const _defaultTextColor = Color(0xFF424242);
-
 class PrinterReceiptView extends StatelessWidget {
+  static const defaultTextColor = Color(0xFF424242);
+
   final OrderObject order;
   final ImageableController? controller;
   final List<ReceiptComponent>? customComponents;
@@ -23,7 +24,10 @@ class PrinterReceiptView extends StatelessWidget {
     final components = customComponents ?? ReceiptTemplates.instance.selected.components;
 
     final children = components
-        .map((component) => Padding(padding: component.padding, child: _buildComponent(component, context)))
+        .map(
+          (component) =>
+              Padding(padding: component.padding, child: PrinterReceiptView.buildComponent(context, component, order)),
+        )
         .whereType<Widget>()
         .toList();
 
@@ -34,9 +38,7 @@ class PrinterReceiptView extends StatelessWidget {
         // is fixed width (58mm or 80mm).
         width: 320, // fixed width can provide same density of receipt
         child: DefaultTextStyle(
-          style: Theme.of(
-            context,
-          ).textTheme.bodyMedium!.copyWith(height: 1.8, overflow: .clip, color: _defaultTextColor),
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(overflow: .clip, color: defaultTextColor),
           child: controller == null
               ? Column(mainAxisSize: .min, children: children)
               : ImageableContainer(controller: controller!, children: children),
@@ -45,8 +47,7 @@ class PrinterReceiptView extends StatelessWidget {
     );
   }
 
-  Widget? _buildComponent(ReceiptComponent component, BuildContext context) {
-    final theme = Theme.of(context);
+  static Widget? buildComponent(BuildContext context, ReceiptComponent component, OrderObject order) {
     final attributes = order.effectiveAttributes.toList();
 
     switch (component.type) {
@@ -55,7 +56,7 @@ class PrinterReceiptView extends StatelessWidget {
         return Text.rich(
           TextSpan(children: c.texts.map((e) => e.buildSpan(order: order)).toList()),
           textAlign: c.textAlign,
-          style: const TextStyle(height: 1.2),
+          style: const TextStyle(height: 1),
         );
       case .divider:
         final c = component as DividerComponent;
@@ -79,7 +80,7 @@ class PrinterReceiptView extends StatelessWidget {
         );
       case .orderTable:
         final c = component as OrderTableComponent;
-        return PrinterReceiptView.buildOrderTable(c, order, theme.colorScheme);
+        return PrinterReceiptView.buildOrderTable(c, order, context: context);
       case .discountTable:
         if (order.discounted.isNotEmpty) {
           final c = component as DiscountTableComponent;
@@ -94,272 +95,227 @@ class PrinterReceiptView extends StatelessWidget {
         return null;
       case .priceTable:
         final c = component as PriceTableComponent;
-        return PrinterReceiptView.buildPriceTable(c, order);
+        return PrinterReceiptView.buildPriceTable(c, order, context: context);
     }
   }
 
-  static String getProductName(
-    OrderProductObject product, {
-    bool showProductName = false,
-    bool showCatalogName = false,
+  static Widget buildOrderTable(
+    OrderTableComponent config,
+    OrderObject order, {
+    required BuildContext context,
+    List<Widget> Function(int index)? actions,
   }) {
-    if (!showProductName) {
-      return product.catalogName;
-    }
+    final columnWidths = Map.fromEntries(
+      config.columns.mapIndexed((i, e) {
+        return MapEntry(i, switch (e.type) {
+          .quantity ||
+          .singlePrice ||
+          .totalPrice => MaxColumnWidth(FixedColumnWidth(e.width ?? e.type.width), const IntrinsicColumnWidth()),
+          _ => const FlexColumnWidth(),
+        });
+      }),
+    );
+    final headers = config.columns.mapIndexed((i, e) {
+      return _CellWithActions(
+        actions: actions?.call(i),
+        child: Text(
+          e.title ?? e.type.title,
+          textAlign: switch (e.type) {
+            .quantity || .singlePrice || .totalPrice => .end,
+            _ => null,
+          },
+        ),
+      );
+    });
+    final cellBuilder = config.columns.map<Widget Function(OrderProductObject)>((e) {
+      return switch (e.type) {
+        .quantity ||
+        .singlePrice ||
+        .totalPrice => (product) => TableCell(child: Text(e.type.valueFromOrder(product), textAlign: .end)),
+        _ => (product) => TableCell(child: Text(e.type.valueFromOrder(product))),
+      };
+    });
 
-    if (!showCatalogName) {
-      return product.productName;
-    }
-
-    return '${product.productName}(${product.catalogName})';
-  }
-
-  static Widget buildOrderTable(OrderTableComponent config, OrderObject order, ColorScheme color) {
-    final columns = <int, TableColumnWidth>{};
-    final headers = <Widget>[];
-    int colIndex = 0;
-
-    if (config.showProductName || config.showCatalogName) {
-      columns[colIndex++] = const FlexColumnWidth();
-      headers.add(TableCell(child: Text(S.printerReceiptProductTableName)));
-    }
-    if (config.showQuantity) {
-      columns[colIndex++] = const MaxColumnWidth(FractionColumnWidth(0.1), IntrinsicColumnWidth());
-      headers.add(TableCell(child: Text(S.printerReceiptProductTableCount, textAlign: .end)));
-    }
-    if (config.showSinglePrice) {
-      columns[colIndex++] = const MaxColumnWidth(FractionColumnWidth(0.1), IntrinsicColumnWidth());
-      headers.add(TableCell(child: Text(S.printerReceiptProductTablePrice, textAlign: .end)));
-    }
-    if (config.showTotalPrice) {
-      columns[colIndex++] = const MaxColumnWidth(FractionColumnWidth(0.2), IntrinsicColumnWidth());
-      headers.add(TableCell(child: Text(S.printerReceiptProductTableTotal, textAlign: .end)));
-    }
-
-    return Table(
-      defaultVerticalAlignment: .middle,
-      columnWidths: columns,
-      border: TableBorder(
-        horizontalInside: BorderSide(color: color.outlineVariant),
-        top: BorderSide(color: color.outline),
-        bottom: BorderSide(color: color.outline),
+    final color = Theme.of(context).colorScheme;
+    return DefaultTextStyle(
+      style: DefaultTextStyle.of(context).style.merge(const TextStyle(height: 1.8)),
+      child: Table(
+        defaultVerticalAlignment: .middle,
+        columnWidths: columnWidths,
+        border: TableBorder(
+          horizontalInside: BorderSide(color: color.outlineVariant),
+          top: BorderSide(color: color.outline),
+          bottom: BorderSide(color: color.outline),
+        ),
+        children: [
+          TableRow(children: headers.toList()),
+          for (final product in order.products)
+            TableRow(children: cellBuilder.map((generator) => generator(product)).toList()),
+        ],
       ),
-      children: [
-        TableRow(children: headers),
-        for (final product in order.products)
-          TableRow(
-            children: [
-              if (config.showProductName || config.showCatalogName)
-                TableCell(
-                  child: Text(
-                    PrinterReceiptView.getProductName(
-                      product,
-                      showProductName: config.showProductName,
-                      showCatalogName: config.showCatalogName,
-                    ),
-                  ),
-                ),
-              if (config.showQuantity) TableCell(child: Text(product.count.toString(), textAlign: .end)),
-              if (config.showSinglePrice)
-                TableCell(child: Text('\$${product.singlePrice.toCurrency()}', textAlign: .end)),
-              if (config.showTotalPrice)
-                TableCell(child: Text('\$${product.totalPrice.toCurrency()}', textAlign: .end)),
-            ],
-          ),
-      ],
     );
   }
 
-  static Widget buildDiscountTable(DiscountTableComponent config, List<OrderProductObject> discounted) {
-    final columns = <int, TableColumnWidth>{0: const FlexColumnWidth()};
-    final headers = <Widget>[TableCell(child: Text(S.printerReceiptDiscountTableTitle))];
-    int colIndex = 1;
-    const numberStyle = TextStyle(fontSize: 12);
-
-    if (config.showQuantity) {
-      columns[colIndex++] = const MaxColumnWidth(FractionColumnWidth(0.1), IntrinsicColumnWidth());
-      headers.add(
-        TableCell(
-          child: Padding(
-            padding: const .only(left: 4.0),
-            child: Text(S.printerReceiptDiscountTableCount, textAlign: .end),
-          ),
+  static Widget buildDiscountTable(
+    DiscountTableComponent config,
+    List<OrderProductObject> discounted, {
+    List<Widget> Function(int index)? actions,
+  }) {
+    final columnWidths = Map.fromEntries(
+      config.columns.mapIndexed((i, e) {
+        return MapEntry(i, switch (e.type) {
+          .quantity ||
+          .originPrice ||
+          .singlePrice ||
+          .totalPrice => MaxColumnWidth(FixedColumnWidth(e.width ?? e.type.width), const IntrinsicColumnWidth()),
+          _ => const FlexColumnWidth(),
+        });
+      }),
+    );
+    final headers = config.columns.mapIndexed((i, e) {
+      return _CellWithActions(actions: actions?.call(i), child: Text(e.title ?? e.type.title));
+    });
+    final cellBuilder = config.columns.map<Widget Function(OrderProductObject)>((e) {
+      return switch (e.type) {
+        .quantity || .originPrice || .singlePrice || .totalPrice => (product) => TableCell(
+          child: Text(e.type.valueFromOrder(product), style: const TextStyle(fontSize: 12), textAlign: .end),
         ),
-      );
-    }
-    if (config.showOriginPrice) {
-      columns[colIndex++] = const MaxColumnWidth(FractionColumnWidth(0.1), IntrinsicColumnWidth());
-      headers.add(
-        TableCell(
-          child: Padding(
-            padding: const .only(left: 4.0),
-            child: Text(S.printerReceiptDiscountTableOrigin, textAlign: .end),
-          ),
+        _ => (product) => TableCell(
+          child: Padding(padding: const .only(left: 8), child: Text(e.type.valueFromOrder(product))),
         ),
-      );
-    }
-    if (config.showSinglePrice) {
-      columns[colIndex++] = const MaxColumnWidth(FractionColumnWidth(0.1), IntrinsicColumnWidth());
-      headers.add(
-        TableCell(
-          child: Padding(
-            padding: const .only(left: 4.0),
-            child: Text(S.printerReceiptDiscountTablePrice, textAlign: .end),
-          ),
-        ),
-      );
-    }
-    if (config.showTotalPrice) {
-      columns[colIndex++] = const MaxColumnWidth(FractionColumnWidth(0.2), IntrinsicColumnWidth());
-      headers.add(TableCell(child: Text(S.printerReceiptDiscountTableTotal, textAlign: .end)));
-    }
+      };
+    });
 
     return Table(
       defaultVerticalAlignment: .middle,
-      columnWidths: columns,
+      columnWidths: columnWidths,
       border: TableBorder.all(width: 0, color: Colors.transparent),
       children: [
-        TableRow(children: headers),
+        TableRow(children: headers.toList()),
         for (final product in discounted)
-          TableRow(
-            children: [
-              TableCell(
-                child: Padding(
-                  padding: const .only(left: 8),
-                  child: Text(
-                    config.showProductName || config.showCatalogName
-                        ? PrinterReceiptView.getProductName(
-                            product,
-                            showProductName: config.showProductName,
-                            showCatalogName: config.showCatalogName,
-                          )
-                        : '',
-                  ),
-                ),
-              ),
-              if (config.showQuantity)
-                TableCell(
-                  child: Padding(
-                    padding: const .only(left: 4.0),
-                    child: Text(product.count.toString(), style: numberStyle, textAlign: .end),
-                  ),
-                ),
-              if (config.showOriginPrice)
-                TableCell(
-                  child: Padding(
-                    padding: const .only(left: 4.0),
-                    child: Text('\$${product.originalPrice.toCurrency()}', style: numberStyle, textAlign: .end),
-                  ),
-                ),
-              if (config.showSinglePrice)
-                TableCell(
-                  child: Padding(
-                    padding: const .only(left: 4.0),
-                    child: Text('\$${product.singlePrice.toCurrency()}', style: numberStyle, textAlign: .end),
-                  ),
-                ),
-              if (config.showTotalPrice)
-                TableCell(
-                  child: Text('\$${product.totalPrice.toCurrency()}', style: numberStyle, textAlign: .end),
-                ),
-            ],
-          ),
+          TableRow(children: cellBuilder.map((generator) => generator(product)).toList()),
       ],
     );
   }
 
-  static Widget buildAttributesTable(AttributeTableComponent config, List<OrderEffectiveAttribute> attributes) {
-    final columns = <int, TableColumnWidth>{0: const FlexColumnWidth()};
-    final headers = <Widget>[TableCell(child: Text(S.printerReceiptAttributeTableTitle))];
-    int colIndex = 1;
-    const numberStyle = TextStyle(fontSize: 12);
-
-    if (config.showAdjustment) {
-      columns[colIndex++] = const MaxColumnWidth(FractionColumnWidth(0.2), IntrinsicColumnWidth());
-      headers.add(TableCell(child: Text(S.printerReceiptAttributeTableAdjustment, textAlign: .end)));
-    }
+  static Widget buildAttributesTable(
+    AttributeTableComponent config,
+    List<OrderEffectiveAttribute> attributes, {
+    List<Widget> Function(int index)? actions,
+  }) {
+    final columnWidths = Map.fromEntries(
+      config.columns.mapIndexed((i, e) {
+        return MapEntry(i, switch (e.type) {
+          .adjustment => MaxColumnWidth(FixedColumnWidth(e.width ?? e.type.width), const IntrinsicColumnWidth()),
+          _ => const FlexColumnWidth(),
+        });
+      }),
+    );
+    final headers = config.columns.mapIndexed((i, e) {
+      return _CellWithActions(actions: actions?.call(i), child: Text(e.title ?? e.type.title));
+    });
+    final cellBuilder = config.columns.map<Widget Function(OrderEffectiveAttribute)>((e) {
+      return switch (e.type) {
+        .adjustment => (attribute) => TableCell(
+          child: Text(e.type.valueFromOrder(attribute), style: const TextStyle(fontSize: 12), textAlign: .end),
+        ),
+        _ => (attribute) => TableCell(
+          child: Padding(padding: const .only(left: 8), child: Text(e.type.valueFromOrder(attribute))),
+        ),
+      };
+    });
 
     return Table(
       defaultVerticalAlignment: .middle,
-      columnWidths: columns,
+      columnWidths: columnWidths,
       border: TableBorder.all(width: 0, color: Colors.transparent),
       children: [
-        TableRow(children: headers),
+        TableRow(children: headers.toList()),
         for (final attribute in attributes)
-          TableRow(
-            children: [
-              TableCell(
-                child: Padding(
-                  padding: const .only(left: 8),
-                  child: Text(
-                    config.showName || config.showOptionName
-                        ? [
-                            if (config.showName) attribute.name,
-                            if (config.showOptionName) attribute.optionName,
-                          ].join(' - ')
-                        : '',
-                  ),
-                ),
-              ),
-              if (config.showAdjustment)
-                TableCell(
-                  child: Text(attribute.priceChanged, style: numberStyle, textAlign: .end),
-                ),
-            ],
-          ),
+          TableRow(children: cellBuilder.map((generator) => generator(attribute)).toList()),
       ],
     );
   }
 
-  static Widget buildPriceTable(PriceTableComponent config, OrderObject order) {
-    const subtitle = TextStyle(fontSize: 12, height: 1.2);
-    final subtitles = <List<String>>[
-      if (config.showProductsQuantity) [S.printerReceiptPriceTableProductsQuantity, order.productsCount.toString()],
-      if (config.showProductsPrice) [S.printerReceiptPriceTableProductsPrice, '\$${order.productsPrice.toCurrency()}'],
-      if (config.showPrice) [S.printerReceiptPriceTablePrice, '\$${order.price.toCurrency()}'],
-      if (config.showChange) [S.printerReceiptPriceTableChange, '\$${order.change.toCurrency()}'],
-    ];
+  static Widget buildPriceTable(
+    PriceTableComponent config,
+    OrderObject order, {
+    required BuildContext context,
+    List<Widget> Function(int index)? actions,
+  }) {
+    const style = TextStyle(fontSize: 12);
+    final color = Theme.of(context).colorScheme;
+    final titles = config.columns.map((e) => e.title ?? e.type.title).toList();
+    final values = config.columns.map((e) => e.type.valueFromOrder(order)).toList();
 
-    return Column(
-      mainAxisSize: .min,
+    return Table(
+      defaultVerticalAlignment: .middle,
+      columnWidths: const {0: FlexColumnWidth(), 1: IntrinsicColumnWidth()},
+      border: TableBorder.all(width: 0, color: Colors.transparent),
       children: [
-        Row(
-          mainAxisAlignment: .spaceBetween,
+        TableRow(
           children: [
             Text(S.printerReceiptPriceTableTotal),
-            Text('\$${order.price.toCurrency()}', style: const TextStyle(fontSize: 22, height: 1.2)),
+            Padding(
+              padding: const .only(bottom: 2.0),
+              child: Text('\$${order.price.toCurrency()}', style: const TextStyle(fontSize: 22, height: 1.2)),
+            ),
           ],
         ),
-        if (subtitles.isNotEmpty || config.showPaid) ...[
-          const Divider(height: 4),
-          if (config.showPaid)
-            Row(
-              mainAxisAlignment: .spaceBetween,
-              children: [
-                Text(S.printerReceiptPriceTablePaid, style: subtitle),
-                Text('\$${order.paid.toCurrency()}', style: subtitle),
-              ],
-            ),
-          if (subtitles.isNotEmpty)
-            Row(
-              mainAxisAlignment: .spaceBetween,
-              children: [
-                Padding(
-                  padding: const .only(left: 8),
-                  child: Column(
-                    mainAxisSize: .min,
-                    crossAxisAlignment: .start,
-                    children: subtitles.map((e) => Text(e[0], style: subtitle)).toList(),
-                  ),
+        for (int i = 0; i < titles.length; i++)
+          TableRow(
+            decoration: i == 0
+                ? BoxDecoration(
+                    border: Border(top: BorderSide(color: color.outlineVariant)),
+                  )
+                : null,
+            children: [
+              _CellWithActions(
+                actions: actions?.call(i),
+                child: Padding(
+                  padding: i == 0 ? const .only(top: 4) : const .only(left: 8),
+                  child: Text(titles[i], style: style),
                 ),
-                Column(
-                  mainAxisSize: .min,
-                  crossAxisAlignment: .end,
-                  children: subtitles.map((e) => Text(e[1], style: subtitle)).toList(),
-                ),
-              ],
-            ),
-        ],
+              ),
+              TableCell(
+                child: Text(values[i], style: style, textAlign: .end),
+              ),
+            ],
+          ),
+      ],
+    );
+  }
+}
+
+class _CellWithActions extends StatelessWidget {
+  final List<Widget>? actions;
+  final Widget child;
+
+  const _CellWithActions({required this.child, required this.actions});
+
+  @override
+  Widget build(BuildContext context) {
+    if (actions == null) {
+      return TableCell(child: child);
+    }
+
+    return Stack(
+      children: [
+        child,
+        Positioned(
+          right: 2,
+          top: 2,
+          child: MenuAnchor(
+            builder: (BuildContext context, MenuController controller, Widget? child) {
+              return IconButton(
+                icon: const Icon(Icons.arrow_drop_down_rounded),
+                onPressed: () => controller.isOpen ? controller.close() : controller.open(),
+                tooltip: '欄位操作',
+              );
+            },
+            menuChildren: actions!,
+          ),
+        ),
       ],
     );
   }

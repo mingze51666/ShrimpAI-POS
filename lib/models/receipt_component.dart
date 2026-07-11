@@ -2,13 +2,116 @@ import 'package:collection/collection.dart';
 import 'package:editor_ant/editor_ant.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/components/meta_block.dart';
 import 'package:possystem/helpers/util.dart';
 import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/xfile.dart';
 import 'package:possystem/translator.dart';
 
-const descriptionLines = 2;
+enum ReceiptComponentType { orderTable, discountTable, attributeTable, priceTable, textField, image, divider }
+
+enum OrderTableColumn {
+  productName(0),
+  productNameWithCatalogName(0),
+  quantity(32),
+  singlePrice(32),
+  totalPrice(64);
+
+  final double width;
+
+  const OrderTableColumn(this.width);
+
+  String get title => switch (this) {
+    .quantity => S.printerReceiptProductTableCount,
+    .singlePrice => S.printerReceiptProductTablePrice,
+    .totalPrice => S.printerReceiptProductTableTotal,
+    _ => S.printerReceiptProductTableName,
+  };
+
+  String valueFromOrder(OrderProductObject order) => switch (this) {
+    .quantity => order.count.toString(),
+    .singlePrice => '\$${order.singlePrice.toCurrency()}',
+    .totalPrice => '\$${order.totalPrice.toCurrency()}',
+    _ => _namer(order.productName, order.catalogName, name.contains('WithCatalogName')),
+  };
+}
+
+enum DiscountTableColumn {
+  productName(0),
+  productNameWithCatalogName(0),
+  quantity(40),
+  originPrice(40),
+  singlePrice(40),
+  totalPrice(64);
+
+  final double width;
+
+  const DiscountTableColumn(this.width);
+
+  String get title => switch (this) {
+    .quantity => S.printerReceiptDiscountTableCount,
+    .originPrice => S.printerReceiptDiscountTableOrigin,
+    .singlePrice => S.printerReceiptDiscountTablePrice,
+    .totalPrice => S.printerReceiptDiscountTableTotal,
+    _ => S.printerReceiptDiscountTableTitle,
+  };
+
+  String valueFromOrder(OrderProductObject order) => switch (this) {
+    .quantity => order.count.toString(),
+    .originPrice => '\$${order.originalPrice.toCurrency()}',
+    .singlePrice => '\$${order.singlePrice.toCurrency()}',
+    .totalPrice => '\$${order.totalPrice.toCurrency()}',
+    _ => _namer(order.productName, order.catalogName, name.contains('WithCatalogName')),
+  };
+}
+
+enum AttributeTableColumn {
+  optionName(0),
+  attrName(0),
+  optionNameWithAttrName(0),
+  adjustment(64);
+
+  final double width;
+
+  const AttributeTableColumn(this.width);
+
+  String get title => switch (this) {
+    .adjustment => S.printerReceiptAttributeTableAdjustment,
+    _ => S.printerReceiptAttributeTableTitle,
+  };
+
+  String valueFromOrder(OrderEffectiveAttribute attribute) => switch (this) {
+    .adjustment => attribute.priceChanged,
+    _ => _namer(
+      attribute.optionName,
+      attribute.name,
+      name.contains('ttrName'), // to match with attrName and optionNameWithAttrName
+      name.contains('optionName'),
+    ),
+  };
+}
+
+enum PriceTableColumn {
+  paid,
+  price,
+  change,
+  productsQuantity,
+  productsPrice;
+
+  String get title => switch (this) {
+    .paid => S.printerReceiptPriceTablePaid,
+    .price => S.printerReceiptPriceTablePrice,
+    .change => S.printerReceiptPriceTableChange,
+    .productsQuantity => S.printerReceiptPriceTableProductsQuantity,
+    .productsPrice => S.printerReceiptPriceTableProductsPrice,
+  };
+
+  String valueFromOrder(OrderObject order) => switch (this) {
+    .paid => '\$${order.paid.toCurrency()}',
+    .price => '\$${order.price.toCurrency()}',
+    .change => '\$${order.change.toCurrency()}',
+    .productsQuantity => order.productsCount.toString(),
+    .productsPrice => '\$${order.productsPrice.toCurrency()}',
+  };
+}
 
 /// Base class for all receipt components
 abstract class ReceiptComponent {
@@ -25,9 +128,6 @@ abstract class ReceiptComponent {
       'padding': [padding.left, padding.top, padding.right, padding.bottom].map((e) => e.toInt()).join(','),
     };
   }
-
-  Widget? buildLeading(BuildContext context) => leading;
-  Widget? buildDescription(BuildContext context) => null;
 
   /// Create from JSON
   factory ReceiptComponent.fromType(ReceiptComponentType type) {
@@ -65,217 +165,107 @@ abstract class ReceiptComponent {
   }
 }
 
-enum ReceiptComponentType { orderTable, discountTable, attributeTable, priceTable, textField, image, divider }
-
 /// Order table component with customizable columns
 class OrderTableComponent extends ReceiptComponent {
-  bool showProductName;
-  bool showCatalogName;
-  bool showQuantity;
-  bool showSinglePrice;
-  bool showTotalPrice;
+  List<TableColumnConfig<OrderTableColumn>> columns;
 
   OrderTableComponent({
     super.padding,
-    this.showProductName = true,
-    this.showCatalogName = false,
-    this.showQuantity = true,
-    this.showSinglePrice = true,
-    this.showTotalPrice = true,
+    this.columns = const [
+      TableColumnConfig(OrderTableColumn.productName),
+      TableColumnConfig(OrderTableColumn.quantity),
+      TableColumnConfig(OrderTableColumn.singlePrice),
+      TableColumnConfig(OrderTableColumn.totalPrice),
+    ],
   }) : super(type: .orderTable, leading: const Icon(Icons.receipt_long_outlined));
 
   factory OrderTableComponent.fromJson(Map<String, Object?> json, {required EdgeInsets padding}) {
-    return OrderTableComponent(
-      padding: padding,
-      showProductName: json['showProductName'] as bool? ?? true,
-      showCatalogName: json['showCatalogName'] as bool? ?? false,
-      showQuantity: json['showQuantity'] as bool? ?? true,
-      showSinglePrice: json['showSinglePrice'] as bool? ?? true,
-      showTotalPrice: json['showTotalPrice'] as bool? ?? true,
+    final List<TableColumnConfig<OrderTableColumn>> columns = _columnsFromJson(
+      json['columns'],
+      OrderTableColumn.values,
     );
+    return OrderTableComponent(padding: padding, columns: columns);
   }
 
   @override
-  Widget buildDescription(BuildContext context) => MetaBlock.withString(
-    context,
-    [
-      if (showProductName) S.printerReceiptComponentLabelProductName,
-      if (showCatalogName) S.printerReceiptComponentLabelCatalogName,
-      if (showQuantity) S.printerReceiptComponentLabelQuantity,
-      if (showSinglePrice) S.printerReceiptComponentLabelSinglePrice,
-      if (showTotalPrice) S.printerReceiptComponentLabelTotalPrice,
-    ],
-    maxLines: descriptionLines,
-    emptyText: '',
-  )!;
-
-  @override
   Map<String, Object?> toJson() {
-    return {
-      ...super.toJson(),
-      'showProductName': showProductName,
-      'showCatalogName': showCatalogName,
-      'showQuantity': showQuantity,
-      'showSinglePrice': showSinglePrice,
-      'showTotalPrice': showTotalPrice,
-    };
+    return {...super.toJson(), 'columns': columns.map((c) => c.toJson()).toList()};
   }
 }
 
 class DiscountTableComponent extends ReceiptComponent {
-  bool showProductName;
-  bool showCatalogName;
-  bool showQuantity;
-  bool showTotalPrice;
-  bool showSinglePrice;
-  bool showOriginPrice;
+  List<TableColumnConfig<DiscountTableColumn>> columns;
 
   DiscountTableComponent({
     super.padding,
-    this.showProductName = true,
-    this.showCatalogName = false,
-    this.showQuantity = false,
-    this.showTotalPrice = false,
-    this.showSinglePrice = false,
-    this.showOriginPrice = true,
+    this.columns = const [
+      TableColumnConfig(DiscountTableColumn.productName),
+      TableColumnConfig(DiscountTableColumn.originPrice),
+    ],
   }) : super(type: .discountTable, leading: const Icon(Icons.discount_outlined));
 
   factory DiscountTableComponent.fromJson(Map<String, Object?> json, {required EdgeInsets padding}) {
-    return DiscountTableComponent(
-      padding: padding,
-      showProductName: json['showProductName'] as bool? ?? true,
-      showCatalogName: json['showCatalogName'] as bool? ?? false,
-      showQuantity: json['showQuantity'] as bool? ?? false,
-      showTotalPrice: json['showTotalPrice'] as bool? ?? false,
-      showSinglePrice: json['showSinglePrice'] as bool? ?? false,
-      showOriginPrice: json['showOriginPrice'] as bool? ?? true,
+    final List<TableColumnConfig<DiscountTableColumn>> columns = _columnsFromJson(
+      json['columns'],
+      DiscountTableColumn.values,
     );
+    return DiscountTableComponent(padding: padding, columns: columns);
   }
 
   @override
-  Widget buildDescription(BuildContext context) => MetaBlock.withString(
-    context,
-    [
-      if (showProductName) S.printerReceiptComponentLabelProductName,
-      if (showCatalogName) S.printerReceiptComponentLabelCatalogName,
-      if (showQuantity) S.printerReceiptComponentLabelQuantity,
-      if (showOriginPrice) S.printerReceiptComponentLabelOriginPrice,
-      if (showSinglePrice) S.printerReceiptComponentLabelSinglePrice,
-      if (showTotalPrice) S.printerReceiptComponentLabelTotalPrice,
-    ],
-    maxLines: descriptionLines,
-    emptyText: '',
-  )!;
-
-  @override
   Map<String, Object?> toJson() {
-    return {
-      ...super.toJson(),
-      'showProductName': showProductName,
-      'showCatalogName': showCatalogName,
-      'showQuantity': showQuantity,
-      'showTotalPrice': showTotalPrice,
-      'showSinglePrice': showSinglePrice,
-      'showOriginPrice': showOriginPrice,
-    };
+    return {...super.toJson(), 'columns': columns.map((c) => c.toJson()).toList()};
   }
 }
 
 class AttributeTableComponent extends ReceiptComponent {
-  bool showName;
-  bool showOptionName;
-  bool showAdjustment;
+  List<TableColumnConfig<AttributeTableColumn>> columns;
 
   AttributeTableComponent({
     super.padding,
-    this.showName = false,
-    this.showOptionName = true,
-    this.showAdjustment = true,
+    this.columns = const [
+      TableColumnConfig(AttributeTableColumn.optionName),
+      TableColumnConfig(AttributeTableColumn.adjustment),
+    ],
   }) : super(type: .attributeTable, leading: const Icon(Icons.attribution_outlined));
 
   factory AttributeTableComponent.fromJson(Map<String, Object?> json, {required EdgeInsets padding}) {
-    return AttributeTableComponent(
-      padding: padding,
-      showName: json['showName'] as bool? ?? false,
-      showOptionName: json['showOptionName'] as bool? ?? true,
-      showAdjustment: json['showAdjustment'] as bool? ?? true,
+    final List<TableColumnConfig<AttributeTableColumn>> columns = _columnsFromJson(
+      json['columns'],
+      AttributeTableColumn.values,
     );
+    return AttributeTableComponent(padding: padding, columns: columns);
   }
 
   @override
-  Widget buildDescription(BuildContext context) => MetaBlock.withString(
-    context,
-    [
-      if (showName) S.printerReceiptComponentLabelAttributeName,
-      if (showOptionName) S.printerReceiptComponentLabelAttributeOption,
-      if (showAdjustment) S.printerReceiptComponentLabelAttributeAdjustment,
-    ],
-    maxLines: descriptionLines,
-    emptyText: '',
-  )!;
-
-  @override
   Map<String, Object?> toJson() {
-    return {
-      ...super.toJson(),
-      'showName': showName,
-      'showOptionName': showOptionName,
-      'showAdjustment': showAdjustment,
-    };
+    return {...super.toJson(), 'columns': columns.map((c) => c.toJson()).toList()};
   }
 }
 
 class PriceTableComponent extends ReceiptComponent {
-  bool showPaid;
-  bool showPrice;
-  bool showChange;
-  bool showProductsQuantity;
-  bool showProductsPrice;
+  List<TableColumnConfig<PriceTableColumn>> columns;
 
   PriceTableComponent({
     super.padding,
-    this.showPaid = true,
-    this.showPrice = true,
-    this.showChange = true,
-    this.showProductsQuantity = false,
-    this.showProductsPrice = false,
+    this.columns = const [
+      TableColumnConfig(PriceTableColumn.paid),
+      TableColumnConfig(PriceTableColumn.price),
+      TableColumnConfig(PriceTableColumn.change),
+    ],
   }) : super(type: .priceTable, leading: const Icon(Icons.price_change_outlined));
 
   factory PriceTableComponent.fromJson(Map<String, Object?> json, {required EdgeInsets padding}) {
-    return PriceTableComponent(
-      padding: padding,
-      showPaid: json['showPaid'] as bool? ?? true,
-      showPrice: json['showPrice'] as bool? ?? true,
-      showChange: json['showChange'] as bool? ?? true,
-      showProductsQuantity: json['showProductsQuantity'] as bool? ?? false,
-      showProductsPrice: json['showProductsPrice'] as bool? ?? false,
+    final List<TableColumnConfig<PriceTableColumn>> columns = _columnsFromJson(
+      json['columns'],
+      PriceTableColumn.values,
     );
+    return PriceTableComponent(padding: padding, columns: columns);
   }
 
   @override
-  Widget buildDescription(BuildContext context) => MetaBlock.withString(
-    context,
-    [
-      if (showPaid) S.printerReceiptComponentLabelPaid,
-      if (showProductsQuantity) S.printerReceiptComponentLabelProductsQuantity,
-      if (showProductsPrice) S.printerReceiptComponentLabelProductsPrice,
-      if (showPrice) S.printerReceiptComponentLabelPrice,
-      if (showChange) S.printerReceiptComponentLabelChange,
-    ],
-    maxLines: descriptionLines,
-    emptyText: '',
-  )!;
-
-  @override
   Map<String, Object?> toJson() {
-    return {
-      ...super.toJson(),
-      'showPaid': showPaid,
-      'showPrice': showPrice,
-      'showChange': showChange,
-      'showProductsQuantity': showProductsQuantity,
-      'showProductsPrice': showProductsPrice,
-    };
+    return {...super.toJson(), 'columns': columns.map((c) => c.toJson()).toList()};
   }
 }
 
@@ -311,13 +301,6 @@ class TextFieldComponent extends ReceiptComponent {
     return {...super.toJson(), 'texts': texts.map((e) => e.toJson()).toList(), 'textAlign': textAlign.index};
   }
 
-  @override
-  Widget buildDescription(BuildContext context) => RichText(
-    text: TextSpan(children: texts.map((e) => e.buildDescription()).toList()),
-    overflow: .ellipsis,
-    maxLines: descriptionLines,
-  );
-
   void updateFromParts(List<StyledPart> parts) {
     texts = parts
         .map((part) {
@@ -349,10 +332,6 @@ class DividerComponent extends ReceiptComponent {
   }
 
   @override
-  Widget buildDescription(BuildContext context) =>
-      Text(S.printerReceiptComponentLabelDividerMeta(height), maxLines: descriptionLines, overflow: .ellipsis);
-
-  @override
   Map<String, Object?> toJson() {
     return {...super.toJson(), 'height': height};
   }
@@ -374,13 +353,30 @@ class ImageComponent extends ReceiptComponent {
   }
 
   @override
-  Widget? buildLeading(BuildContext context) {
-    return CircleAvatar(foregroundImage: FileImage(XFile(imagePath).file));
-  }
-
-  @override
   Map<String, Object?> toJson() {
     return {...super.toJson(), 'imagePath': imagePath, 'widthRatio': widthRatio};
+  }
+}
+
+class TableColumnConfig<T extends Enum> {
+  final T type;
+
+  final String? title;
+
+  final double? width;
+
+  const TableColumnConfig(this.type, {this.title, this.width});
+
+  Map<String, Object?> toJson() {
+    return {'type': type.index, if (title != null) 'title': title, if (width != null) 'width': width};
+  }
+
+  factory TableColumnConfig.fromJson(Map<String, Object?> json, List<T> allTypes) {
+    return TableColumnConfig(
+      allTypes.elementAtOrNull(json['type'] as int? ?? 0) ?? allTypes.first,
+      title: json['title'] as String?,
+      width: json['width'] as double?,
+    );
   }
 }
 
@@ -550,4 +546,22 @@ enum TextFieldPlaceholderType {
       onMenuSelected: onMenuSelected,
     );
   }
+}
+
+List<TableColumnConfig<T>> _columnsFromJson<T extends Enum>(Object? json, List<T> allTypes) {
+  return (json is List<Object?>)
+      ? json.whereType<Map<String, Object?>>().map((e) => TableColumnConfig.fromJson(e, allTypes)).toList()
+      : [];
+}
+
+String _namer(String base, String suffix, bool? withSuffix, [bool? withBase = true]) {
+  if (withBase != true) {
+    return suffix;
+  }
+
+  if (withSuffix == true) {
+    return '$base($suffix)';
+  }
+
+  return base;
 }

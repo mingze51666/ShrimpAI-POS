@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:possystem/components/dialog/responsive_dialog.dart';
 import 'package:possystem/components/menu_actions.dart';
 import 'package:possystem/components/slidable_item_list.dart';
@@ -36,19 +35,15 @@ class _PrinterSettingsModalState extends State<PrinterSettingsModal> {
     return SlidableItemList<ReceiptTemplate, _Actions>(
       leading: _buildLeading(),
       delegate: SlidableItemDelegate(
-        handleDelete: (item) async {
-          if (item.isDefault) {
-            return showSnackBar(S.printerReceiptTemplateDefaultReadonlyWarning, context: context);
-          }
-          return item.remove();
-        },
+        deletableChecker: (item) => !item.isDefault && !item.isSelected,
+        handleDelete: (item) => item.remove(),
         deleteValue: .delete,
         warningContentBuilder: (_, item) => S.dialogDeletionContent(item.displayName, ''),
         items: ReceiptTemplates.instance.itemList,
         actionBuilder: (item) => [
           MenuAction(
             title: Text(S.printerSettingsTitleTemplateUpdate),
-            leading: const Icon(KIcons.modal),
+            leading: const Icon(KIcons.edit),
             routePathParameters: {'id': item.id},
             route: Routes.printerSettingsTemplateUpdate,
           ),
@@ -125,9 +120,7 @@ class _TemplateTile extends StatelessWidget {
       title: Text(template.displayName),
       subtitle: Text(S.printerReceiptTemplateMetaComponentsCount(template.components.length)),
       trailing: EntryMoreButton(onPressed: actor),
-      onTap: () {
-        context.pushNamed(Routes.printerSettingsTemplateUpdate, pathParameters: {'id': template.id});
-      },
+      onTap: () => ReceiptTemplates.instance.changeSelected(template.id),
       onLongPress: actor,
     );
   }

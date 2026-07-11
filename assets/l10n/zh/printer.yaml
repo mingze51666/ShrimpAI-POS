@@ -126,12 +126,11 @@ receipt:
       label: 啟用此範本
     default:
       name: 預設範本
-      readonlyWarning: 預設範本無法編輯或刪除
   component:
     title:
       add: 新增元件
       empty: 還沒有元件，點擊下方按鈕新增一個吧！
-      dragToReorder: 拖曳下方的組件以調整順序
+      hint: 拖曳圖示可排序 | 點擊可編輯 | 滑動可刪除
     type:
     - orderTable: 訂單表格
       discountTable: 折扣商品表格
@@ -210,6 +209,13 @@ receipt:
     helper:
       selectColumn: 選擇要在收據中顯示的欄位
       preview: 預覽
+      columnAction:
+        tooltip: 欄位操作
+        addLeft: 在左方新增欄位
+        addRight: 在右方新增欄位
+        moveLeft: 向左移動欄位
+        moveRight: 向右移動欄位
+        remove: 移除欄位
 info:
   title: 出單機資訊
   name: 名稱

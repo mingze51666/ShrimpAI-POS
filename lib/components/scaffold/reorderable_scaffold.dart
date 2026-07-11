@@ -89,15 +89,15 @@ class _MyReorderableListState<T> extends State<MyReorderableList<T>> {
         return ReorderableDelayedDragStartListener(
           key: Key('reorder.$index'), // required for reorder
           index: index,
-          child: Padding(
-            padding: const .symmetric(vertical: 1.0),
-            child: Material(
-              elevation: 1.0,
-              child: widget.itemBuilder != null
-                  ? widget.itemBuilder!(context, item, toggler)
-                  : ListTile(title: Text((item as dynamic).name), trailing: toggler),
-            ),
-          ),
+          child: widget.itemBuilder != null
+              ? widget.itemBuilder!(context, item, toggler)
+              : Padding(
+                  padding: const .symmetric(vertical: 1.0),
+                  child: Material(
+                    elevation: 1.0,
+                    child: ListTile(title: Text((item as dynamic).name), trailing: toggler),
+                  ),
+                ),
         );
       },
       proxyDecorator: (Widget child, int index, Animation<double> animation) {

@@ -57,7 +57,6 @@ class PrinterPage extends StatelessWidget {
           ],
         ),
         delegate: SlidableItemDelegate(
-          disableSlide: true,
           items: Printers.instance.itemList,
           tileBuilder: (printer, _, actorBuilder) => _Tile(printer, actorBuilder),
           handleDelete: (printer) => printer.remove(),

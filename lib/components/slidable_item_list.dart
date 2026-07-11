@@ -69,7 +69,8 @@ class SlidableItemDelegate<T, U> {
   /// Required when using [showActions].
   final U? deleteValue;
 
-  final bool disableSlide;
+  /// Deletable decision
+  final bool Function(T item)? deletableChecker;
 
   const SlidableItemDelegate({
     required this.items,
@@ -79,7 +80,7 @@ class SlidableItemDelegate<T, U> {
     this.warningContentBuilder,
     this.actionBuilder,
     this.handleAction,
-    this.disableSlide = false,
+    this.deletableChecker,
   });
 
   Widget build(T item, int index) {
@@ -89,7 +90,7 @@ class SlidableItemDelegate<T, U> {
       (BuildContext context) =>
           ([BuildContext? ctx]) => showActions(ctx ?? context, item),
     );
-    if (disableSlide) {
+    if (deletableChecker != null && !deletableChecker!(item)) {
       return child;
     }
 
@@ -112,6 +113,7 @@ class SlidableItemDelegate<T, U> {
       deleteValue: deleteValue,
       warningContent: warningContentBuilder == null ? null : warningContentBuilder!(context, item),
       deleteCallback: () => handleDelete(item),
+      deletable: deletableChecker?.call(item) ?? true,
     );
 
     if (result != null && handleAction != null) {

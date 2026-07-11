@@ -48,8 +48,10 @@ class ReceiptTemplates extends ChangeNotifier with Repository<ReceiptTemplate>, 
   }
 
   Future<void> changeSelected(String id) async {
-    selectedId = id;
-    await _saveProperties();
+    if (selectedId != id) {
+      selectedId = id;
+      await _saveProperties();
+    }
   }
 
   @visibleForTesting
@@ -102,15 +104,15 @@ class ReceiptTemplate extends Model<ReceiptTemplateObject> with ModelStorage<Rec
       TextFieldComponent(
         texts: [
           StyledPlaceholderObject.fromType(.title, fontSize: 28),
-          StyledTextObject.fromText('\n', fontSize: 8),
+          StyledTextObject.fromText('\n\n', fontSize: 8),
           StyledPlaceholderObject.fromType(.orderedAt, meta: 'yMMMd Hms'),
         ],
         textAlign: .center,
-        padding: const .only(bottom: 1),
+        padding: const .only(bottom: 4),
       ),
       OrderTableComponent(padding: const .only(bottom: 0)),
       DiscountTableComponent(padding: const .only(bottom: 0)),
-      AttributeTableComponent(),
+      AttributeTableComponent(padding: const .only(bottom: 0)),
       PriceTableComponent(padding: const .only(bottom: 0)),
     ];
   }

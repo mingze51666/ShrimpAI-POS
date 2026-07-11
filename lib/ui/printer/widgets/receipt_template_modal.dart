@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:possystem/components/menu_actions.dart';
@@ -8,7 +6,6 @@ import 'package:possystem/components/scaffold/reorderable_scaffold.dart';
 import 'package:possystem/components/style/hint_text.dart';
 import 'package:possystem/components/style/slide_to_delete.dart';
 import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/breakpoint.dart';
 import 'package:possystem/helpers/validator.dart';
 import 'package:possystem/models/objects/order_object.dart';
 import 'package:possystem/models/objects/receipt_template_object.dart';
@@ -83,7 +80,13 @@ class _ReceiptTemplateModalState extends State<ReceiptTemplateModal> with ItemMo
               return Center(child: Text(S.printerReceiptComponentTitleEmpty));
             }
 
-            return _buildTemplateWidget();
+            return Column(
+              children: [
+                Center(child: HintText(S.printerReceiptComponentTitleHint)),
+                const SizedBox(height: kInternalSpacing),
+                Expanded(child: _buildTemplateWidget()),
+              ],
+            );
           },
         ),
       ),
@@ -119,58 +122,25 @@ class _ReceiptTemplateModalState extends State<ReceiptTemplateModal> with ItemMo
   }
 
   Widget _buildTemplateWidget() {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final previewWidget = Card(
-          child: SingleChildScrollView(
-            child: Padding(
+    return Card(
+      child: MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaler: .noScaling),
+        child: SizedBox(
+          width: 396, // 320 + 48(Padding) + 24(Icon) + 4(SizedBox)
+          child: DefaultTextStyle(
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium!.copyWith(overflow: .clip, color: PrinterReceiptView.defaultTextColor),
+            child: MyReorderableList(
               padding: const .fromLTRB(24.0, 16, 24.0, 24.0),
-              child: PrinterReceiptView(order: _order, customComponents: _components),
+              items: _components,
+              onReorder: () => _rebuildComponents.value = !_rebuildComponents.value,
+              itemBuilder: _buildComponentTile,
+              itemWhenDraggingBuilder: _buildComponent,
             ),
           ),
-        );
-        final editorWidget = Column(
-          children: [
-            Center(child: HintText(S.printerReceiptComponentTitleDragToReorder)),
-            const SizedBox(height: kInternalSpacing),
-            Expanded(
-              child: DefaultTextStyle(
-                style: Theme.of(context).textTheme.bodyMedium!,
-                child: MyReorderableList(
-                  padding: const .only(bottom: kFABSpacing),
-                  items: _components,
-                  itemBuilder: _buildComponentTile,
-                  onReorder: () => _rebuildComponents.value = !_rebuildComponents.value,
-                  itemWhenDraggingBuilder: _buildComponentListTile,
-                ),
-              ),
-            ),
-          ],
-        );
-        final isHorizon = constraints.maxWidth > Breakpoint.medium.max;
-
-        if (isHorizon) {
-          return Row(
-            children: [
-              Expanded(child: previewWidget),
-              const VerticalDivider(),
-              Expanded(child: editorWidget),
-            ],
-          );
-        }
-
-        final maxHeight = math.min(360.0, constraints.maxHeight * 0.5);
-        return Column(
-          children: [
-            ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: maxHeight),
-              child: previewWidget,
-            ),
-            p(const Divider()),
-            Expanded(child: editorWidget),
-          ],
-        );
-      },
+        ),
+      ),
     );
   }
 
@@ -181,7 +151,8 @@ class _ReceiptTemplateModalState extends State<ReceiptTemplateModal> with ItemMo
         _components.remove(item);
         _rebuildComponents.value = !_rebuildComponents.value;
       },
-      child: _buildComponentListTile(
+      warningContent: S.dialogDeletionContent(S.printerReceiptComponentType(item.type.name), ''),
+      child: _buildComponent(
         context,
         item,
         toggler,
@@ -196,16 +167,19 @@ class _ReceiptTemplateModalState extends State<ReceiptTemplateModal> with ItemMo
     );
   }
 
-  Widget _buildComponentListTile(BuildContext context, ReceiptComponent item, Widget toggler, {VoidCallback? onTap}) {
-    final subtitle = item.buildDescription(context);
-    return ListTile(
-      title: Text(S.printerReceiptComponentType(item.type.name)),
-      titleAlignment: .center,
-      subtitle: subtitle,
-      isThreeLine: subtitle != null,
-      leading: item.buildLeading(context),
-      trailing: toggler,
-      onTap: onTap,
+  Widget _buildComponent(BuildContext context, ReceiptComponent item, Widget toggler, {VoidCallback? onTap}) {
+    return Row(
+      children: [
+        toggler,
+        const SizedBox(width: 4.0),
+        Expanded(
+          child: GestureDetector(
+            behavior: .opaque,
+            onTap: onTap,
+            child: Padding(padding: item.padding, child: PrinterReceiptView.buildComponent(context, item, _order)),
+          ),
+        ),
+      ],
     );
   }
 

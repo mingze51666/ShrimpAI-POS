@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:possystem/components/dialog/single_text_dialog.dart';
 import 'package:possystem/components/linkify.dart';
 import 'package:possystem/components/scaffold/item_modal.dart';
-import 'package:possystem/components/style/hint_text.dart';
 import 'package:possystem/components/style/image_holder.dart';
+import 'package:possystem/constants/constant.dart';
 import 'package:possystem/helpers/breakpoint.dart';
 import 'package:possystem/helpers/validator.dart';
 import 'package:possystem/models/objects/order_object.dart';
@@ -164,127 +164,87 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
 
   List<Widget> _buildOrderTableEditor() {
     final c = component as OrderTableComponent;
+    final left = OrderTableColumn.values.toSet().difference(c.columns.map((e) => e.type).toSet()).toList();
     return [
-      _buildPreview(PrinterReceiptView.buildOrderTable(c, order, Theme.of(context).colorScheme)),
-      Center(child: HintText(S.printerReceiptComponentHelperSelectColumn)),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelProductName),
-        value: c.showProductName,
-        onChanged: (value) => setState(() => c.showProductName = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelCatalogName),
-        value: c.showCatalogName,
-        onChanged: (value) => setState(() => c.showCatalogName = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelQuantity),
-        value: c.showQuantity,
-        onChanged: (value) => setState(() => c.showQuantity = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelSinglePrice),
-        value: c.showSinglePrice,
-        onChanged: (value) => setState(() => c.showSinglePrice = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelTotalPrice),
-        value: c.showTotalPrice,
-        onChanged: (value) => setState(() => c.showTotalPrice = value!),
+      _wrapReceiptView(
+        PrinterReceiptView.buildOrderTable(
+          c,
+          order,
+          context: context,
+          actions: (int index) {
+            return _buildDefaultActions(
+              index: index,
+              left: left,
+              columns: c.columns,
+              setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, OrderTableColumn.values),
+            );
+          },
+        ),
       ),
     ];
   }
 
   List<Widget> _buildDiscountTableEditor() {
     final c = component as DiscountTableComponent;
+    final left = DiscountTableColumn.values.toSet().difference(c.columns.map((e) => e.type).toSet()).toList();
     return [
-      _buildPreview(PrinterReceiptView.buildDiscountTable(c, order.discounted.toList())),
-      Center(child: HintText(S.printerReceiptComponentHelperSelectColumn)),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelProductName),
-        value: c.showProductName,
-        onChanged: (value) => setState(() => c.showProductName = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelCatalogName),
-        value: c.showCatalogName,
-        onChanged: (value) => setState(() => c.showCatalogName = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelQuantity),
-        value: c.showQuantity,
-        onChanged: (value) => setState(() => c.showQuantity = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelOriginPrice),
-        value: c.showOriginPrice,
-        onChanged: (value) => setState(() => c.showOriginPrice = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelSinglePrice),
-        value: c.showSinglePrice,
-        onChanged: (value) => setState(() => c.showSinglePrice = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelTotalPrice),
-        value: c.showTotalPrice,
-        onChanged: (value) => setState(() => c.showTotalPrice = value!),
+      _wrapReceiptView(
+        PrinterReceiptView.buildDiscountTable(
+          c,
+          order.discounted.toList(),
+          actions: (int index) {
+            return _buildDefaultActions(
+              index: index,
+              left: left,
+              columns: c.columns,
+              setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, DiscountTableColumn.values),
+            );
+          },
+        ),
       ),
     ];
   }
 
   List<Widget> _buildAttributeTableEditor() {
     final c = component as AttributeTableComponent;
+    final left = AttributeTableColumn.values.toSet().difference(c.columns.map((e) => e.type).toSet()).toList();
     return [
-      _buildPreview(PrinterReceiptView.buildAttributesTable(c, order.effectiveAttributes.toList())),
-      Center(child: HintText(S.printerReceiptComponentHelperSelectColumn)),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelAttributeName),
-        value: c.showName,
-        onChanged: (value) => setState(() => c.showName = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelAttributeOption),
-        value: c.showOptionName,
-        onChanged: (value) => setState(() => c.showOptionName = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelAttributeAdjustment),
-        value: c.showAdjustment,
-        onChanged: (value) => setState(() => c.showAdjustment = value!),
+      _wrapReceiptView(
+        PrinterReceiptView.buildAttributesTable(
+          c,
+          order.effectiveAttributes.toList(),
+          actions: (int index) {
+            return _buildDefaultActions(
+              index: index,
+              left: left,
+              columns: c.columns,
+              setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, AttributeTableColumn.values),
+            );
+          },
+        ),
       ),
     ];
   }
 
   List<Widget> _buildPriceTableEditor() {
     final c = component as PriceTableComponent;
+    final left = PriceTableColumn.values.toSet().difference(c.columns.map((e) => e.type).toSet()).toList();
     return [
-      _buildPreview(PrinterReceiptView.buildPriceTable(c, order)),
-      Center(child: HintText(S.printerReceiptComponentHelperSelectColumn)),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelPaid),
-        value: c.showPaid,
-        onChanged: (value) => setState(() => c.showPaid = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelProductsQuantity),
-        value: c.showProductsQuantity,
-        onChanged: (value) => setState(() => c.showProductsQuantity = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelProductsPrice),
-        value: c.showProductsPrice,
-        onChanged: (value) => setState(() => c.showProductsPrice = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelPrice),
-        value: c.showPrice,
-        onChanged: (value) => setState(() => c.showPrice = value!),
-      ),
-      CheckboxListTile(
-        title: Text(S.printerReceiptComponentLabelChange),
-        value: c.showChange,
-        onChanged: (value) => setState(() => c.showChange = value!),
+      _wrapReceiptView(
+        PrinterReceiptView.buildPriceTable(
+          c,
+          order,
+          context: context,
+          actions: (int index) {
+            return _buildDefaultActions(
+              index: index,
+              left: left,
+              columns: c.columns,
+              setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, PriceTableColumn.values),
+              axis: .vertical,
+            );
+          },
+        ),
       ),
     ];
   }
@@ -355,24 +315,20 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
     );
   }
 
-  Widget _buildPreview(Widget child) {
-    return p(
-      MediaQuery(
-        data: MediaQuery.of(context).copyWith(textScaler: .noScaling),
-        child: Container(
-          constraints: const BoxConstraints(maxHeight: 400),
-          // wider width can result low density of receipt, since the paper
-          // is fixed width (58mm or 80mm).
-          width: 368, // fixed width can provide same density of receipt
-          child: DefaultTextStyle(
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium!.copyWith(height: 1.8, overflow: .clip, color: const Color(0xFF424242)),
-            child: Card(
-              child: Padding(
-                padding: const .only(left: 24.0, top: 16, right: 24.0, bottom: 24.0),
-                child: Padding(padding: _parsePadding(), child: child),
-              ),
+  Widget _wrapReceiptView(Widget child) {
+    return Card(
+      margin: const .symmetric(horizontal: kHorizontalSpacing),
+      child: Padding(
+        padding: const .only(left: 24.0, top: 16, right: 24.0, bottom: 24.0),
+        child: MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaler: .noScaling),
+          child: SizedBox(
+            width: 320, // fixed width can provide same density of receipt
+            child: DefaultTextStyle(
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium!.copyWith(overflow: .clip, color: PrinterReceiptView.defaultTextColor),
+              child: Padding(padding: _parsePadding(), child: child),
             ),
           ),
         ),
@@ -387,6 +343,125 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
       (int.tryParse(rightCtrl.text) ?? 0).toDouble(),
       (int.tryParse(bottomCtrl.text) ?? 0).toDouble(),
     );
+  }
+
+  List<Widget> _buildDefaultActions<T extends Enum>({
+    required int index,
+    required List<T> left,
+    required List<TableColumnConfig<T>> columns,
+    required void Function(Map<String, Object?> data) setter,
+    Axis axis = .horizontal,
+  }) {
+    return [
+      MenuItemButton(
+        onPressed: () async {
+          final column = columns[index];
+          final result = await showDialog<String>(
+            context: context,
+            builder: (BuildContext context) {
+              final String title = (column.type as dynamic).title;
+              return SingleTextDialog(
+                validator: Validator.textLimit('$title的標題', 12),
+                keyboardType: .text,
+                selectAll: true,
+                initialValue: column.title ?? title,
+                title: Text('$title的標題'),
+              );
+            },
+          );
+
+          if (result != null) {
+            setState(() {
+              setter(column.toJson()..['title'] = result);
+            });
+          }
+        },
+        leadingIcon: const Icon(Icons.edit_sharp),
+        child: const Text('調整標題'),
+      ),
+      MenuItemButton(
+        onPressed: () async {
+          final column = columns[index];
+          final result = await showDialog<String>(
+            context: context,
+            builder: (BuildContext context) {
+              final String title = (column.type as dynamic).title;
+              return SingleTextDialog(
+                validator: Validator.positiveInt('$title的欄寬', maximum: 300, minimum: 10),
+                keyboardType: .number,
+                selectAll: true,
+                initialValue: column.title ?? title,
+                title: Text('$title的欄寬'),
+              );
+            },
+          );
+
+          if (result != null) {
+            setState(() {
+              setter(column.toJson()..['width'] = (int.tryParse(result) ?? 10).toDouble());
+            });
+          }
+        },
+        leadingIcon: const Icon(Icons.open_in_full_sharp),
+        child: Text(axis == .horizontal ? '調整欄寬' : '調整欄高'),
+      ),
+      if (left.isNotEmpty && index > 0)
+        SubmenuButton(
+          menuChildren: left
+              .map(
+                (e) => MenuItemButton(
+                  onPressed: () => setState(() {
+                    columns.insert(index, TableColumnConfig(e));
+                  }),
+                  child: Text((e as dynamic).title),
+                ),
+              )
+              .toList(),
+          leadingIcon: const Icon(Icons.add_sharp),
+          child: Text(axis == .horizontal ? '向左插入1欄' : '向上插入1欄'),
+        ),
+      if (left.isNotEmpty && index < columns.length - 1)
+        SubmenuButton(
+          menuChildren: left
+              .map(
+                (e) => MenuItemButton(
+                  onPressed: () => setState(() {
+                    columns.insert(index + 1, TableColumnConfig(e));
+                  }),
+                  child: Text((e as dynamic).title),
+                ),
+              )
+              .toList(),
+          leadingIcon: const Icon(Icons.add_sharp),
+          child: Text(axis == .horizontal ? '向右插入1欄' : '向下插入1欄'),
+        ),
+      if (index > 0)
+        MenuItemButton(
+          onPressed: () => setState(() {
+            final column = columns.removeAt(index);
+            columns.insert(index - 1, column);
+          }),
+          leadingIcon: const Icon(Icons.swap_horiz_sharp),
+          child: Text(axis == .horizontal ? '向左移動' : '向上移動'),
+        ),
+      if (index < columns.length - 1)
+        MenuItemButton(
+          onPressed: () => setState(() {
+            final column = columns.removeAt(index);
+            columns.insert(index + 1, column);
+          }),
+          leadingIcon: const Icon(Icons.swap_horiz_sharp),
+          child: Text(axis == .horizontal ? '向右移動' : '向下移動'),
+        ),
+      if (columns.length > 1)
+        MenuItemButton(
+          onPressed: () => setState(() {
+            columns.removeAt(index);
+          }),
+          leadingIcon: const Icon(Icons.delete_sharp),
+          child: const Text('刪除欄'),
+        ),
+    ];
   }
 }
 

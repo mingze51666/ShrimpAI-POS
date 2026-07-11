@@ -121,8 +121,8 @@ receipt:
     paid: Paid
     price: Price
     change: Change
-    productsPrice: Prod. Price
-    productsQuantity: Prod. Quantity
+    productsPrice: Prod. TOT
+    productsQuantity: Prod. QTY
   template:
     meta:
       componentsCount:
@@ -136,12 +136,11 @@ receipt:
       label: Enable This Template
     default:
       name: Default Template
-      readonlyWarning: Default template cannot be edited or deleted
   component:
     title:
       add: Add Component
       empty: No components yet. Tap below button to add one!
-      dragToReorder: Drag components below to reorder
+      hint: Drag icon to reorder | Tap to edit | Swipe to delete
     type:
     - orderTable: Order Table
       discountTable: Discount Products Table
