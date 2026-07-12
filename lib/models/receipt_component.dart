@@ -11,9 +11,9 @@ enum ReceiptComponentType { orderTable, discountTable, attributeTable, priceTabl
 enum OrderTableColumn {
   productName(0),
   productNameWithCatalogName(0),
-  quantity(32),
-  singlePrice(32),
-  totalPrice(64);
+  quantity(40),
+  singlePrice(40),
+  totalPrice(50);
 
   final double width;
 
@@ -38,9 +38,9 @@ enum DiscountTableColumn {
   productName(0),
   productNameWithCatalogName(0),
   quantity(40),
-  originPrice(40),
+  originPrice(50),
   singlePrice(40),
-  totalPrice(64);
+  totalPrice(50);
 
   final double width;
 
@@ -67,7 +67,7 @@ enum AttributeTableColumn {
   optionName(0),
   attrName(0),
   optionNameWithAttrName(0),
-  adjustment(64);
+  adjustment(50);
 
   final double width;
 
@@ -387,8 +387,6 @@ abstract class TextFieldObject<T extends StyledPart> {
 
   Map<String, Object?> toJson();
 
-  InlineSpan buildDescription();
-
   InlineSpan buildSpan({OrderObject? order});
 }
 
@@ -428,11 +426,6 @@ class StyledTextObject extends TextFieldObject<StyledPart> {
   }
 
   @override
-  InlineSpan buildDescription() {
-    return buildSpan();
-  }
-
-  @override
   InlineSpan buildSpan({OrderObject? order}) {
     return TextSpan(text: part.text, style: part.style?.toTextStyle());
   }
@@ -443,7 +436,10 @@ class StyledPlaceholderObject extends TextFieldObject<PlaceholderPart> {
 
   final String? meta;
 
-  StyledPlaceholderObject({super.part = const PlaceholderPart(text: '', style: null)})
+  final double? height;
+  final double? letterSpacing;
+
+  StyledPlaceholderObject({super.part = const PlaceholderPart(text: '', style: null), this.height, this.letterSpacing})
     : meta = part is MenuPlaceholderPart ? part.meta : null,
       type = TextFieldPlaceholderType.values.firstWhereOrNull((e) => e.name == part.text) ?? .title;
 
@@ -454,6 +450,8 @@ class StyledPlaceholderObject extends TextFieldObject<PlaceholderPart> {
   factory StyledPlaceholderObject.fromType(
     TextFieldPlaceholderType type, {
     String? meta,
+    double? height,
+    double? letterSpacing,
     bool? isBold,
     bool? isItalic,
     bool? isStrikethrough,
@@ -473,6 +471,8 @@ class StyledPlaceholderObject extends TextFieldObject<PlaceholderPart> {
       part: meta == null
           ? PlaceholderPart(text: type.name, style: style)
           : MenuPlaceholderPart(text: type.name, meta: meta, style: style),
+      height: height,
+      letterSpacing: letterSpacing,
     );
   }
 
@@ -482,18 +482,10 @@ class StyledPlaceholderObject extends TextFieldObject<PlaceholderPart> {
   }
 
   @override
-  InlineSpan buildDescription() {
-    return TextPlaceholder(
-      id: part.text,
-      text: S.printerReceiptComponentLabelTextPlaceholders(part.text),
-    ).buildSpan(part.style?.toTextStyle());
-  }
-
-  @override
   InlineSpan buildSpan({OrderObject? order}) {
     return TextSpan(
       text: order == null ? '' : formatText(order: order),
-      style: part.style?.toTextStyle(),
+      style: part.style?.toTextStyle().copyWith(height: height, letterSpacing: letterSpacing),
     );
   }
 

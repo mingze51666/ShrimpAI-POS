@@ -128,9 +128,7 @@ class _ReceiptTemplateModalState extends State<ReceiptTemplateModal> with ItemMo
         child: SizedBox(
           width: 396, // 320 + 48(Padding) + 24(Icon) + 4(SizedBox)
           child: DefaultTextStyle(
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium!.copyWith(overflow: .clip, color: PrinterReceiptView.defaultTextColor),
+            style: PrinterReceiptView.defaultTextStyle,
             child: MyReorderableList(
               padding: const .fromLTRB(24.0, 16, 24.0, 24.0),
               items: _components,

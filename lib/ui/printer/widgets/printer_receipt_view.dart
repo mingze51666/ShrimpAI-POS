@@ -10,7 +10,18 @@ import 'package:possystem/models/xfile.dart';
 import 'package:possystem/translator.dart';
 
 class PrinterReceiptView extends StatelessWidget {
-  static const defaultTextColor = Color(0xFF424242);
+  static const defaultTextStyle = TextStyle(
+    fontSize: 14,
+    fontWeight: .w400,
+    color: Color(0xFF424242),
+    overflow: .clip,
+    height: 1.14,
+    textBaseline: .alphabetic,
+    letterSpacing: 0.25,
+  );
+  static const smallTextStyle = TextStyle(fontSize: 13, height: 1.33);
+  static const smallNumberStyle = TextStyle(fontSize: 12, fontWeight: .w500);
+  static const largeTextStyle = TextStyle(fontSize: 22, height: 1.27, letterSpacing: 0);
 
   final OrderObject order;
   final ImageableController? controller;
@@ -31,17 +42,21 @@ class PrinterReceiptView extends StatelessWidget {
         .whereType<Widget>()
         .toList();
 
-    return MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaler: .noScaling),
-      child: SizedBox(
-        // wider width can result low density of receipt, since the paper
-        // is fixed width (58mm or 80mm).
-        width: 320, // fixed width can provide same density of receipt
-        child: DefaultTextStyle(
-          style: Theme.of(context).textTheme.bodyMedium!.copyWith(overflow: .clip, color: defaultTextColor),
+    return SingleChildScrollView(
+      scrollDirection: .horizontal,
+      child: MediaQuery(
+        data: MediaQuery.of(context).copyWith(textScaler: .noScaling),
+        child: SizedBox(
+          // wider width can result low density of receipt, since the paper
+          // is fixed width (58mm or 80mm).
+          // fixed width can provide same density of receipt
+          width: 348, // 320 + 28 (padding)
           child: controller == null
-              ? Column(mainAxisSize: .min, children: children)
-              : ImageableContainer(controller: controller!, children: children),
+              ? DefaultTextStyle(
+                  style: defaultTextStyle,
+                  child: Column(mainAxisSize: .min, children: children),
+                )
+              : ImageableContainer(controller: controller!, style: defaultTextStyle, children: children),
         ),
       ),
     );
@@ -56,7 +71,6 @@ class PrinterReceiptView extends StatelessWidget {
         return Text.rich(
           TextSpan(children: c.texts.map((e) => e.buildSpan(order: order)).toList()),
           textAlign: c.textAlign,
-          style: const TextStyle(height: 1),
         );
       case .divider:
         final c = component as DividerComponent;
@@ -178,7 +192,7 @@ class PrinterReceiptView extends StatelessWidget {
     final cellBuilder = config.columns.map<Widget Function(OrderProductObject)>((e) {
       return switch (e.type) {
         .quantity || .originPrice || .singlePrice || .totalPrice => (product) => TableCell(
-          child: Text(e.type.valueFromOrder(product), style: const TextStyle(fontSize: 12), textAlign: .end),
+          child: Text(e.type.valueFromOrder(product), style: smallNumberStyle, textAlign: .end),
         ),
         _ => (product) => TableCell(
           child: Padding(padding: const .only(left: 8), child: Text(e.type.valueFromOrder(product))),
@@ -217,7 +231,7 @@ class PrinterReceiptView extends StatelessWidget {
     final cellBuilder = config.columns.map<Widget Function(OrderEffectiveAttribute)>((e) {
       return switch (e.type) {
         .adjustment => (attribute) => TableCell(
-          child: Text(e.type.valueFromOrder(attribute), style: const TextStyle(fontSize: 12), textAlign: .end),
+          child: Text(e.type.valueFromOrder(attribute), style: smallNumberStyle, textAlign: .end),
         ),
         _ => (attribute) => TableCell(
           child: Padding(padding: const .only(left: 8), child: Text(e.type.valueFromOrder(attribute))),
@@ -243,7 +257,6 @@ class PrinterReceiptView extends StatelessWidget {
     required BuildContext context,
     List<Widget> Function(int index)? actions,
   }) {
-    const style = TextStyle(fontSize: 12);
     final color = Theme.of(context).colorScheme;
     final titles = config.columns.map((e) => e.title ?? e.type.title).toList();
     final values = config.columns.map((e) => e.type.valueFromOrder(order)).toList();
@@ -256,10 +269,7 @@ class PrinterReceiptView extends StatelessWidget {
         TableRow(
           children: [
             Text(S.printerReceiptPriceTableTotal),
-            Padding(
-              padding: const .only(bottom: 2.0),
-              child: Text('\$${order.price.toCurrency()}', style: const TextStyle(fontSize: 22, height: 1.2)),
-            ),
+            Text('\$${order.price.toCurrency()}', style: largeTextStyle),
           ],
         ),
         for (int i = 0; i < titles.length; i++)
@@ -274,11 +284,11 @@ class PrinterReceiptView extends StatelessWidget {
                 actions: actions?.call(i),
                 child: Padding(
                   padding: i == 0 ? const .only(top: 4) : const .only(left: 8),
-                  child: Text(titles[i], style: style),
+                  child: Text(titles[i], style: smallTextStyle),
                 ),
               ),
               TableCell(
-                child: Text(values[i], style: style, textAlign: .end),
+                child: Text(values[i], style: smallNumberStyle, textAlign: .end),
               ),
             ],
           ),

@@ -16,7 +16,7 @@ btn:
   print: 列印
 status:
   success: 成功連結出單機
-  connecting: 連線中
+  connected: 連線中
   standby: 尚未進行連線
   printed: 列印完成
   name:

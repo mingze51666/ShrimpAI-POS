@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:possystem/components/imageable_container.dart';
@@ -52,7 +53,7 @@ class _PrinterViewState extends State<PrinterView> {
     return ListenableBuilder(
       listenable: widget.printer,
       builder: (context, child) {
-        return widget.printer.connected ? _buildConnected() : _buildDisconnected();
+        return widget.printer.connected || kDebugMode ? _buildConnected() : _buildDisconnected();
       },
     );
   }
@@ -210,6 +211,7 @@ class _PrinterViewState extends State<PrinterView> {
       builder: (context) => AlertDialog(
         title: Text(S.printerBtnTestPrint),
         contentPadding: const .all(0),
+        insetPadding: const .symmetric(horizontal: 16.0, vertical: 24.0),
         actions: [
           PopButton(title: MaterialLocalizations.of(context).cancelButtonLabel),
           _PrintButton(progress: progress, controller: controller, printer: widget.printer),
@@ -218,7 +220,7 @@ class _PrinterViewState extends State<PrinterView> {
           alignment: Alignment.center,
           children: [
             Padding(
-              padding: const .only(left: 24.0, top: 16, right: 24.0, bottom: 24.0),
+              padding: const .fromLTRB(12.0, 8.0, 12.0, 12.0),
               child: PrinterReceiptView(controller: controller, order: OrderObject.example()),
             ),
             ValueListenableBuilder(

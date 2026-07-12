@@ -325,9 +325,7 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
           child: SizedBox(
             width: 320, // fixed width can provide same density of receipt
             child: DefaultTextStyle(
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium!.copyWith(overflow: .clip, color: PrinterReceiptView.defaultTextColor),
+              style: PrinterReceiptView.defaultTextStyle,
               child: Padding(padding: _parsePadding(), child: child),
             ),
           ),

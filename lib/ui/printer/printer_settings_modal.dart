@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:possystem/components/dialog/responsive_dialog.dart';
 import 'package:possystem/components/menu_actions.dart';
 import 'package:possystem/components/slidable_item_list.dart';
@@ -120,7 +121,9 @@ class _TemplateTile extends StatelessWidget {
       title: Text(template.displayName),
       subtitle: Text(S.printerReceiptTemplateMetaComponentsCount(template.components.length)),
       trailing: EntryMoreButton(onPressed: actor),
-      onTap: () => ReceiptTemplates.instance.changeSelected(template.id),
+      onTap: () {
+        context.pushNamed(Routes.printerSettingsTemplateUpdate, pathParameters: {'id': template.id});
+      },
       onLongPress: actor,
     );
   }
