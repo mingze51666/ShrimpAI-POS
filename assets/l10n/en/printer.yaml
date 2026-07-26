@@ -149,74 +149,93 @@ receipt:
       textField: Text Field
       image: Image
       divider: Divider
-    label:
-      productName: Product Name
-      catalogName: Catalog Name
-      quantity: Quantity
-      singlePrice: Unit Price
-      totalPrice: Total Price
-      originPrice: Origin Price
-      attribute:
-        name: Type
-        option: Option
-        adjustment: Adjustment
-      paid: Paid
-      change: Change
-      price: Price
-      productsQuantity: Products Quantity
-      productsPrice: Products Price
-      text:
-        value: Start typing...
-        color: Color
-        align: Alignment
-        alignLeft: Left
-        alignCenter: Center
-        alignRight: Right
-        alignJustify: Justify
-        bold: Bold
-        italic: Italic
-        strikeThrough: Strike Through
-        underline: Underline
-        placeholder: Insert Placeholder
-        _placeholder:
-          $prefix: placeholder
-          date:
-            label: Date Format
-            hint: e.g., yyyy/MM/dd
-            helper: Related formats can be found in the [documentation](https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html)
-        placeholders:
-        - title: title
-          now: now
-          seq: order sequence
-          productCount: product count
-          paid: paid amount
-          change: change amount
-          price: order price
-          cost: order cost
-          revenue: revenue
-          productPrice: product price
-          attributePrice: attribute price
-          createdAt: created time
-          orderedAt: order time
-      padding:
-        label: Padding
-        helper: 'Padding around text in pixels'
-        all: All Directions
-        split: Set Directions Separately
-        top: Top
-        bottom: Bottom
-        left: Left
-        right: Right
-      image: Image
-      _image:
-        $prefix: image
-        widthRatio: Width Ratio
-        widthRatioHelper: 'Width ratio compared to receipt width, e.g., 0.5 = 50%'
-      divider:
-        height: Height
-        meta:
-        - 'Height: {height}'
-        - height: {type: double, format: 'compact'}
+    table:
+      title:
+        btn: Edit Title
+        label:
+        - "{name}'s Title"
+      width:
+        btn: Adjust Column Width
+        label:
+        - "{name}'s Column Width"
+      insertBtn:
+        up: Insert 1 Row Above
+        left: Insert 1 Column Left
+        right: Insert 1 Column Right
+        down: Insert 1 Row Below
+      moveBtn:
+        up: Move Up
+        left: Move Left
+        right: Move Right
+        down: Move Down
+      delete:
+        btn: Delete Column
+      attr:
+        title:
+          addAttr: Add Category to Title
+          addOption: Add Option to Title
+          removeAttr: Remove Category from Title
+          removeOption: Remove Option from Title
+      discount:
+        title:
+          addCatalog: Add Catalog to Title
+          removeCatalog: Remove Catalog from Title
+      order:
+        title:
+          addCatalog: Add Catalog to Title
+          removeCatalog: Remove Catalog from Title
+    text:
+      value: Start typing...
+      color: Color
+      align: Alignment
+      alignLeft: Left
+      alignCenter: Center
+      alignRight: Right
+      alignJustify: Justify
+      bold: Bold
+      italic: Italic
+      strikeThrough: Strike Through
+      underline: Underline
+      placeholder: Insert Placeholder
+      _placeholder:
+        $prefix: placeholder
+        date:
+          label: Date Format
+          hint: e.g., yyyy/MM/dd
+          helper: Related formats can be found in the [documentation](https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html)
+      placeholders:
+      - title: title
+        now: now
+        seq: order sequence
+        productCount: product count
+        paid: paid amount
+        change: change amount
+        price: order price
+        cost: order cost
+        revenue: revenue
+        productPrice: product price
+        attributePrice: attribute price
+        createdAt: created time
+        orderedAt: order time
+    padding:
+      label: Padding
+      helper: 'Padding around text in pixels'
+      all: All Directions
+      split: Set Directions Separately
+      top: Top
+      bottom: Bottom
+      left: Left
+      right: Right
+    image: Image
+    _image:
+      $prefix: image
+      widthRatio: Width Ratio
+      widthRatioHelper: 'Width ratio compared to receipt width, e.g., 0.5 = 50%'
+    divider:
+      height: Height
+      meta:
+      - 'Height: {height}'
+      - height: {type: double, format: 'compact'}
     helper:
       selectColumn: Choose wanted column to display in the receipt
       preview: Preview

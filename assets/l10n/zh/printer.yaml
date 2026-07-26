@@ -139,73 +139,92 @@ receipt:
       textField: 文字欄位
       image: 圖片
       divider: 分隔線
-    label:
-      productName: 產品名稱
-      catalogName: 種類名稱
-      quantity: 數量
-      singlePrice: 單價
-      totalPrice: 總價
-      originPrice: 原價
-      attribute:
-        name: 類別
-        option: 選項
-        adjustment: 調整金額
-      paid: 付額
-      change: 找錢
-      price: 總價
-      productsQuantity: 產品總數
-      productsPrice: 產品總價
-      text:
-        value: 編輯文字
-        color: 顏色
-        align: 對齊方式
-        alignLeft: 靠左
-        alignCenter: 置中
-        alignRight: 靠右
-        alignJustify: 兩端對齊
-        bold: 粗體
-        italic: 斜體
-        strikeThrough: 刪除線
-        underline: 底線
-        placeholder: 插入動態資訊
-        _placeholder:
-          $prefix: placeholder
-          date:
-            label: 日期格式
-            hint: 例如 yyyy/MM/dd
-            helper: 相關格式可以參考[說明文件](https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html)
-        placeholders:
-        - title: 標題
-          now: 現在時間
-          seq: 訂單編號
-          productCount: 產品數量
-          paid: 付款金額
-          change: 找零金額
-          price: 訂單價格
-          cost: 訂單成本
-          revenue: 收入
-          productPrice: 產品價格
-          attributePrice: 附加價格
-          createdAt: 創建時間
-          orderedAt: 下單時間
-      padding:
-        label: 內距
-        helper: 文字四周的內距，單位為像素
-        all: 聯動所有方向
-        split: 獨立設置方向
-        top: 上方
-        bottom: 下方
-        left: 左方
-        right: 右方
-      image: 圖片
-      _image:
-        $prefix: image
-        widthRatio: 寬度比例
-        widthRatioHelper: 寬度比例相對於單據寬度，例如 0.5 = 50%
-      divider:
-        height: 高度
-        meta:
-        - 高度：{height}
+    table:
+      title:
+        btn: 調整標題
+        label:
+        - "{name}的標題"
+      width:
+        btn: 調整欄寬
+        label:
+        - "{name}的欄寬"
+      insertBtn:
+        up: 向上插入1欄
+        left: 向左插入1欄
+        right: 向右插入1欄
+        down: 向下插入1欄
+      moveBtn:
+        up: 向上移動
+        left: 向左移動
+        right: 向右移動
+        down: 向下移動
+      delete:
+        btn: 刪除欄
+      attr:
+        title:
+          addAttr: 標題添加種類名稱
+          addOption: 標題添加項目名稱
+          removeAttr: 標題移除種類名稱
+          removeOption: 標題移除項目名稱
+      discount:
+        title:
+          addCatalog: 標題添加產品種類
+          removeCatalog: 標題移除產品種類
+      order:
+        title:
+          addCatalog: 標題添加產品種類
+          removeCatalog: 標題移除產品種類
+    text:
+      value: 編輯文字
+      color: 顏色
+      align: 對齊方式
+      alignLeft: 靠左
+      alignCenter: 置中
+      alignRight: 靠右
+      alignJustify: 兩端對齊
+      bold: 粗體
+      italic: 斜體
+      strikeThrough: 刪除線
+      underline: 底線
+      placeholder: 插入動態資訊
+      _placeholder:
+        $prefix: placeholder
+        date:
+          label: 日期格式
+          hint: 例如 yyyy/MM/dd
+          helper: 相關格式可以參考[說明文件](https://pub.dev/documentation/intl/latest/intl/DateFormat-class.html)
+      placeholders:
+      - title: 標題
+        now: 現在時間
+        seq: 訂單編號
+        productCount: 產品數量
+        paid: 付款金額
+        change: 找零金額
+        price: 訂單價格
+        cost: 訂單成本
+        revenue: 收入
+        productPrice: 產品價格
+        attributePrice: 附加價格
+        createdAt: 創建時間
+        orderedAt: 下單時間
+    padding:
+      label: 內距
+      helper: 文字四周的內距，單位為像素
+      all: 聯動所有方向
+      split: 獨立設置方向
+      top: 上方
+      bottom: 下方
+      left: 左方
+      right: 右方
+    image: 圖片
+    _image:
+      $prefix: image
+      widthRatio: 寬度比例
+      widthRatioHelper: 寬度比例相對於單據寬度，例如 0.5 = 50%
+    divider:
+      height: 高度
+      meta:
+      - 高度：{height}
     helper:
       selectColumn: 選擇要在收據中顯示的欄位
       preview: 預覽

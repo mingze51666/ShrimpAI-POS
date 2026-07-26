@@ -15,6 +15,8 @@ enum OrderTableColumn {
   singlePrice(40),
   totalPrice(50);
 
+  static Iterable<OrderTableColumn> get isNotSelectable => [.productName, .productNameWithCatalogName];
+
   final double width;
 
   const OrderTableColumn(this.width);
@@ -42,6 +44,8 @@ enum DiscountTableColumn {
   singlePrice(40),
   totalPrice(50);
 
+  static Iterable<DiscountTableColumn> get isNotSelectable => [.productName, .productNameWithCatalogName];
+
   final double width;
 
   const DiscountTableColumn(this.width);
@@ -68,6 +72,8 @@ enum AttributeTableColumn {
   attrName(0),
   optionNameWithAttrName(0),
   adjustment(50);
+
+  static Iterable<AttributeTableColumn> get isNotSelectable => [.optionName, .attrName, .optionNameWithAttrName];
 
   final double width;
 
@@ -131,7 +137,15 @@ abstract class ReceiptComponent {
 
   /// Create from JSON
   factory ReceiptComponent.fromType(ReceiptComponentType type) {
-    return ReceiptComponent.fromJson({'type': type.index});
+    return switch (type) {
+      .orderTable => OrderTableComponent(),
+      .attributeTable => AttributeTableComponent(),
+      .discountTable => DiscountTableComponent(),
+      .priceTable => PriceTableComponent(),
+      .textField => TextFieldComponent(),
+      .image => ImageComponent(),
+      .divider => DividerComponent(),
+    };
   }
 
   factory ReceiptComponent.fromJson(Map<String, Object?> json) {
@@ -146,22 +160,15 @@ abstract class ReceiptComponent {
       paddingValues.elementAtOrNull(2) ?? 0,
       paddingValues.elementAtOrNull(3) ?? 0,
     );
-    switch (type) {
-      case .orderTable:
-        return OrderTableComponent.fromJson(json, padding: padding);
-      case .attributeTable:
-        return AttributeTableComponent.fromJson(json, padding: padding);
-      case .discountTable:
-        return DiscountTableComponent.fromJson(json, padding: padding);
-      case .priceTable:
-        return PriceTableComponent.fromJson(json, padding: padding);
-      case .textField:
-        return TextFieldComponent.fromJson(json, padding: padding);
-      case .image:
-        return ImageComponent.fromJson(json, padding: padding);
-      case .divider:
-        return DividerComponent.fromJson(json, padding: padding);
-    }
+    return switch (type) {
+      .orderTable => OrderTableComponent.fromJson(json, padding: padding),
+      .attributeTable => AttributeTableComponent.fromJson(json, padding: padding),
+      .discountTable => DiscountTableComponent.fromJson(json, padding: padding),
+      .priceTable => PriceTableComponent.fromJson(json, padding: padding),
+      .textField => TextFieldComponent.fromJson(json, padding: padding),
+      .image => ImageComponent.fromJson(json, padding: padding),
+      .divider => DividerComponent.fromJson(json, padding: padding),
+    };
   }
 }
 
@@ -378,6 +385,10 @@ class TableColumnConfig<T extends Enum> {
       width: json['width'] as double?,
     );
   }
+
+  TableColumnConfig<T> copyWith({T? type}) {
+    return TableColumnConfig(type ?? this.type, title: title, width: width);
+  }
 }
 
 abstract class TextFieldObject<T extends StyledPart> {
@@ -528,12 +539,12 @@ enum TextFieldPlaceholderType {
 
   TextPlaceholder buildPlaceholder({Future<String?> Function(MenuPlaceholder<String>)? onMenuSelected}) {
     if (!isDate) {
-      return TextPlaceholder(id: name, text: S.printerReceiptComponentLabelTextPlaceholders(name));
+      return TextPlaceholder(id: name, text: S.printerReceiptComponentTextPlaceholders(name));
     }
 
     return MenuPlaceholder<String>(
       id: name,
-      text: S.printerReceiptComponentLabelTextPlaceholders(name),
+      text: S.printerReceiptComponentTextPlaceholders(name),
       meta: 'yMMMd Hms',
       onMenuSelected: onMenuSelected,
     );

@@ -97,7 +97,7 @@ class _PrinterViewState extends State<PrinterView> {
                   builder: (context, controller, _) {
                     return FilledButton.icon(
                       onPressed: controller.toggle,
-                      label: Text(S.printerStatusConnecting),
+                      label: Text(S.printerStatusConnected),
                       icon: const Icon(Icons.arrow_drop_down),
                       iconAlignment: .end,
                     );

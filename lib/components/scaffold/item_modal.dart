@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:possystem/components/dialog/responsive_dialog.dart';
+import 'package:possystem/components/style/hint_text.dart';
 import 'package:possystem/constants/constant.dart';
+import 'package:possystem/translator.dart';
 
 /// Base modal design for inputs
 mixin ItemModal<T extends StatefulWidget> on State<T> {
@@ -23,7 +25,7 @@ mixin ItemModal<T extends StatefulWidget> on State<T> {
     return ResponsiveDialog(
       title: Text(title),
       action: readonly
-          ? null
+          ? Padding(padding: const .only(right: 8.0), child: HintText(S.btnReadonly))
           : TextButton(
               key: const Key('modal.save'),
               onPressed: () => handleSubmit(),

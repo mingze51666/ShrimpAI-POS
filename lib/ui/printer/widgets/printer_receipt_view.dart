@@ -15,13 +15,12 @@ class PrinterReceiptView extends StatelessWidget {
     fontWeight: .w400,
     color: Color(0xFF424242),
     overflow: .clip,
-    height: 1.14,
+    height: 16 / 14,
     textBaseline: .alphabetic,
     letterSpacing: 0.25,
   );
-  static const smallTextStyle = TextStyle(fontSize: 13, height: 1.33);
-  static const smallNumberStyle = TextStyle(fontSize: 12, fontWeight: .w500);
-  static const largeTextStyle = TextStyle(fontSize: 22, height: 1.27, letterSpacing: 0);
+  static const smallTextStyle = TextStyle(fontSize: 14, height: 16 / 14);
+  static const largeTextStyle = TextStyle(fontSize: 22, height: 28 / 22, letterSpacing: 0);
 
   final OrderObject order;
   final ImageableController? controller;
@@ -192,7 +191,7 @@ class PrinterReceiptView extends StatelessWidget {
     final cellBuilder = config.columns.map<Widget Function(OrderProductObject)>((e) {
       return switch (e.type) {
         .quantity || .originPrice || .singlePrice || .totalPrice => (product) => TableCell(
-          child: Text(e.type.valueFromOrder(product), style: smallNumberStyle, textAlign: .end),
+          child: Text(e.type.valueFromOrder(product), style: smallTextStyle, textAlign: .end),
         ),
         _ => (product) => TableCell(
           child: Padding(padding: const .only(left: 8), child: Text(e.type.valueFromOrder(product))),
@@ -231,7 +230,7 @@ class PrinterReceiptView extends StatelessWidget {
     final cellBuilder = config.columns.map<Widget Function(OrderEffectiveAttribute)>((e) {
       return switch (e.type) {
         .adjustment => (attribute) => TableCell(
-          child: Text(e.type.valueFromOrder(attribute), style: smallNumberStyle, textAlign: .end),
+          child: Text(e.type.valueFromOrder(attribute), style: smallTextStyle, textAlign: .end),
         ),
         _ => (attribute) => TableCell(
           child: Padding(padding: const .only(left: 8), child: Text(e.type.valueFromOrder(attribute))),
@@ -288,7 +287,7 @@ class PrinterReceiptView extends StatelessWidget {
                 ),
               ),
               TableCell(
-                child: Text(values[i], style: smallNumberStyle, textAlign: .end),
+                child: Text(values[i], style: smallTextStyle, textAlign: .end),
               ),
             ],
           ),
@@ -309,24 +308,25 @@ class _CellWithActions extends StatelessWidget {
       return TableCell(child: child);
     }
 
-    return Stack(
-      children: [
-        child,
-        Positioned(
-          right: 2,
-          top: 2,
-          child: MenuAnchor(
-            builder: (BuildContext context, MenuController controller, Widget? child) {
-              return IconButton(
-                icon: const Icon(Icons.arrow_drop_down_rounded),
-                onPressed: () => controller.isOpen ? controller.close() : controller.open(),
-                tooltip: '欄位操作',
-              );
+    return TableCell(
+      child: MenuAnchor(
+        builder: (BuildContext context, MenuController controller, Widget? child) {
+          return InkWell(
+            onTap: () {
+              controller.isOpen ? controller.close() : controller.open();
             },
-            menuChildren: actions!,
-          ),
-        ),
-      ],
+            child: Stack(
+              alignment: Alignment.centerLeft,
+              children: [
+                child!,
+                Positioned(top: 2, right: 2, child: Icon(Icons.arrow_drop_down, color: Colors.grey[600], size: 16)),
+              ],
+            ),
+          );
+        },
+        menuChildren: actions!,
+        child: child,
+      ),
     );
   }
 }

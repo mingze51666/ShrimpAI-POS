@@ -1,6 +1,11 @@
 {
   "en": [
-    "printerStatusConnecting",
+    "printerReceiptComponentHelperColumnActionTooltip",
+    "printerReceiptComponentHelperColumnActionAddLeft",
+    "printerReceiptComponentHelperColumnActionAddRight",
+    "printerReceiptComponentHelperColumnActionMoveLeft",
+    "printerReceiptComponentHelperColumnActionMoveRight",
+    "printerReceiptComponentHelperColumnActionRemove",
     "orderCheckoutAttributeNoteTitle",
     "orderCheckoutAttributeNoteHint"
   ]

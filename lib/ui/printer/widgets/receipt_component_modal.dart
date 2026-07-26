@@ -55,30 +55,22 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
                   mainAxisSpacing: 8,
                   crossAxisSpacing: 8,
                   children: [
-                    _buildPaddingEditor(topCtrl, S.printerReceiptComponentLabelPaddingTop, Icons.vertical_align_top),
-                    _buildPaddingEditor(
-                      rightCtrl,
-                      S.printerReceiptComponentLabelPaddingRight,
-                      Icons.format_indent_increase,
-                    ),
+                    _buildPaddingEditor(topCtrl, S.printerReceiptComponentPaddingTop, Icons.vertical_align_top),
+                    _buildPaddingEditor(rightCtrl, S.printerReceiptComponentPaddingRight, Icons.format_indent_increase),
                     _buildPaddingEditor(
                       bottomCtrl,
-                      S.printerReceiptComponentLabelPaddingBottom,
+                      S.printerReceiptComponentPaddingBottom,
                       Icons.vertical_align_bottom,
                     ),
-                    _buildPaddingEditor(
-                      leftCtrl,
-                      S.printerReceiptComponentLabelPaddingLeft,
-                      Icons.format_indent_decrease,
-                    ),
+                    _buildPaddingEditor(leftCtrl, S.printerReceiptComponentPaddingLeft, Icons.format_indent_decrease),
                   ],
                 )
-              : _buildPaddingEditor(null, S.printerReceiptComponentLabelPaddingAll, Icons.aspect_ratio);
+              : _buildPaddingEditor(null, S.printerReceiptComponentPaddingAll, Icons.aspect_ratio);
           return Column(
             children: [
               ListTile(
-                title: Text(S.printerReceiptComponentLabelPaddingLabel),
-                subtitle: Text(S.printerReceiptComponentLabelPaddingHelper),
+                title: Text(S.printerReceiptComponentPaddingLabel),
+                subtitle: Text(S.printerReceiptComponentPaddingHelper),
                 onTap: () => setState(() => paddingSplit.value = !paddingSplit.value),
                 trailing: Icon(isSplit ? Icons.arrow_drop_up : Icons.arrow_drop_down),
               ),
@@ -144,39 +136,47 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
   }
 
   List<Widget> _buildComponentListTiles() {
-    switch (component.type) {
-      case .orderTable:
-        return _buildOrderTableEditor();
-      case .discountTable:
-        return _buildDiscountTableEditor();
-      case .attributeTable:
-        return _buildAttributeTableEditor();
-      case .priceTable:
-        return _buildPriceTableEditor();
-      case .textField:
-        return _buildTextFieldEditor();
-      case .image:
-        return _buildImageEditor();
-      case .divider:
-        return _buildDividerEditor();
-    }
+    return switch (component.type) {
+      .orderTable => _buildOrderTableEditor(),
+      .discountTable => _buildDiscountTableEditor(),
+      .attributeTable => _buildAttributeTableEditor(),
+      .priceTable => _buildPriceTableEditor(),
+      .textField => _buildTextFieldEditor(),
+      .image => _buildImageEditor(),
+      .divider => _buildDividerEditor(),
+    };
   }
 
   List<Widget> _buildOrderTableEditor() {
     final c = component as OrderTableComponent;
-    final left = OrderTableColumn.values.toSet().difference(c.columns.map((e) => e.type).toSet()).toList();
+    final left = (OrderTableColumn.values.toSet()..removeAll(OrderTableColumn.isNotSelectable))
+        .difference(c.columns.map((e) => e.type).toSet())
+        .toList();
     return [
       _wrapReceiptView(
-        PrinterReceiptView.buildOrderTable(
-          c,
-          order,
-          context: context,
-          actions: (int index) {
-            return _buildDefaultActions(
-              index: index,
-              left: left,
-              columns: c.columns,
-              setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, OrderTableColumn.values),
+        Builder(
+          builder: (context) {
+            return PrinterReceiptView.buildOrderTable(
+              c,
+              order,
+              context: context,
+              actions: (int index) {
+                final children = _buildActions<OrderTableColumn>(
+                  fixedIndex: 1,
+                  index: index,
+                  left: left,
+                  exist: c.columns,
+                  setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, OrderTableColumn.values),
+                  typeChanger: switch (index) {
+                    0 => switch (c.columns[0].type) {
+                      .productName => {.productNameWithCatalogName: S.printerReceiptComponentTableOrderTitleAddCatalog},
+                      _ => {.productName: S.printerReceiptComponentTableOrderTitleRemoveCatalog},
+                    },
+                    _ => null,
+                  },
+                );
+                return children;
+              },
             );
           },
         ),
@@ -193,12 +193,21 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
           c,
           order.discounted.toList(),
           actions: (int index) {
-            return _buildDefaultActions(
+            final children = _buildActions<DiscountTableColumn>(
+              fixedIndex: 1,
               index: index,
               left: left,
-              columns: c.columns,
+              exist: c.columns,
               setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, DiscountTableColumn.values),
+              typeChanger: switch (index) {
+                0 => switch (c.columns[0].type) {
+                  .productName => {.productNameWithCatalogName: S.printerReceiptComponentTableDiscountTitleAddCatalog},
+                  _ => {.productName: S.printerReceiptComponentTableDiscountTitleRemoveCatalog},
+                },
+                _ => null,
+              },
             );
+            return children;
           },
         ),
       ),
@@ -214,12 +223,25 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
           c,
           order.effectiveAttributes.toList(),
           actions: (int index) {
-            return _buildDefaultActions(
+            final children = _buildActions<AttributeTableColumn>(
+              fixedIndex: 1,
               index: index,
               left: left,
-              columns: c.columns,
+              exist: c.columns,
               setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, AttributeTableColumn.values),
+              typeChanger: switch (index) {
+                0 => switch (c.columns[0].type) {
+                  .optionName => {.optionNameWithAttrName: S.printerReceiptComponentTableAttrTitleAddAttr},
+                  .attrName => {.optionNameWithAttrName: S.printerReceiptComponentTableAttrTitleAddOption},
+                  _ => {
+                    .optionName: S.printerReceiptComponentTableAttrTitleRemoveAttr,
+                    .attrName: S.printerReceiptComponentTableAttrTitleRemoveOption,
+                  },
+                },
+                _ => null,
+              },
             );
+            return children;
           },
         ),
       ),
@@ -231,17 +253,21 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
     final left = PriceTableColumn.values.toSet().difference(c.columns.map((e) => e.type).toSet()).toList();
     return [
       _wrapReceiptView(
-        PrinterReceiptView.buildPriceTable(
-          c,
-          order,
-          context: context,
-          actions: (int index) {
-            return _buildDefaultActions(
-              index: index,
-              left: left,
-              columns: c.columns,
-              setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, PriceTableColumn.values),
-              axis: .vertical,
+        Builder(
+          builder: (context) {
+            return PrinterReceiptView.buildPriceTable(
+              c,
+              order,
+              context: context,
+              actions: (int index) {
+                return _buildActions(
+                  index: index,
+                  left: left,
+                  exist: c.columns,
+                  setter: (data) => c.columns[index] = TableColumnConfig.fromJson(data, PriceTableColumn.values),
+                  axis: .vertical,
+                );
+              },
             );
           },
         ),
@@ -264,7 +290,7 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
       _notifier!.addListener(() => c.height = _notifier!.value);
     }
 
-    return [_buildSliderWithTitle(title: S.printerReceiptComponentLabelDividerHeight, min: 1, max: 4, divisions: 30)];
+    return [_buildSliderWithTitle(title: S.printerReceiptComponentDividerHeight, min: 1, max: 4, divisions: 30)];
   }
 
   List<Widget> _buildImageEditor() {
@@ -276,8 +302,8 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
 
     return [
       _buildSliderWithTitle(
-        title: S.printerReceiptComponentLabelImageWidthRatio,
-        helper: S.printerReceiptComponentLabelImageWidthRatioHelper,
+        title: S.printerReceiptComponentImageWidthRatio,
+        helper: S.printerReceiptComponentImageWidthRatioHelper,
         min: 0.1,
         max: 1.0,
         divisions: 9,
@@ -317,9 +343,10 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
 
   Widget _wrapReceiptView(Widget child) {
     return Card(
+      color: Colors.white,
       margin: const .symmetric(horizontal: kHorizontalSpacing),
       child: Padding(
-        padding: const .only(left: 24.0, top: 16, right: 24.0, bottom: 24.0),
+        padding: const .symmetric(horizontal: kHorizontalSpacing, vertical: kTopSpacing),
         child: MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaler: .noScaling),
           child: SizedBox(
@@ -343,121 +370,158 @@ class _ReceiptComponentModalState extends State<ReceiptComponentModal> with Item
     );
   }
 
-  List<Widget> _buildDefaultActions<T extends Enum>({
+  /// [left] not used enum
+  /// [exist] used enum with column object
+  /// [fixedIndex] not editable index (exclusive)
+  List<Widget> _buildActions<T extends Enum>({
     required int index,
     required List<T> left,
-    required List<TableColumnConfig<T>> columns,
+    required List<TableColumnConfig<T>> exist,
     required void Function(Map<String, Object?> data) setter,
     Axis axis = .horizontal,
+    int fixedIndex = 0,
+    Map<T, String>? typeChanger,
   }) {
+    final isFixed = index < fixedIndex;
     return [
-      MenuItemButton(
-        onPressed: () async {
-          final column = columns[index];
-          final result = await showDialog<String>(
-            context: context,
-            builder: (BuildContext context) {
-              final String title = (column.type as dynamic).title;
-              return SingleTextDialog(
-                validator: Validator.textLimit('$title的標題', 12),
-                keyboardType: .text,
-                selectAll: true,
-                initialValue: column.title ?? title,
-                title: Text('$title的標題'),
-              );
+      if (typeChanger != null)
+        for (final entry in typeChanger.entries)
+          MenuItemButton(
+            onPressed: () async {
+              setState(() {
+                setter(exist[index].toJson()..['type'] = entry.key.index);
+              });
             },
-          );
+            leadingIcon: const Icon(Icons.title_outlined),
+            child: Text(entry.value),
+          ),
+      if (!isFixed)
+        MenuItemButton(
+          onPressed: () async {
+            final item = exist[index];
+            final result = await showDialog<String>(
+              context: context,
+              builder: (BuildContext context) {
+                final String title = (item.type as dynamic).title;
+                return SingleTextDialog(
+                  validator: Validator.textLimit(S.printerReceiptComponentTableTitleLabel(title), 12),
+                  keyboardType: .text,
+                  selectAll: true,
+                  initialValue: item.title ?? title,
+                  title: Text(S.printerReceiptComponentTableTitleLabel(title)),
+                );
+              },
+            );
 
-          if (result != null) {
-            setState(() {
-              setter(column.toJson()..['title'] = result);
-            });
-          }
-        },
-        leadingIcon: const Icon(Icons.edit_sharp),
-        child: const Text('調整標題'),
-      ),
-      MenuItemButton(
-        onPressed: () async {
-          final column = columns[index];
-          final result = await showDialog<String>(
-            context: context,
-            builder: (BuildContext context) {
-              final String title = (column.type as dynamic).title;
-              return SingleTextDialog(
-                validator: Validator.positiveInt('$title的欄寬', maximum: 300, minimum: 10),
-                keyboardType: .number,
-                selectAll: true,
-                initialValue: column.title ?? title,
-                title: Text('$title的欄寬'),
-              );
-            },
-          );
+            if (result != null) {
+              setState(() {
+                setter(item.toJson()..['title'] = result);
+              });
+            }
+          },
+          leadingIcon: const Icon(Icons.edit_sharp),
+          child: Text(S.printerReceiptComponentTableTitleBtn),
+        ),
+      if (!isFixed && axis == .horizontal)
+        MenuItemButton(
+          onPressed: () async {
+            final item = exist[index];
+            final result = await showDialog<String>(
+              context: context,
+              builder: (BuildContext context) {
+                final double width = (item.type as dynamic).width;
+                return SingleTextDialog(
+                  validator: Validator.positiveInt(
+                    S.printerReceiptComponentTableWidthLabel(title),
+                    maximum: 300,
+                    minimum: 10,
+                  ),
+                  keyboardType: .number,
+                  selectAll: true,
+                  initialValue: (item.width ?? width).toStringAsFixed(0),
+                  title: Text(S.printerReceiptComponentTableWidthLabel(title)),
+                );
+              },
+            );
 
-          if (result != null) {
-            setState(() {
-              setter(column.toJson()..['width'] = (int.tryParse(result) ?? 10).toDouble());
-            });
-          }
-        },
-        leadingIcon: const Icon(Icons.open_in_full_sharp),
-        child: Text(axis == .horizontal ? '調整欄寬' : '調整欄高'),
-      ),
-      if (left.isNotEmpty && index > 0)
+            if (result != null) {
+              setState(() {
+                setter(item.toJson()..['width'] = (int.tryParse(result) ?? 10).toDouble());
+              });
+            }
+          },
+          leadingIcon: const Icon(Icons.open_in_full_sharp),
+          child: Text(S.printerReceiptComponentTableWidthBtn),
+        ),
+      if (left.isNotEmpty && index >= fixedIndex)
         SubmenuButton(
           menuChildren: left
               .map(
                 (e) => MenuItemButton(
                   onPressed: () => setState(() {
-                    columns.insert(index, TableColumnConfig(e));
+                    exist.insert(index, TableColumnConfig(e));
                   }),
                   child: Text((e as dynamic).title),
                 ),
               )
               .toList(),
           leadingIcon: const Icon(Icons.add_sharp),
-          child: Text(axis == .horizontal ? '向左插入1欄' : '向上插入1欄'),
+          child: Text(
+            axis == .horizontal
+                ? S.printerReceiptComponentTableInsertBtnLeft
+                : S.printerReceiptComponentTableInsertBtnUp,
+          ),
         ),
-      if (left.isNotEmpty && index < columns.length - 1)
+      if (left.isNotEmpty)
         SubmenuButton(
           menuChildren: left
               .map(
                 (e) => MenuItemButton(
                   onPressed: () => setState(() {
-                    columns.insert(index + 1, TableColumnConfig(e));
+                    exist.insert(index + 1, TableColumnConfig(e));
                   }),
                   child: Text((e as dynamic).title),
                 ),
               )
               .toList(),
           leadingIcon: const Icon(Icons.add_sharp),
-          child: Text(axis == .horizontal ? '向右插入1欄' : '向下插入1欄'),
+          child: Text(
+            axis == .horizontal
+                ? S.printerReceiptComponentTableInsertBtnRight
+                : S.printerReceiptComponentTableInsertBtnDown,
+          ),
         ),
-      if (index > 0)
+      if (index > fixedIndex)
         MenuItemButton(
           onPressed: () => setState(() {
-            final column = columns.removeAt(index);
-            columns.insert(index - 1, column);
+            final column = exist.removeAt(index);
+            exist.insert(index - 1, column);
           }),
           leadingIcon: const Icon(Icons.swap_horiz_sharp),
-          child: Text(axis == .horizontal ? '向左移動' : '向上移動'),
+          child: Text(
+            axis == .horizontal ? S.printerReceiptComponentTableMoveBtnLeft : S.printerReceiptComponentTableMoveBtnUp,
+          ),
         ),
-      if (index < columns.length - 1)
+      if (index < exist.length - 1 && index >= fixedIndex)
         MenuItemButton(
           onPressed: () => setState(() {
-            final column = columns.removeAt(index);
-            columns.insert(index + 1, column);
+            final column = exist.removeAt(index);
+            exist.insert(index + 1, column);
           }),
           leadingIcon: const Icon(Icons.swap_horiz_sharp),
-          child: Text(axis == .horizontal ? '向右移動' : '向下移動'),
+          child: Text(
+            axis == .horizontal
+                ? S.printerReceiptComponentTableMoveBtnRight
+                : S.printerReceiptComponentTableMoveBtnDown,
+          ),
         ),
-      if (columns.length > 1)
+      if (exist.length > 1 && !isFixed)
         MenuItemButton(
           onPressed: () => setState(() {
-            columns.removeAt(index);
+            exist.removeAt(index);
           }),
           leadingIcon: const Icon(Icons.delete_sharp),
-          child: const Text('刪除欄'),
+          child: Text(S.printerReceiptComponentTableDeleteBtn),
         ),
     ];
   }
@@ -488,7 +552,7 @@ class _TextEditorViewState extends State<_TextEditorView> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final toolbarAbove = MediaQuery.sizeOf(context).width <= Breakpoint.medium.max;
+    final toolbarAbove = MediaQuery.sizeOf(context).width > Breakpoint.medium.max;
     final toolbar = Container(
       padding: const .symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
@@ -500,7 +564,13 @@ class _TextEditorViewState extends State<_TextEditorView> {
       width: .infinity,
       child: SingleChildScrollView(
         scrollDirection: .horizontal,
-        child: Row(spacing: 2.0, children: _buildToolbarButtons()),
+        child: Row(
+          spacing: 2.0,
+          children: _buildToolbarButtons(
+            menuStyle: MenuStyle(alignment: toolbarAbove ? .bottomLeft : .topLeft),
+            menuAlignmentOffset: Offset(0, toolbarAbove ? 1 : -1),
+          ),
+        ),
       ),
     );
     return StyledWrapper(
@@ -519,22 +589,35 @@ class _TextEditorViewState extends State<_TextEditorView> {
     );
   }
 
-  List<Widget> _buildToolbarButtons() {
+  List<Widget> _buildToolbarButtons({required MenuStyle menuStyle, required Offset menuAlignmentOffset}) {
     return [
       PlaceholderSelector(
         controller: _placeholderController,
-        tooltip: S.printerReceiptComponentLabelTextPlaceholder,
+        tooltip: S.printerReceiptComponentTextPlaceholder,
+        menuStyle: menuStyle,
+        menuAlignmentOffset: menuAlignmentOffset,
         placeholders: TextFieldPlaceholderType.values
             .where((e) => !e.unSelectable)
             .map((e) => e.buildPlaceholder(onMenuSelected: _onPlaceholderSelected))
             .toList(),
+        menuChildrenWrapper: (children) => [
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 220),
+            child: SingleChildScrollView(
+              primary: false,
+              child: Column(mainAxisSize: .min, children: children),
+            ),
+          ),
+        ],
       ),
       // Font Styles
       const VerticalDivider(width: 1, thickness: 1, indent: 6, endIndent: 6),
       FontSizeField(key: const Key('editor_ant.font_size_field'), controller: _fontSizeController, maximum: 40),
       ColorSelector(
-        tooltip: S.printerReceiptComponentLabelTextColor,
+        tooltip: S.printerReceiptComponentTextColor,
         controller: _colorController,
+        menuStyle: menuStyle,
+        menuAlignmentOffset: menuAlignmentOffset,
         colors: const [
           [null, Colors.black, Color(0xFF212121), Color(0xFF616161)],
           [Color(0xFF9E9E9E), Color(0xFFB0B0B0), Color(0xFFE0E0E0), Colors.white],
@@ -542,22 +625,24 @@ class _TextEditorViewState extends State<_TextEditorView> {
       ),
       // Style buttons
       const VerticalDivider(width: 1, thickness: 1, indent: 6, endIndent: 6),
-      BoldButton(tooltip: S.printerReceiptComponentLabelTextBold),
-      ItalicButton(tooltip: S.printerReceiptComponentLabelTextItalic),
-      StrikethroughButton(tooltip: S.printerReceiptComponentLabelTextStrikeThrough),
-      UnderlineButton(tooltip: S.printerReceiptComponentLabelTextUnderline),
+      BoldButton(tooltip: S.printerReceiptComponentTextBold),
+      ItalicButton(tooltip: S.printerReceiptComponentTextItalic),
+      StrikethroughButton(tooltip: S.printerReceiptComponentTextStrikeThrough),
+      UnderlineButton(tooltip: S.printerReceiptComponentTextUnderline),
       // Paragraph styles
       const VerticalDivider(width: 1, thickness: 1, indent: 6, endIndent: 6),
       TextAlignSelector(
         value: _textAlign,
+        menuStyle: menuStyle,
+        menuAlignmentOffset: menuAlignmentOffset,
         alignments: const [TextAlign.left, TextAlign.center, TextAlign.right, TextAlign.justify],
         alignmentNames: [
-          S.printerReceiptComponentLabelTextAlignLeft,
-          S.printerReceiptComponentLabelTextAlignCenter,
-          S.printerReceiptComponentLabelTextAlignRight,
-          S.printerReceiptComponentLabelTextAlignJustify,
+          S.printerReceiptComponentTextAlignLeft,
+          S.printerReceiptComponentTextAlignCenter,
+          S.printerReceiptComponentTextAlignRight,
+          S.printerReceiptComponentTextAlignJustify,
         ],
-        tooltip: S.printerReceiptComponentLabelTextAlign,
+        tooltip: S.printerReceiptComponentTextAlign,
         controller: _textAlignController,
       ),
     ];
@@ -575,7 +660,7 @@ class _TextEditorViewState extends State<_TextEditorView> {
           autofocus: true,
           maxLines: null,
           minLines: null,
-          decoration: .collapsed(hintText: S.printerReceiptComponentLabelTextValue),
+          decoration: .collapsed(hintText: S.printerReceiptComponentTextValue),
         );
       },
     );
@@ -591,7 +676,7 @@ class _TextEditorViewState extends State<_TextEditorView> {
     _controller.fromParts(
       parts: widget.component.texts.map((e) => e.part).toList(),
       placeholderParser: (PlaceholderPart placeholder) {
-        final text = S.printerReceiptComponentLabelTextPlaceholders(placeholder.text);
+        final text = S.printerReceiptComponentTextPlaceholders(placeholder.text);
         return placeholder is MenuPlaceholderPart
             ? MenuPlaceholder(
                 id: placeholder.text,
@@ -628,9 +713,9 @@ class _TextEditorViewState extends State<_TextEditorView> {
       builder: (context) {
         return SingleTextDialog(
           initialValue: ph.meta,
-          validator: Validator.textLimit(S.printerReceiptComponentLabelTextPlaceholderDateLabel, 1000),
+          validator: Validator.textLimit(S.printerReceiptComponentTextPlaceholderDateLabel, 1000),
           keyboardType: .text,
-          title: Text(S.printerReceiptComponentLabelTextPlaceholderDateLabel),
+          title: Text(S.printerReceiptComponentTextPlaceholderDateLabel),
           hints: const [
             'yy/M/d',
             'yyyy/M/d',
@@ -642,9 +727,9 @@ class _TextEditorViewState extends State<_TextEditorView> {
             'yyyy-MM-dd HH:mm:ss',
           ],
           decoration: InputDecoration(
-            hintText: S.printerReceiptComponentLabelTextPlaceholderDateHint,
+            hintText: S.printerReceiptComponentTextPlaceholderDateHint,
             border: const OutlineInputBorder(),
-            helper: Linkify.fromString(S.printerReceiptComponentLabelTextPlaceholderDateHelper),
+            helper: Linkify.fromString(S.printerReceiptComponentTextPlaceholderDateHelper),
           ),
         );
       },

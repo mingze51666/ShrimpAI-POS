@@ -64,7 +64,7 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text('yMMMd Hms'));
       await tester.pumpAndSettle();
-      expect(find.text(S.printerReceiptComponentLabelTextPlaceholderDateLabel), findsOneWidget);
+      expect(find.text(S.printerReceiptComponentTextPlaceholderDateLabel), findsOneWidget);
 
       await tester.tap(find.text('Cancel'));
       await tester.pumpAndSettle();
@@ -284,7 +284,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // enter negative number in padding
-      final paddingField = find.widgetWithText(TextFormField, S.printerReceiptComponentLabelPaddingAll);
+      final paddingField = find.widgetWithText(TextFormField, S.printerReceiptComponentPaddingAll);
       await tester.enterText(paddingField, '3');
       await tester.tap(find.byKey(const Key('modal.save')).last);
       await tester.pumpAndSettle();
@@ -298,14 +298,14 @@ void main() {
       await tester.pumpAndSettle();
 
       // split padding
-      await tester.tap(find.text(S.printerReceiptComponentLabelPaddingLabel));
+      await tester.tap(find.text(S.printerReceiptComponentPaddingLabel));
       await tester.pumpAndSettle();
 
       // enter valid number and save
-      await tester.enterText(find.widgetWithText(TextFormField, S.printerReceiptComponentLabelPaddingLeft), '1');
-      await tester.enterText(find.widgetWithText(TextFormField, S.printerReceiptComponentLabelPaddingTop), '2');
-      await tester.enterText(find.widgetWithText(TextFormField, S.printerReceiptComponentLabelPaddingRight), '3');
-      await tester.enterText(find.widgetWithText(TextFormField, S.printerReceiptComponentLabelPaddingBottom), '4');
+      await tester.enterText(find.widgetWithText(TextFormField, S.printerReceiptComponentPaddingLeft), '1');
+      await tester.enterText(find.widgetWithText(TextFormField, S.printerReceiptComponentPaddingTop), '2');
+      await tester.enterText(find.widgetWithText(TextFormField, S.printerReceiptComponentPaddingRight), '3');
+      await tester.enterText(find.widgetWithText(TextFormField, S.printerReceiptComponentPaddingBottom), '4');
       await tester.pumpAndSettle();
 
       await tester.tap(find.byKey(const Key('modal.save')).last);

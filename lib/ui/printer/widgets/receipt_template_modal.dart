@@ -95,11 +95,15 @@ class _ReceiptTemplateModalState extends State<ReceiptTemplateModal> with ItemMo
 
   @override
   Widget? buildFloatingActionButton() {
-    return FloatingActionButton.extended(
-      key: const Key('receipt_tpl.add_component'),
-      icon: const Icon(Icons.add),
-      label: Text(S.printerReceiptComponentTitleAdd),
-      onPressed: _onAddComponent,
+    return Builder(
+      builder: (context) {
+        return FloatingActionButton.extended(
+          key: const Key('receipt_tpl.add_component'),
+          icon: const Icon(Icons.add),
+          label: Text(S.printerReceiptComponentTitleAdd),
+          onPressed: () => _onAddComponent(context),
+        );
+      },
     );
   }
 
@@ -130,7 +134,7 @@ class _ReceiptTemplateModalState extends State<ReceiptTemplateModal> with ItemMo
           child: DefaultTextStyle(
             style: PrinterReceiptView.defaultTextStyle,
             child: MyReorderableList(
-              padding: const .fromLTRB(24.0, 16, 24.0, 24.0),
+              padding: const .fromLTRB(24.0, 16, 24.0, kFABSpacing),
               items: _components,
               onReorder: () => _rebuildComponents.value = !_rebuildComponents.value,
               itemBuilder: _buildComponentTile,
@@ -181,7 +185,7 @@ class _ReceiptTemplateModalState extends State<ReceiptTemplateModal> with ItemMo
     );
   }
 
-  void _onAddComponent() async {
+  void _onAddComponent(BuildContext context) async {
     final wanted = await showPositionedMenu<ReceiptComponentType>(
       context,
       actions: [

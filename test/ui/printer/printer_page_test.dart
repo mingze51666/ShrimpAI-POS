@@ -170,9 +170,9 @@ void main() {
 
       await tester.tap(find.text(S.printerBtnConnect).last);
       await tester.pumpAndSettle();
-      expect(find.text(S.printerStatusConnecting), findsWidgets);
+      expect(find.text(S.printerStatusConnected), findsWidgets);
 
-      await tester.tap(find.text(S.printerStatusConnecting).last);
+      await tester.tap(find.text(S.printerStatusConnected).last);
       await tester.pumpAndSettle();
       await tester.tap(find.text(S.printerBtnDisconnect).last);
       await tester.pumpAndSettle();
@@ -180,11 +180,11 @@ void main() {
 
       await tester.tap(find.text(S.printerBtnConnect).last);
       await tester.pumpAndSettle();
-      await tester.tap(find.text(S.printerStatusConnecting).last);
+      await tester.tap(find.text(S.printerStatusConnected).last);
       await tester.pumpAndSettle();
       await tester.tap(find.text(S.printerBtnRetry).last);
       await tester.pumpAndSettle();
-      expect(find.text(S.printerStatusConnecting), findsWidgets);
+      expect(find.text(S.printerStatusConnected), findsWidgets);
 
       await tester.enterText(find.byKey(const Key('printer.name')), 'evan');
       await tester.tap(find.text(S.printerAutoConnLabel));
@@ -192,7 +192,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // connect in modal, should update page's status
-      expect(find.text(S.printerStatusConnecting), findsWidgets);
+      expect(find.text(S.printerStatusConnected), findsWidgets);
       expect(find.text('evan'), findsWidgets);
 
       verify(storage.set(any, {'printer.id.name': 'evan', 'printer.id.autoConnect': true})).called(1);
