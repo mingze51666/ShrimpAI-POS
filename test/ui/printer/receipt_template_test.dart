@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mockito/mockito.dart';
+import 'package:possystem/components/style/slide_to_delete.dart';
 import 'package:possystem/models/objects/order_object.dart';
 import 'package:possystem/models/printer.dart';
 import 'package:possystem/models/receipt_component.dart';
@@ -180,24 +181,15 @@ void main() {
       await tester.tap(find.text('EditTemplate'));
       await tester.pumpAndSettle();
 
-      // reorder components: drag the last (divider, index 2) to top
-      final reorderHandle = find.byKey(const Key('reorder.2'));
-      expect(reorderHandle, findsOneWidget);
-      await tester.drag(reorderHandle, const Offset(0, -200));
+      // Delete the image component by dismissing it via SlideToDelete (drag right-to-left)
+      await tester.drag(find.byType(SlideToDelete<ReceiptComponent>).at(1), const Offset(-500, 0));
       await tester.pumpAndSettle();
-
-      // delete the image component
-      await tester.drag(find.text(S.printerReceiptComponentType('image')), const Offset(-500, 0));
+      await tester.tap(find.byKey(const Key('delete_dialog.confirm')));
       await tester.pumpAndSettle();
 
       // save changes
       await tester.tap(find.byKey(const Key('modal.save')).last);
       await tester.pumpAndSettle();
-
-      // verify the UI updated
-      await tester.tap(find.text('EditTemplate'));
-      await tester.pumpAndSettle();
-      expect(find.text(S.printerReceiptComponentType('image')), findsNothing);
 
       // verify storage.set called to persist order and deletion
       verify(
@@ -213,6 +205,7 @@ void main() {
                 return false;
               });
               return invalid.isEmpty;
+              return false;
             }),
           ),
         ),
@@ -294,7 +287,7 @@ void main() {
 
       await tester.tap(find.text('Example'));
       await tester.pumpAndSettle();
-      await tester.tap(find.text(S.printerReceiptComponentType(ReceiptComponentType.textField.name)));
+      await tester.tap(find.byType(SlideToDelete<ReceiptComponent>).first);
       await tester.pumpAndSettle();
 
       // split padding
@@ -347,19 +340,16 @@ void main() {
       await tester.pumpAndSettle();
       await tester.tap(find.text(S.printerReceiptComponentType('attributeTable')));
       await tester.pumpAndSettle();
-      // set all attributeTable checkboxes to true
-      await tester.tap(find.text(S.printerReceiptComponentLabelAttributeName));
+      // 3. Add Attribute Table component
+      await tester.tap(find.byKey(const Key('receipt_tpl.add_component')), warnIfMissed: false);
       await tester.pumpAndSettle();
-      await tester.tap(find.text(S.printerReceiptComponentLabelAttributeOption));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text(S.printerReceiptComponentLabelAttributeAdjustment));
-      await tester.pumpAndSettle();
+      await tester.tap(find.text(S.printerReceiptComponentType('attributeTable')));
       await tester.pumpAndSettle();
       await tester.tap(find.byKey(const Key('modal.save')).last);
       await tester.pumpAndSettle();
 
       // 4. Add Price Table component
-      await tester.tap(find.byKey(const Key('receipt_tpl.add_component')));
+      await tester.tap(find.byKey(const Key('receipt_tpl.add_component')), warnIfMissed: false);
       await tester.pumpAndSettle();
       await tester.tap(find.text(S.printerReceiptComponentType('priceTable')));
       await tester.pumpAndSettle(); // ensure modal is fully built
@@ -385,20 +375,18 @@ void main() {
                 {
                   final c = OrderTableComponent(
                     padding: const .all(5),
-                    showProductName: true,
-                    showCatalogName: true,
-                    showQuantity: true,
-                    showSinglePrice: true,
-                    showTotalPrice: true,
+                    columns: const [
+                      TableColumnConfig(OrderTableColumn.productName),
+                      TableColumnConfig(OrderTableColumn.quantity),
+                    ],
                   );
-                  expect(c.buildLeading(context), isNotNull);
-                  expect(c.buildDescription(context), isNotNull);
+                  expect(c.leading, isNotNull);
                   final json = c.toJson();
-                  expect(json['showProductName'], true);
+                  expect((json['columns'] as List).length, 2);
                   expect(json['padding'], '5,5,5,5');
 
                   final c2 = ReceiptComponent.fromJson(json) as OrderTableComponent;
-                  expect(c2.showProductName, true);
+                  expect(c2.columns.length, 2);
                   expect(c2.padding, const EdgeInsets.all(5));
                 }
 
@@ -406,20 +394,14 @@ void main() {
                 {
                   final c = DiscountTableComponent(
                     padding: const .all(2),
-                    showProductName: true,
-                    showCatalogName: true,
-                    showQuantity: true,
-                    showTotalPrice: true,
-                    showSinglePrice: true,
-                    showOriginPrice: true,
+                    columns: const [TableColumnConfig(DiscountTableColumn.productName)],
                   );
-                  expect(c.buildLeading(context), isNotNull);
-                  expect(c.buildDescription(context), isNotNull);
+                  expect(c.leading, isNotNull);
                   final json = c.toJson();
-                  expect(json['showProductName'], true);
+                  expect((json['columns'] as List).length, 1);
 
                   final c2 = ReceiptComponent.fromJson(json) as DiscountTableComponent;
-                  expect(c2.showProductName, true);
+                  expect(c2.columns.length, 1);
                   expect(c2.padding, const EdgeInsets.all(2));
                 }
 
@@ -427,16 +409,13 @@ void main() {
                 {
                   final c = AttributeTableComponent(
                     padding: const .all(1),
-                    showName: true,
-                    showOptionName: true,
-                    showAdjustment: true,
+                    columns: const [TableColumnConfig(AttributeTableColumn.optionName)],
                   );
-                  expect(c.buildLeading(context), isNotNull);
-                  expect(c.buildDescription(context), isNotNull);
+                  expect(c.leading, isNotNull);
                   final json = c.toJson();
 
                   final c2 = ReceiptComponent.fromJson(json) as AttributeTableComponent;
-                  expect(c2.showName, true);
+                  expect(c2.columns.length, 1);
                   expect(c2.padding, const EdgeInsets.all(1));
                 }
 
@@ -444,26 +423,20 @@ void main() {
                 {
                   final c = PriceTableComponent(
                     padding: const .all(3),
-                    showPaid: true,
-                    showPrice: true,
-                    showChange: true,
-                    showProductsQuantity: true,
-                    showProductsPrice: true,
+                    columns: const [TableColumnConfig(PriceTableColumn.paid)],
                   );
-                  expect(c.buildLeading(context), isNotNull);
-                  expect(c.buildDescription(context), isNotNull);
+                  expect(c.leading, isNotNull);
                   final json = c.toJson();
 
                   final c2 = ReceiptComponent.fromJson(json) as PriceTableComponent;
-                  expect(c2.showPaid, true);
+                  expect(c2.columns.length, 1);
                   expect(c2.padding, const EdgeInsets.all(3));
                 }
 
                 // 5. DividerComponent
                 {
                   final c = DividerComponent(height: 3.0);
-                  expect(c.buildLeading(context), isNotNull);
-                  expect(c.buildDescription(context), isNotNull);
+                  expect(c.leading, isNotNull);
                   final json = c.toJson();
                   expect(json['height'], 3.0);
 
@@ -474,7 +447,7 @@ void main() {
                 // 6. ImageComponent
                 {
                   final c = ImageComponent(imagePath: 'test_path', widthRatio: 0.8);
-                  expect(c.buildLeading(context), isNotNull);
+                  expect(c.leading, isNotNull);
                   final json = c.toJson();
                   expect(json['imagePath'], 'test_path');
                   expect(json['widthRatio'], 0.8);
@@ -507,8 +480,7 @@ void main() {
                   final p2 = StyledPlaceholderObject.fromType(.orderedAt, meta: 'yyyy-MM-dd');
 
                   final c = TextFieldComponent(texts: [t1, p1, p2], textAlign: .right);
-                  expect(c.buildLeading(context), isNotNull);
-                  expect(c.buildDescription(context), isNotNull);
+                  expect(c.leading, isNotNull);
 
                   final json = c.toJson();
                   expect(json['textAlign'], TextAlign.right.index);

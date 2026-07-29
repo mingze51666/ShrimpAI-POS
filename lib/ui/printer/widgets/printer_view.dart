@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:possystem/components/imageable_container.dart';
@@ -53,7 +52,7 @@ class _PrinterViewState extends State<PrinterView> {
     return ListenableBuilder(
       listenable: widget.printer,
       builder: (context, child) {
-        return widget.printer.connected || kDebugMode ? _buildConnected() : _buildDisconnected();
+        return widget.printer.connected ? _buildConnected() : _buildDisconnected();
       },
     );
   }
