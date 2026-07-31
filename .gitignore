@@ -63,3 +63,8 @@ Pipfile.lock
 
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
+
+# 签名与密钥（绝不入库）
+android/key.properties
+android/app/*.jks
+android/app/google-services.json
