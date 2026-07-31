@@ -504,7 +504,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_blue_plus:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: flutter_blue_plus
       sha256: bfae0d24619940516261045d8b3c74b4c80ca82222426e05ffbf7f3ea9dbfb1a
@@ -969,11 +969,9 @@ packages:
   packages:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "2026.05.03-04"
-      resolved-ref: "977c293c778a84d17de866a96b55ff64b452833e"
-      url: "https://github.com/evan361425/flutter-pos-packages"
-    source: git
+      path: "packages/flutter-pos-packages-mock"
+      relative: true
+    source: path
     version: "0.0.1"
   path:
     dependency: transitive
