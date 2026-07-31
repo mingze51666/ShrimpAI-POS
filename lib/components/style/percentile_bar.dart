@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class PercentileBar extends StatefulWidget {
   final num total;

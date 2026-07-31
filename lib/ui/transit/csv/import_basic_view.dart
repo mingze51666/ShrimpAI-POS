@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/models/xfile.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/exporter/csv_exporter.dart';
-import 'package:possystem/ui/transit/formatter/field_formatter.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
-import 'package:possystem/ui/transit/previews/preview_page.dart';
-import 'package:possystem/ui/transit/widgets.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/csv_exporter.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/field_formatter.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/ui/transit/previews/preview_page.dart';
+import 'package:shrimpai_pos/ui/transit/widgets.dart';
 
 class ImportBasicHeader extends ImportBasicBaseHeader {
   final CSVExporter exporter;

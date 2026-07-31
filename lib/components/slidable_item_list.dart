@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/slide_to_delete.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/slide_to_delete.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class SlidableItemList<T, U> extends StatelessWidget {
   final SlidableItemDelegate<T, U> delegate;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/model_object.dart';
-import 'package:possystem/models/repository.dart';
-import 'package:possystem/models/xfile.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/model_object.dart';
+import 'package:shrimpai_pos/models/repository.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 enum ModelStatus { normal, staged, updated }
 

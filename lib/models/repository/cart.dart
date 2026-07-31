@@ -1,16 +1,16 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/menu/product.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/order/cart_product.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
-import 'package:possystem/models/printer.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/models/repository/stashed_orders.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/menu/product.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/order/cart_product.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/models/printer.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/models/repository/stashed_orders.dart';
 
 import 'cashier.dart';
 import 'seller.dart';

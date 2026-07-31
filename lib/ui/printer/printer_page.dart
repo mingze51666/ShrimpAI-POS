@@ -1,17 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/dialog/responsive_dialog.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/slidable_item_list.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/route_buttons.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/models/printer.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/printer/widgets/printer_view.dart';
+import 'package:shrimpai_pos/components/dialog/responsive_dialog.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/slidable_item_list.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/route_buttons.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/models/printer.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/printer/widgets/printer_view.dart';
 
 class PrinterPage extends StatelessWidget {
   const PrinterPage({super.key});

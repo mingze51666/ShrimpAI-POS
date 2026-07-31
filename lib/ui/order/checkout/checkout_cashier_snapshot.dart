@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/settings/currency_setting.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/settings/currency_setting.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class CheckoutCashierSnapshot extends StatefulWidget {
   final ValueNotifier<num> price;

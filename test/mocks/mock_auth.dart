@@ -1,6 +1,6 @@
 import 'package:http/http.dart';
 import 'package:mockito/annotations.dart';
-import 'package:possystem/services/auth.dart';
+import 'package:shrimpai_pos/services/auth.dart';
 
 import 'mock_auth.mocks.dart';
 

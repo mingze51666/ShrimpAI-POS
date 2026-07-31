@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/components/tutorial.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/printer.dart';
-import 'package:possystem/services/bluetooth.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/printer/widgets/printer_info_dialog.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/components/tutorial.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/printer.dart';
+import 'package:shrimpai_pos/services/bluetooth.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/printer/widgets/printer_info_dialog.dart';
 
 class PrinterButtonView extends StatefulWidget {
   const PrinterButtonView({super.key});

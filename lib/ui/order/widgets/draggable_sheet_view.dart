@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/scrollable_draggable_sheet.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/ui/order/cart/cart_snapshot.dart';
+import 'package:shrimpai_pos/components/scrollable_draggable_sheet.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/ui/order/cart/cart_snapshot.dart';
 
 class DraggableSheetView extends StatefulWidget {
   final Widget row1;

@@ -3,8 +3,8 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/services/database.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/services/database.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart' show databaseFactoryFfi, sqfliteFfiInit;
 

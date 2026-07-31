@@ -1,11 +1,11 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/services/cache.dart';
-import 'package:possystem/settings/language_setting.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/services/cache.dart';
+import 'package:shrimpai_pos/settings/language_setting.dart';
+import 'package:shrimpai_pos/translator.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 

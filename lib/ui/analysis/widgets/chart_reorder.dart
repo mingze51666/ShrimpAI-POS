@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/scaffold/reorderable_scaffold.dart';
-import 'package:possystem/models/analysis/analysis.dart';
-import 'package:possystem/models/analysis/chart.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/scaffold/reorderable_scaffold.dart';
+import 'package:shrimpai_pos/models/analysis/analysis.dart';
+import 'package:shrimpai_pos/models/analysis/chart.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ChartReorder extends StatelessWidget {
   const ChartReorder({super.key});

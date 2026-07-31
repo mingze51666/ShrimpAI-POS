@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/single_row_warp.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/menu/catalog.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/order/order_page.dart';
+import 'package:shrimpai_pos/components/style/single_row_warp.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/menu/catalog.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/order/order_page.dart';
 
 class OrderCatalogListView extends StatefulWidget {
   final List<Catalog> catalogs;

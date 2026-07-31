@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/components/dialog/confirm_dialog.dart';
-import 'package:possystem/components/item_loader.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/stashed_orders.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/order/checkout/checkout_cashier_calculator.dart';
-import 'package:possystem/ui/order/order_page.dart';
+import 'package:shrimpai_pos/components/dialog/confirm_dialog.dart';
+import 'package:shrimpai_pos/components/item_loader.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/stashed_orders.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/order/checkout/checkout_cashier_calculator.dart';
+import 'package:shrimpai_pos/ui/order/order_page.dart';
 
 class StashedOrderListView extends StatelessWidget {
   const StashedOrderListView({super.key});

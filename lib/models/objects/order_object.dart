@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'dart:math';
 
 import 'package:intl/intl.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/menu/product_ingredient.dart';
-import 'package:possystem/models/objects/order_attribute_object.dart';
-import 'package:possystem/models/order/cart_product.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/seller.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/menu/product_ingredient.dart';
+import 'package:shrimpai_pos/models/objects/order_attribute_object.dart';
+import 'package:shrimpai_pos/models/order/cart_product.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
 
 /// Order in object mode, helps I/O in DB.
 class OrderObject extends _Object {

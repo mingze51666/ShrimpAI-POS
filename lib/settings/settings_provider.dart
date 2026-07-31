@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/settings/checkout_warning.dart';
-import 'package:possystem/settings/collect_events_setting.dart';
+import 'package:shrimpai_pos/settings/checkout_warning.dart';
+import 'package:shrimpai_pos/settings/collect_events_setting.dart';
 
 import 'currency_setting.dart';
 import 'language_setting.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/settings/language_setting.dart';
+import 'package:shrimpai_pos/settings/language_setting.dart';
 
 void main() {
   group('Language Setting', () {

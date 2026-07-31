@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/empty_body.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/route_buttons.dart';
-import 'package:possystem/components/tutorial.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/stock/widgets/stock_ingredient_list_tile.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/empty_body.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/route_buttons.dart';
+import 'package:shrimpai_pos/components/tutorial.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/stock/widgets/stock_ingredient_list_tile.dart';
 import 'package:provider/provider.dart';
 
 class StockView extends StatefulWidget {

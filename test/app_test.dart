@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/app.dart';
-import 'package:possystem/models/printer.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/settings/settings_provider.dart';
+import 'package:shrimpai_pos/app.dart';
+import 'package:shrimpai_pos/models/printer.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'mocks/mock_cache.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/models/order/order_attribute.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/models/order/order_attribute.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class CheckoutAttributeView extends StatelessWidget {
   final ValueNotifier<num> price;

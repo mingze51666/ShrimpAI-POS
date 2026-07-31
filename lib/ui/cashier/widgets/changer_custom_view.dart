@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/text_divider.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/helpers/validator.dart';
-import 'package:possystem/models/objects/cashier_object.dart';
-import 'package:possystem/models/repository/cashier.dart';
-import 'package:possystem/settings/currency_setting.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/text_divider.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/helpers/validator.dart';
+import 'package:shrimpai_pos/models/objects/cashier_object.dart';
+import 'package:shrimpai_pos/models/repository/cashier.dart';
+import 'package:shrimpai_pos/settings/currency_setting.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ChangerCustomView extends StatefulWidget {
   final VoidCallback afterFavoriteAdded;

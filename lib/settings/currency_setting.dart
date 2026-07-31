@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
-import 'package:possystem/settings/language_setting.dart';
-import 'package:possystem/settings/setting.dart';
+import 'package:shrimpai_pos/settings/language_setting.dart';
+import 'package:shrimpai_pos/settings/setting.dart';
 
 class CurrencySetting extends Setting<CurrencyTypes> {
   static CurrencySetting instance = ._();

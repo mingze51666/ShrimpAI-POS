@@ -1,5 +1,5 @@
-import 'package:possystem/models/repository.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/repository.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 import '../model.dart';
 import '../objects/menu_object.dart';

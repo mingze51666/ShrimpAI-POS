@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:possystem/components/linkify.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/services/bluetooth.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/linkify.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/services/bluetooth.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 void showSnackBar(
   String message, {

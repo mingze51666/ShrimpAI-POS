@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/dialog/slider_text_dialog.dart';
-import 'package:possystem/components/style/percentile_bar.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/helpers/validator.dart';
-import 'package:possystem/models/objects/cashier_object.dart';
-import 'package:possystem/models/repository/cashier.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/dialog/slider_text_dialog.dart';
+import 'package:shrimpai_pos/components/style/percentile_bar.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/helpers/validator.dart';
+import 'package:shrimpai_pos/models/objects/cashier_object.dart';
+import 'package:shrimpai_pos/models/repository/cashier.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class UnitListTile extends StatelessWidget {
   final CashierUnitObject item;

@@ -1,5 +1,5 @@
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/settings/setting.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/settings/setting.dart';
 
 class CheckoutWarningSetting extends Setting<CheckoutWarningTypes> {
   static final CheckoutWarningSetting instance = ._();

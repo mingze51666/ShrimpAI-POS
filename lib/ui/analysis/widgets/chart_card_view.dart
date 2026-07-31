@@ -1,14 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/models/analysis/chart.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/analysis/widgets/reloadable_card.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/models/analysis/chart.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/analysis/widgets/reloadable_card.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ChartCardView extends StatelessWidget {

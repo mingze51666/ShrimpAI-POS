@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/scrollable_draggable_sheet.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/order/checkout/checkout_cashier_calculator.dart';
-import 'package:possystem/ui/order/checkout/checkout_cashier_snapshot.dart';
-import 'package:possystem/ui/order/checkout/stashed_order_list_view.dart';
-import 'package:possystem/ui/order/widgets/order_object_view.dart';
+import 'package:shrimpai_pos/components/scrollable_draggable_sheet.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/order/checkout/checkout_cashier_calculator.dart';
+import 'package:shrimpai_pos/ui/order/checkout/checkout_cashier_snapshot.dart';
+import 'package:shrimpai_pos/ui/order/checkout/stashed_order_list_view.dart';
+import 'package:shrimpai_pos/ui/order/widgets/order_object_view.dart';
 
 import 'checkout/checkout_attribute_view.dart';
 

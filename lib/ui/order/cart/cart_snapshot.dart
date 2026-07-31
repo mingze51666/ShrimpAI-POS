@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/scrollable_draggable_sheet.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/outlined_text.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/scrollable_draggable_sheet.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/outlined_text.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/translator.dart';
 import 'package:provider/provider.dart';
 
 class CartSnapshot extends StatelessWidget {

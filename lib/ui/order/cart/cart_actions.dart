@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/dialog/single_text_dialog.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/helpers/validator.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/dialog/single_text_dialog.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/helpers/validator.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class CartActions extends StatelessWidget {
   const CartActions({super.key});

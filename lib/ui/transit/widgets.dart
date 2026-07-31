@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/info_popup.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
-import 'package:possystem/ui/transit/previews/preview_page.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/info_popup.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/ui/transit/previews/preview_page.dart';
 
 class TransitStateNotifier extends ValueNotifier<String> {
   TransitStateNotifier() : super('_finish');

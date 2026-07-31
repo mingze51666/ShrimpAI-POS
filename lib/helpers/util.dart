@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/settings/currency_setting.dart';
+import 'package:shrimpai_pos/settings/currency_setting.dart';
 import 'package:uuid/uuid.dart';
 
 class Util {

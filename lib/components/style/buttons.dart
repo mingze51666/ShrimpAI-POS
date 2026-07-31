@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class MyCloseButton extends StatelessWidget {
   final bool backgroundIsImage;

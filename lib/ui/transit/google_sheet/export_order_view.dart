@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/sign_in_button.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/components/style/snackbar_actions.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/exporter/google_sheet_exporter.dart';
-import 'package:possystem/ui/transit/google_sheet/spreadsheet_dialog.dart';
-import 'package:possystem/ui/transit/order_widgets.dart';
+import 'package:shrimpai_pos/components/sign_in_button.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/components/style/snackbar_actions.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/google_sheet_exporter.dart';
+import 'package:shrimpai_pos/ui/transit/google_sheet/spreadsheet_dialog.dart';
+import 'package:shrimpai_pos/ui/transit/order_widgets.dart';
 
 class ExportOrderHeader extends TransitOrderHeader {
   final GoogleSheetExporter exporter;

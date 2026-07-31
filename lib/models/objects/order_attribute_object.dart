@@ -1,5 +1,5 @@
-import 'package:possystem/models/order/order_attribute.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/models/order/order_attribute.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
 
 import '../model_object.dart';
 

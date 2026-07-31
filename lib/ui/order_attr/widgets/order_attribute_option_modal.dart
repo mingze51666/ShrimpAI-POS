@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/dialog/confirm_dialog.dart';
-import 'package:possystem/components/scaffold/item_modal.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/helpers/validator.dart';
-import 'package:possystem/models/objects/order_attribute_object.dart';
-import 'package:possystem/models/order/order_attribute.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/dialog/confirm_dialog.dart';
+import 'package:shrimpai_pos/components/scaffold/item_modal.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/helpers/validator.dart';
+import 'package:shrimpai_pos/models/objects/order_attribute_object.dart';
+import 'package:shrimpai_pos/models/order/order_attribute.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class OrderAttributeOptionModal extends StatefulWidget {
   final OrderAttribute attribute;

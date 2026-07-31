@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/item_loader.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/item_loader.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class OrderLoader extends StatefulWidget {
   final ValueNotifier<DateTimeRange> ranger;

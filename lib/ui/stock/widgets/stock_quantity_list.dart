@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/components/slidable_item_list.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/stock/quantity.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/components/slidable_item_list.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/stock/quantity.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class StockQuantityList extends StatelessWidget {
   final List<Quantity> quantities;

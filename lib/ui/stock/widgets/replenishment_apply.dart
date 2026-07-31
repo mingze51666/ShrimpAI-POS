@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/dialog/responsive_dialog.dart';
-import 'package:possystem/components/style/card_info_text.dart';
-import 'package:possystem/models/stock/replenishment.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/dialog/responsive_dialog.dart';
+import 'package:shrimpai_pos/components/style/card_info_text.dart';
+import 'package:shrimpai_pos/models/stock/replenishment.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ReplenishmentPreviewPage extends StatelessWidget {
   final Replenishment item;

@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:possystem/models/analysis/analysis.dart';
-import 'package:possystem/models/analysis/chart_object.dart';
-import 'package:possystem/models/model.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/analysis/analysis.dart';
+import 'package:shrimpai_pos/models/analysis/chart_object.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 enum AnalysisChartType { cartesian, circular }
 

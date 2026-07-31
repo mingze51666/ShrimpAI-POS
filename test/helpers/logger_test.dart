@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/helpers/logger.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
 
 import '../test_helpers/firebase_mocker.dart';
 

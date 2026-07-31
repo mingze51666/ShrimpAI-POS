@@ -1,4 +1,4 @@
-import 'package:possystem/helpers/logger.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Cache {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/order/cart/cart_actions.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/order/cart/cart_actions.dart';
 import 'package:provider/provider.dart';
 
 class CartMetadataView extends StatelessWidget {

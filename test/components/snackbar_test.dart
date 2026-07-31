@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/services/bluetooth.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/services/bluetooth.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 import '../test_helpers/translator.dart';
 

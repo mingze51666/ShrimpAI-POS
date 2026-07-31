@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/dialog/responsive_dialog.dart';
-import 'package:possystem/constants/constant.dart';
+import 'package:shrimpai_pos/components/dialog/responsive_dialog.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
 
 mixin ItemModal<T extends StatefulWidget> on State<T> {
   final formKey = GlobalKey<FormState>();

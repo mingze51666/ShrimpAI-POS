@@ -1,4 +1,4 @@
-import 'package:possystem/helpers/util.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
 
 import '../menu/catalog.dart';
 import '../menu/product.dart';

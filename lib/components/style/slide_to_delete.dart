@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/dialog/delete_dialog.dart';
-import 'package:possystem/constants/icons.dart';
+import 'package:shrimpai_pos/components/dialog/delete_dialog.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
 
 class SlideToDelete<T> extends StatelessWidget {
   final T item;

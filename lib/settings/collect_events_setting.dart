@@ -1,7 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/settings/setting.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/settings/setting.dart';
 
 class CollectEventsSetting extends Setting<bool> {
   static final CollectEventsSetting instance = ._();

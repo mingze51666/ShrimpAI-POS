@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:possystem/helpers/logger.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
 import 'package:sqflite/sqflite.dart' show Database;
 
 /// Helper to migrate DB schema from legacy.

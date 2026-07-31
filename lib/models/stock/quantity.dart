@@ -1,7 +1,7 @@
-import 'package:possystem/models/model.dart';
-import 'package:possystem/models/objects/stock_object.dart';
-import 'package:possystem/models/repository/quantities.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/models/objects/stock_object.dart';
+import 'package:shrimpai_pos/models/repository/quantities.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 class Quantity extends Model<QuantityObject> with ModelStorage<QuantityObject>, ModelSearchable<QuantityObject> {
   /// between 0 ~ 1

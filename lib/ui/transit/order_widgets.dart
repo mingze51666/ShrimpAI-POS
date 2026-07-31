@@ -1,24 +1,24 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:possystem/components/linkify.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/models/order_loader.dart';
-import 'package:possystem/components/scaffold/item_modal.dart';
-import 'package:possystem/components/style/date_range_picker.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/components/style/text_divider.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/services/cache.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
-import 'package:possystem/ui/transit/formatter/order_formatter.dart';
-import 'package:possystem/ui/transit/widgets.dart';
+import 'package:shrimpai_pos/components/linkify.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/models/order_loader.dart';
+import 'package:shrimpai_pos/components/scaffold/item_modal.dart';
+import 'package:shrimpai_pos/components/style/date_range_picker.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/components/style/text_divider.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/services/cache.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/order_formatter.dart';
+import 'package:shrimpai_pos/ui/transit/widgets.dart';
 
 enum ExportMemoryLevel { ok, warning, danger }
 

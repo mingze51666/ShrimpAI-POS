@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/settings/setting.dart';
+import 'package:shrimpai_pos/settings/setting.dart';
 
 class ThemeSetting extends Setting<ThemeMode> {
   static final ThemeSetting instance = ._();

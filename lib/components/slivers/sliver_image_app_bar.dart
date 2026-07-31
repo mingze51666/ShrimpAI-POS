@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/image_holder.dart';
-import 'package:possystem/models/model.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/image_holder.dart';
+import 'package:shrimpai_pos/models/model.dart';
 
 class SliverImageAppBar extends StatelessWidget {
   final ModelImage model;

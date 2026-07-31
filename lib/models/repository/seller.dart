@@ -1,14 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/model.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/services/cache.dart';
-import 'package:possystem/services/database.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/services/cache.dart';
+import 'package:shrimpai_pos/services/database.dart';
 
 /// Help I/O from order DB.
 class Seller extends ChangeNotifier {

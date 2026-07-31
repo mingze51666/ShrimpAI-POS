@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/scaffold/item_modal.dart';
-import 'package:possystem/components/style/text_divider.dart';
-import 'package:possystem/helpers/validator.dart';
-import 'package:possystem/models/analysis/analysis.dart';
-import 'package:possystem/models/analysis/chart.dart';
-import 'package:possystem/models/analysis/chart_object.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/scaffold/item_modal.dart';
+import 'package:shrimpai_pos/components/style/text_divider.dart';
+import 'package:shrimpai_pos/helpers/validator.dart';
+import 'package:shrimpai_pos/models/analysis/analysis.dart';
+import 'package:shrimpai_pos/models/analysis/chart.dart';
+import 'package:shrimpai_pos/models/analysis/chart_object.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/translator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ChartModal extends StatefulWidget {

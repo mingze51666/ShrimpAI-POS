@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/components/tutorial.dart';
+import 'package:shrimpai_pos/components/tutorial.dart';
 
 import '../mocks/mock_cache.dart';
 

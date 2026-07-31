@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/services/database.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/services/database.dart';
 
 /// Help I/O from stashed order DB.
 class StashedOrders extends ChangeNotifier {

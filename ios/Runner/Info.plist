@@ -11,6 +11,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
+	<string>ShrimpAI</string>
 		<string>possystem</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>

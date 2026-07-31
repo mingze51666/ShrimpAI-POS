@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/models/xfile.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
 
 import '../mocks/mock_helpers.dart';
 import 'file_mocker.mocks.dart';

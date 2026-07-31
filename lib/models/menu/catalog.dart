@@ -1,4 +1,4 @@
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 import '../model.dart';
 import '../objects/menu_object.dart';

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/models/order_attribute_value_widget.dart';
-import 'package:possystem/components/style/head_tail_tile.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/outlined_text.dart';
-import 'package:possystem/components/style/text_divider.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/models/order_attribute_value_widget.dart';
+import 'package:shrimpai_pos/components/style/head_tail_tile.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/outlined_text.dart';
+import 'package:shrimpai_pos/components/style/text_divider.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class OrderObjectView extends StatelessWidget {
   final OrderObject order;

@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/models/xfile.dart';
-import 'package:possystem/services/database_migration_actions.dart';
-import 'package:possystem/services/database_migrations.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
+import 'package:shrimpai_pos/services/database_migration_actions.dart';
+import 'package:shrimpai_pos/services/database_migrations.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:sqflite/sqlite_api.dart';
 // This only be used in dev.

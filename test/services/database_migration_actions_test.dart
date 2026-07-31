@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/services/database.dart';
-import 'package:possystem/services/database_migration_actions.dart';
-import 'package:possystem/services/database_migrations.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/services/database.dart';
+import 'package:shrimpai_pos/services/database_migration_actions.dart';
+import 'package:shrimpai_pos/services/database_migrations.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart' show databaseFactoryFfi;
 

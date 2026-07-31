@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/components/scrollable_draggable_sheet.dart';
+import 'package:shrimpai_pos/components/scrollable_draggable_sheet.dart';
 
 void main() {
   group('Component ScrollableDraggableSheet', () {

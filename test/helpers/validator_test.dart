@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/helpers/validator.dart';
+import 'package:shrimpai_pos/helpers/validator.dart';
 
 import '../test_helpers/translator.dart';
 

@@ -1,4 +1,4 @@
-import 'package:possystem/settings/setting.dart';
+import 'package:shrimpai_pos/settings/setting.dart';
 
 class OrderAwakeningSetting extends Setting<bool> {
   static final OrderAwakeningSetting instance = ._();

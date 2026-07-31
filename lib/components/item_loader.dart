@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/circular_loading.dart';
-import 'package:possystem/components/style/snackbar.dart';
+import 'package:shrimpai_pos/components/style/circular_loading.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
 
 class ItemLoader<T, U> extends StatefulWidget {
   final Widget Function(BuildContext, T) builder;

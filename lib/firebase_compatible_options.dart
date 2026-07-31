@@ -2,7 +2,7 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb;
-import 'package:possystem/constants/constant.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -66,7 +66,7 @@ class DefaultFirebaseOptions {
     storageBucket: 'flutter-pos-system-debug.appspot.com',
     androidClientId: '53696347946-5uu8r44qacg64slkfbjd0uld2mvnm3ro.apps.googleusercontent.com',
     iosClientId: '53696347946-0s7ihh0n53gq227fbdv7allbn54nclfk.apps.googleusercontent.com',
-    iosBundleId: 'com.evanlu.possystem',
+    iosBundleId: 'com.shrimpai.pos',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -77,6 +77,6 @@ class DefaultFirebaseOptions {
     storageBucket: 'flutter-pos-system-debug.appspot.com',
     androidClientId: '53696347946-5uu8r44qacg64slkfbjd0uld2mvnm3ro.apps.googleusercontent.com',
     iosClientId: '53696347946-0s7ihh0n53gq227fbdv7allbn54nclfk.apps.googleusercontent.com',
-    iosBundleId: 'com.evanlu.possystem',
+    iosBundleId: 'com.shrimpai.pos',
   );
 }

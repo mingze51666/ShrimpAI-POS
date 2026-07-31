@@ -6,7 +6,7 @@
 import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:possystem/services/cache.dart' as _i3;
+import 'package:shrimpai_pos/services/cache.dart' as _i3;
 import 'package:shared_preferences/shared_preferences.dart' as _i2;
 
 // ignore_for_file: type=lint

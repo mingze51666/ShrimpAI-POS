@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/gradient_scroll_hint.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/gradient_scroll_hint.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
 
 class ResponsiveDialog extends StatelessWidget {
   final Widget title;

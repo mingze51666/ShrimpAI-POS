@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/search_bar_inline.dart';
-import 'package:possystem/constants/icons.dart';
+import 'package:shrimpai_pos/components/style/search_bar_inline.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
 
 class SearchBarWrapper<T> extends StatefulWidget {
   final String? text;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/components/linkify.dart';
-import 'package:possystem/helpers/launcher.dart';
+import 'package:shrimpai_pos/components/linkify.dart';
+import 'package:shrimpai_pos/helpers/launcher.dart';
 
 void main() {
   group('Widget Linkify', () {

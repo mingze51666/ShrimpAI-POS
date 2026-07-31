@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
 
 class MetaBlock {
   static TextSpan span() {

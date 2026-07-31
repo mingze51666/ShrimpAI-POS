@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/ui/analysis/widgets/reloadable_card.dart';
+import 'package:shrimpai_pos/ui/analysis/widgets/reloadable_card.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 void main() {

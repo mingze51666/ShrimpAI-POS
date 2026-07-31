@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/helpers/util.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
 
 class SliderTextDialog extends StatefulWidget {
   final String? Function(String?)? validator;

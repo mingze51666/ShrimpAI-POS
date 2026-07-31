@@ -1,9 +1,9 @@
 import 'dart:math';
 
-import 'package:possystem/models/model.dart';
-import 'package:possystem/models/objects/stock_object.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/models/objects/stock_object.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 class Ingredient extends Model<IngredientObject>
     with ModelStorage<IngredientObject>, ModelSearchable<IngredientObject> {

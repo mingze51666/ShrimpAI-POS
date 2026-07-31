@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/components/style/highlight_text.dart';
+import 'package:shrimpai_pos/components/style/highlight_text.dart';
 
 void main() {
   group('HighlightText', () {

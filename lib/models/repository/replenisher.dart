@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/models/objects/stock_object.dart';
-import 'package:possystem/models/repository.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/models/stock/replenishment.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/objects/stock_object.dart';
+import 'package:shrimpai_pos/models/repository.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/models/stock/replenishment.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 class Replenisher extends ChangeNotifier with Repository<Replenishment>, RepositoryStorage<Replenishment> {
   static late Replenisher instance;

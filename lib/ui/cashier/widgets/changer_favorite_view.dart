@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/slidable_item_list.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/empty_body.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/objects/cashier_object.dart';
-import 'package:possystem/models/repository/cashier.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/slidable_item_list.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/empty_body.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/objects/cashier_object.dart';
+import 'package:shrimpai_pos/models/repository/cashier.dart';
+import 'package:shrimpai_pos/translator.dart';
 import 'package:provider/provider.dart';
 
 class ChangerFavoriteView extends StatelessWidget {

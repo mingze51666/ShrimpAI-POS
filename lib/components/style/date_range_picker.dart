@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/settings/language_setting.dart';
+import 'package:shrimpai_pos/settings/language_setting.dart';
 
 /// Show a date range picker dialog but with a slightly different design.
 ///

@@ -20,7 +20,7 @@ def flutterVersionName = localProperties.getProperty('flutter.versionName')
 def buildNumber = System.getenv("BUILD_NUMBER") ?: "0"
 
 android {
-  namespace "com.evanlu.possystem"
+  namespace "com.shrimpai.pos"
   compileSdkVersion flutter.compileSdkVersion
   ndkVersion flutter.ndkVersion
 
@@ -38,7 +38,7 @@ android {
   }
 
   defaultConfig {
-    applicationId "com.evanlu.possystem"
+    applicationId "com.shrimpai.pos"
     // default: flutter.minSdkVersion
     // but firebase auth requires 23
     minSdkVersion = flutter.minSdkVersion

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/models/repository/cashier.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/cashier/cashier_view.dart';
+import 'package:shrimpai_pos/models/repository/cashier.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/cashier/cashier_view.dart';
 import 'package:provider/provider.dart';
 
 import '../../mocks/mock_cache.dart';

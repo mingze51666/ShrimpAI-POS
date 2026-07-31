@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:possystem/components/dialog/responsive_dialog.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/models/model.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/dialog/responsive_dialog.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ReorderableScaffold<T extends ModelOrderable> extends StatefulWidget {
   final String title;

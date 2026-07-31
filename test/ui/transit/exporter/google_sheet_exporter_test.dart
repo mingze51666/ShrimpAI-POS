@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:googleapis/sheets/v4.dart' as gs;
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/ui/transit/exporter/google_sheet_exporter.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/google_sheet_exporter.dart';
 
 import '../../../mocks/mock_auth.dart';
 import '../../../mocks/mock_google_api.dart';

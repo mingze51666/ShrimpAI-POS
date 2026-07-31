@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/card_info_text.dart';
+import 'package:shrimpai_pos/components/style/card_info_text.dart';
 
 class ChoiceChipWithHelp<T> extends StatefulWidget {
   final List<T> values;

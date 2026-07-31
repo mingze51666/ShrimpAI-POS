@@ -1,7 +1,7 @@
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
 
 class OrderFormatter {
   static List<List<CellData>> formatBasic(OrderObject order) {

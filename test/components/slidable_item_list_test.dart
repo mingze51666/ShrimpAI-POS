@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/components/slidable_item_list.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/components/slidable_item_list.dart';
 
 import '../test_helpers/translator.dart';
 

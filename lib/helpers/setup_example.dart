@@ -1,16 +1,16 @@
 import 'dart:developer';
 
-import 'package:possystem/models/menu/catalog.dart';
-import 'package:possystem/models/objects/menu_object.dart';
-import 'package:possystem/models/order/order_attribute.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/models/repository/quantities.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/models/stock/ingredient.dart';
-import 'package:possystem/models/stock/quantity.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/models/menu/catalog.dart';
+import 'package:shrimpai_pos/models/objects/menu_object.dart';
+import 'package:shrimpai_pos/models/order/order_attribute.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/models/repository/quantities.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/models/stock/ingredient.dart';
+import 'package:shrimpai_pos/models/stock/quantity.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 Future<void> setupExampleMenu() async {
   if (Menu.instance.isNotEmpty) return;

@@ -1,5 +1,5 @@
 import 'package:mockito/annotations.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 import 'mock_storage.mocks.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/settings/currency_setting.dart';
+import 'package:shrimpai_pos/settings/currency_setting.dart';
 
 import '../mocks/mock_cache.dart';
 

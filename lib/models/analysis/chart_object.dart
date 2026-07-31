@@ -1,6 +1,6 @@
-import 'package:possystem/models/analysis/chart.dart';
-import 'package:possystem/models/model_object.dart';
-import 'package:possystem/models/repository/seller.dart';
+import 'package:shrimpai_pos/models/analysis/chart.dart';
+import 'package:shrimpai_pos/models/model_object.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
 
 class ChartObject<T extends Chart> extends ModelObject<T> {
   final String? id;

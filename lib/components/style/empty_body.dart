@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class EmptyBody extends StatelessWidget {
   /// title of the empty body, default: Oops! It's empty here.

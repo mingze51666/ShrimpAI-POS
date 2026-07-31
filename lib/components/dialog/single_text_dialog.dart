@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/pop_button.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
 
 class SingleTextDialog extends StatefulWidget {
   const SingleTextDialog({

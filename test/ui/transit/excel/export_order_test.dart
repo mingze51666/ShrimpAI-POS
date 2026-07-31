@@ -2,10 +2,10 @@ import 'package:excel/excel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/models/xfile.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
-import 'package:possystem/ui/transit/transit_station.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/ui/transit/transit_station.dart';
 
 import '../../../mocks/mock_cache.dart';
 import '../../../mocks/mock_database.dart';

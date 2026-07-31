@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/route_buttons.dart';
-import 'package:possystem/components/style/slide_to_delete.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/menu/product_ingredient.dart';
-import 'package:possystem/models/menu/product_quantity.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/route_buttons.dart';
+import 'package:shrimpai_pos/components/style/slide_to_delete.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/menu/product_ingredient.dart';
+import 'package:shrimpai_pos/models/menu/product_quantity.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ProductIngredientView extends StatelessWidget {
   final ProductIngredient ingredient;

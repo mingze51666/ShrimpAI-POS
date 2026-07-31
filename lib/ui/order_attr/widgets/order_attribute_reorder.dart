@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/scaffold/reorderable_scaffold.dart';
-import 'package:possystem/models/order/order_attribute.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/scaffold/reorderable_scaffold.dart';
+import 'package:shrimpai_pos/models/order/order_attribute.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class OrderAttributeReorder extends StatelessWidget {
   const OrderAttributeReorder({super.key});

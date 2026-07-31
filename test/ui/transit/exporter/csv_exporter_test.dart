@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/ui/transit/exporter/csv_exporter.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/csv_exporter.dart';
 
 void main() {
   group('CSV Exporter', () {

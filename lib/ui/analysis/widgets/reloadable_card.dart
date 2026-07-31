@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/circular_loading.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/helpers/logger.dart';
+import 'package:shrimpai_pos/components/style/circular_loading.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ReloadableCard<T> extends StatefulWidget {

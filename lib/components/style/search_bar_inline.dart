@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/constants/icons.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
 
 class SearchBarInline extends StatelessWidget {
   final String? text;

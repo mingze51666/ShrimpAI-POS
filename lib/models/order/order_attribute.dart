@@ -1,9 +1,9 @@
-import 'package:possystem/models/model.dart';
-import 'package:possystem/models/objects/order_attribute_object.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
-import 'package:possystem/models/repository.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/models/objects/order_attribute_object.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/models/repository.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 class OrderAttribute extends Model<OrderAttributeObject>
     with

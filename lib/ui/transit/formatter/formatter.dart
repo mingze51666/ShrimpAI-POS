@@ -1,14 +1,14 @@
-import 'package:possystem/models/model.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/models/repository/quantities.dart';
-import 'package:possystem/models/repository/replenisher.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/formatter/model_parser.dart';
-import 'package:possystem/ui/transit/formatter/order_formatter.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/models/repository/quantities.dart';
+import 'package:shrimpai_pos/models/repository/replenisher.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/model_parser.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/order_formatter.dart';
 
 enum FormattableModel {
   menu,

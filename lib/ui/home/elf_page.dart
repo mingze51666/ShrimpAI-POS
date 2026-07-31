@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/linkify.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/linkify.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ElfPage extends StatelessWidget {
   const ElfPage({super.key});

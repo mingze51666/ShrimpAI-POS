@@ -1,5 +1,5 @@
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/models/xfile.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
 import 'package:sembast/sembast_io.dart';
 
 class Storage {

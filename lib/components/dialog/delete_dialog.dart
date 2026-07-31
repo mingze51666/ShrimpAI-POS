@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class DeleteDialog extends StatelessWidget {
   final String content;

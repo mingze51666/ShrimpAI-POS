@@ -2,15 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/components/style/date_range_picker.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/helpers/validator.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/models/repository/seller.dart';
+import 'package:shrimpai_pos/components/style/date_range_picker.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/helpers/validator.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
 import 'package:provider/provider.dart';
 
 void Function() goGenerateRandomOrders(BuildContext context) {

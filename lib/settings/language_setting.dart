@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:possystem/settings/setting.dart';
+import 'package:shrimpai_pos/settings/setting.dart';
 
 /// Language setting allow given null language which means system default.
 class LanguageSetting extends Setting<Language?> {

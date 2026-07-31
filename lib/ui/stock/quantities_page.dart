@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/empty_body.dart';
-import 'package:possystem/components/style/route_buttons.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/models/repository/quantities.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/empty_body.dart';
+import 'package:shrimpai_pos/components/style/route_buttons.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/models/repository/quantities.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 import 'widgets/stock_quantity_list.dart';
 

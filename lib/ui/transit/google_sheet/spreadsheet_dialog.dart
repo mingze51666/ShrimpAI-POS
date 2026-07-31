@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/services/cache.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/exporter/google_sheet_exporter.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/services/cache.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/google_sheet_exporter.dart';
 
 final _sheetUrlRegex = RegExp(r'/spreadsheets/d/([a-zA-Z0-9-_]{15,})/');
 final _sheetIdRegex = RegExp(r'^([a-zA-Z0-9-_]{15,})$');

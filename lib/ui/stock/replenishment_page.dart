@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/dialog/responsive_dialog.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/components/slidable_item_list.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/empty_body.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/models/repository/replenisher.dart';
-import 'package:possystem/models/stock/replenishment.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/dialog/responsive_dialog.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/components/slidable_item_list.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/empty_body.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/models/repository/replenisher.dart';
+import 'package:shrimpai_pos/models/stock/replenishment.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ReplenishmentPage extends StatelessWidget {
   const ReplenishmentPage({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/models/printer.dart';
-import 'package:possystem/services/bluetooth.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/models/printer.dart';
+import 'package:shrimpai_pos/services/bluetooth.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class PrinterInfoDialog extends StatelessWidget {
   final Printer printer;

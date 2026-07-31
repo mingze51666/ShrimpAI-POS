@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
-import 'package:possystem/ui/transit/formatter/plain_text_formatter.dart';
-import 'package:possystem/ui/transit/previews/preview_page.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/plain_text_formatter.dart';
+import 'package:shrimpai_pos/ui/transit/previews/preview_page.dart';
 
 class ImportBasicHeader extends StatefulWidget {
   final ValueNotifier<FormattableModel?> selected;

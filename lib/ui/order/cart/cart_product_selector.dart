@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 /// Select all or toggle all products in the cart.
 class CartProductSelector extends StatelessWidget {

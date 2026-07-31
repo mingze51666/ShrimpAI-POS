@@ -1,11 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/models/menu/product.dart';
-import 'package:possystem/models/order/cart_product.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/models/repository/cashier.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/settings/currency_setting.dart';
+import 'package:shrimpai_pos/models/menu/product.dart';
+import 'package:shrimpai_pos/models/order/cart_product.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/models/repository/cashier.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/settings/currency_setting.dart';
 
 import '../mocks/mock_cache.dart';
 import '../mocks/mock_storage.dart';

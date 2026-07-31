@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/components/imageable_container.dart';
+import 'package:shrimpai_pos/components/imageable_container.dart';
 
 import '../test_helpers/breakpoint_mocker.dart';
 

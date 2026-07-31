@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:googleapis/sheets/v4.dart' as gs;
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/services/auth.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/services/auth.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
 
 import 'data_exporter.dart';
 

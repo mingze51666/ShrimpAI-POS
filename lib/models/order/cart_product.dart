@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/models/menu/product.dart';
-import 'package:possystem/models/menu/product_quantity.dart';
-import 'package:possystem/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/menu/product.dart';
+import 'package:shrimpai_pos/models/menu/product_quantity.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
 
 /// Product in the cart.
 ///

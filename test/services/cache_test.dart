@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/services/cache.dart';
+import 'package:shrimpai_pos/services/cache.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'cache_test.mocks.dart';

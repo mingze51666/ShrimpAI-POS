@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/components/imageable_container.dart';
-import 'package:possystem/components/models/order_attribute_value_widget.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/imageable_container.dart';
+import 'package:shrimpai_pos/components/models/order_attribute_value_widget.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class PrinterReceiptView extends StatelessWidget {
   final OrderObject order;

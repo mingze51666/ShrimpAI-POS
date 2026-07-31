@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/single_row_warp.dart';
-import 'package:possystem/models/menu/product_ingredient.dart';
-import 'package:possystem/models/order/cart_product.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/single_row_warp.dart';
+import 'package:shrimpai_pos/models/menu/product_ingredient.dart';
+import 'package:shrimpai_pos/models/order/cart_product.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class CartProductStateSelector extends StatefulWidget {
   const CartProductStateSelector({super.key});

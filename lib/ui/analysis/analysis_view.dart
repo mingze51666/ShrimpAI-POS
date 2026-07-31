@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/menu_actions.dart';
-import 'package:possystem/components/style/route_buttons.dart';
-import 'package:possystem/components/tutorial.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/constants/icons.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/analysis/analysis.dart';
-import 'package:possystem/models/analysis/chart.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/analysis/widgets/chart_card_view.dart';
-import 'package:possystem/ui/analysis/widgets/chart_range_page.dart';
-import 'package:possystem/ui/analysis/widgets/goals_card_view.dart';
+import 'package:shrimpai_pos/components/menu_actions.dart';
+import 'package:shrimpai_pos/components/style/route_buttons.dart';
+import 'package:shrimpai_pos/components/tutorial.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/analysis/analysis.dart';
+import 'package:shrimpai_pos/models/analysis/chart.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/analysis/widgets/chart_card_view.dart';
+import 'package:shrimpai_pos/ui/analysis/widgets/chart_range_page.dart';
+import 'package:shrimpai_pos/ui/analysis/widgets/goals_card_view.dart';
 
 class AnalysisView extends StatefulWidget {
   const AnalysisView({super.key});

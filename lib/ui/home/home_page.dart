@@ -2,13 +2,13 @@ import 'dart:math' show min;
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/style/footer.dart';
-import 'package:possystem/components/tutorial.dart';
-import 'package:possystem/constants/app_themes.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/services/cache.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/footer.dart';
+import 'package:shrimpai_pos/components/tutorial.dart';
+import 'package:shrimpai_pos/constants/app_themes.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/services/cache.dart';
+import 'package:shrimpai_pos/translator.dart';
 import 'package:spotlight_ant/spotlight_ant.dart';
 
 class HomePage extends StatelessWidget {

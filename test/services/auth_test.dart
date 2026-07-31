@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/services/auth.dart';
+import 'package:shrimpai_pos/services/auth.dart';
 
 import '../test_helpers/firebase_mocker.dart';
 import 'auth_test.mocks.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/constants/icons.dart';
+import 'package:shrimpai_pos/constants/icons.dart';
 
 import 'dialog/delete_dialog.dart';
 

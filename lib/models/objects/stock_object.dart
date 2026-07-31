@@ -1,8 +1,8 @@
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/model_object.dart';
-import 'package:possystem/models/stock/ingredient.dart';
-import 'package:possystem/models/stock/quantity.dart';
-import 'package:possystem/models/stock/replenishment.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/model_object.dart';
+import 'package:shrimpai_pos/models/stock/ingredient.dart';
+import 'package:shrimpai_pos/models/stock/quantity.dart';
+import 'package:shrimpai_pos/models/stock/replenishment.dart';
 
 class IngredientObject extends ModelObject<Ingredient> {
   String? id;

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/style/footer.dart';
-import 'package:possystem/components/tutorial.dart';
-import 'package:possystem/constants/app_themes.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/models/printer.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/footer.dart';
+import 'package:shrimpai_pos/components/tutorial.dart';
+import 'package:shrimpai_pos/constants/app_themes.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/models/printer.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
 import 'package:provider/provider.dart';
 
 class MobileMoreView extends StatefulWidget {

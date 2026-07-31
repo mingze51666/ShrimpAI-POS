@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/models/xfile.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/image_gallery_page.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/image_gallery_page.dart';
 
 import 'test_helpers/breakpoint_mocker.dart';
 import 'test_helpers/file_mocker.dart';

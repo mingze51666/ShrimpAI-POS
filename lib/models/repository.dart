@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/models/model.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 mixin Repository<T extends Model> on ChangeNotifier {
   Map<String, T> _items = {};

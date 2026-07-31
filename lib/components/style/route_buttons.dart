@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class RouteElevatedIconButton extends StatelessWidget {
   final Icon icon;

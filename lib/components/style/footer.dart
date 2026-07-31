@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/linkify.dart';
-import 'package:possystem/components/meta_block.dart';
+import 'package:shrimpai_pos/components/linkify.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
 
 class Footer extends StatelessWidget {
   const Footer({super.key});

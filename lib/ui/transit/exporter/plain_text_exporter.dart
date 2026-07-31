@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
-import 'package:possystem/ui/transit/formatter/plain_text_formatter.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/plain_text_formatter.dart';
 
 import 'data_exporter.dart';
 

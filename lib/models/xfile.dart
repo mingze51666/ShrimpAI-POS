@@ -3,7 +3,7 @@ import 'package:file/local.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:possystem/helpers/logger.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
 
 class XFile {
   static FileSystem fs = const LocalFileSystem();

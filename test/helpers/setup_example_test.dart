@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/helpers/setup_example.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/models/repository/quantities.dart';
-import 'package:possystem/models/repository/stock.dart';
+import 'package:shrimpai_pos/helpers/setup_example.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/models/repository/quantities.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
 
 import '../mocks/mock_storage.dart';
 import '../test_helpers/translator.dart';

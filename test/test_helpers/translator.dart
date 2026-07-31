@@ -1,7 +1,7 @@
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/l10n/gen/app_localizations_en.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/l10n/gen/app_localizations_en.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 var _initialized = false;
 

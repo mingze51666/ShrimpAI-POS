@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
-import 'package:possystem/models/analysis/chart.dart';
-import 'package:possystem/models/analysis/chart_object.dart';
-import 'package:possystem/models/repository.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/analysis/chart.dart';
+import 'package:shrimpai_pos/models/analysis/chart_object.dart';
+import 'package:shrimpai_pos/models/repository.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 class Analysis extends ChangeNotifier with Repository<Chart>, RepositoryStorage<Chart>, RepositoryOrderable<Chart> {
   static late Analysis instance;

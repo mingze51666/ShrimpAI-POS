@@ -1,7 +1,7 @@
 // database must seperate with storage, since there have same Database dependecy
 
 import 'package:mockito/annotations.dart';
-import 'package:possystem/services/database.dart';
+import 'package:shrimpai_pos/services/database.dart';
 import 'package:sqflite/sqflite.dart' show DatabaseExecutor, Batch;
 
 import 'mock_database.mocks.dart';

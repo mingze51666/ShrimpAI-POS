@@ -1,7 +1,7 @@
 import 'package:file/local.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/models/xfile.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 // ignore: depend_on_referenced_packages

@@ -6,11 +6,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mockito/mockito.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/settings/language_setting.dart';
-import 'package:possystem/settings/settings_provider.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/home/settings_page.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/settings/language_setting.dart';
+import 'package:shrimpai_pos/settings/settings_provider.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/home/settings_page.dart';
 
 import '../../mocks/mock_auth.dart';
 import '../../mocks/mock_cache.dart';

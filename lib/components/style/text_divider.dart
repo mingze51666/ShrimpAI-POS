@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/constants/constant.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
 
 class TextDivider extends StatelessWidget {
   final String label;

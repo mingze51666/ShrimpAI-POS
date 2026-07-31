@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/linkify.dart';
-import 'package:possystem/helpers/setup_example.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/services/cache.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/linkify.dart';
+import 'package:shrimpai_pos/helpers/setup_example.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/services/cache.dart';
+import 'package:shrimpai_pos/translator.dart';
 import 'package:spotlight_ant/spotlight_ant.dart';
 
 class TutorialWrapper extends StatelessWidget {

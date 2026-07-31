@@ -1,14 +1,14 @@
 import 'package:flutter/widgets.dart';
-import 'package:possystem/models/menu/catalog.dart';
-import 'package:possystem/models/menu/product.dart';
-import 'package:possystem/models/menu/product_ingredient.dart';
-import 'package:possystem/models/menu/product_quantity.dart';
-import 'package:possystem/models/model.dart';
-import 'package:possystem/models/objects/menu_object.dart';
-import 'package:possystem/models/repository.dart';
-import 'package:possystem/models/repository/quantities.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/menu/catalog.dart';
+import 'package:shrimpai_pos/models/menu/product.dart';
+import 'package:shrimpai_pos/models/menu/product_ingredient.dart';
+import 'package:shrimpai_pos/models/menu/product_quantity.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/models/objects/menu_object.dart';
+import 'package:shrimpai_pos/models/repository.dart';
+import 'package:shrimpai_pos/models/repository/quantities.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 class Menu extends ChangeNotifier with Repository<Catalog>, RepositoryStorage<Catalog>, RepositoryOrderable<Catalog> {
   static late Menu instance;

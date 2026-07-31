@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/debug/random_gen_order.dart';
-import 'package:possystem/debug/rerun_migration.dart';
-import 'package:possystem/services/cache.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/debug/random_gen_order.dart';
+import 'package:shrimpai_pos/debug/rerun_migration.dart';
+import 'package:shrimpai_pos/services/cache.dart';
 
 class DebugPage extends StatelessWidget {
   const DebugPage({super.key});

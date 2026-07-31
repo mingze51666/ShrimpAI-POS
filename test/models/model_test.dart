@@ -1,14 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/models/menu/catalog.dart';
-import 'package:possystem/models/menu/product.dart';
-import 'package:possystem/models/menu/product_ingredient.dart';
-import 'package:possystem/models/objects/stock_object.dart';
-import 'package:possystem/models/order/cart_product.dart';
-import 'package:possystem/models/order/order_attribute.dart';
-import 'package:possystem/models/order/order_attribute_option.dart';
-import 'package:possystem/models/printer.dart';
-import 'package:possystem/models/stock/ingredient.dart';
+import 'package:shrimpai_pos/models/menu/catalog.dart';
+import 'package:shrimpai_pos/models/menu/product.dart';
+import 'package:shrimpai_pos/models/menu/product_ingredient.dart';
+import 'package:shrimpai_pos/models/objects/stock_object.dart';
+import 'package:shrimpai_pos/models/order/cart_product.dart';
+import 'package:shrimpai_pos/models/order/order_attribute.dart';
+import 'package:shrimpai_pos/models/order/order_attribute_option.dart';
+import 'package:shrimpai_pos/models/printer.dart';
+import 'package:shrimpai_pos/models/stock/ingredient.dart';
 
 import '../mocks/mock_bluetooth.mocks.dart';
 

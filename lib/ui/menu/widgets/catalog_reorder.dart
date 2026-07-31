@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/scaffold/reorderable_scaffold.dart';
-import 'package:possystem/models/menu/catalog.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/scaffold/reorderable_scaffold.dart';
+import 'package:shrimpai_pos/models/menu/catalog.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class CatalogReorder extends StatelessWidget {
   const CatalogReorder({super.key});

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/scaffold/item_modal.dart';
-import 'package:possystem/components/style/image_holder.dart';
-import 'package:possystem/helpers/validator.dart';
-import 'package:possystem/models/menu/catalog.dart';
-import 'package:possystem/models/menu/product.dart';
-import 'package:possystem/models/objects/menu_object.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/scaffold/item_modal.dart';
+import 'package:shrimpai_pos/components/style/image_holder.dart';
+import 'package:shrimpai_pos/helpers/validator.dart';
+import 'package:shrimpai_pos/models/menu/catalog.dart';
+import 'package:shrimpai_pos/models/menu/product.dart';
+import 'package:shrimpai_pos/models/objects/menu_object.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ProductModal extends StatefulWidget {
   final Product? product;

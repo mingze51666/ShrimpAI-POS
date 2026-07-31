@@ -3,7 +3,7 @@ import 'dart:developer' as developer;
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
-import 'package:possystem/constants/constant.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
 
 const _isDebug = kDebugMode || isLocalTest;
 

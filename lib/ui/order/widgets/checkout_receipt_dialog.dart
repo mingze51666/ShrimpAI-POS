@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:possystem/components/imageable_container.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/printer/widgets/printer_receipt_view.dart';
+import 'package:shrimpai_pos/components/imageable_container.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/printer/widgets/printer_receipt_view.dart';
 
 class CheckoutReceiptDialog extends StatefulWidget {
   final OrderObject order;

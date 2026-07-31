@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/dialog/responsive_dialog.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/objects/cashier_object.dart';
-import 'package:possystem/models/repository/cashier.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/dialog/responsive_dialog.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/objects/cashier_object.dart';
+import 'package:shrimpai_pos/models/repository/cashier.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 import 'widgets/changer_custom_view.dart';
 import 'widgets/changer_favorite_view.dart';

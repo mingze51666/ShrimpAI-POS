@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/services/auth.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/services/auth.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 const _googleBlue = Color(0xff4285f4);
 const _googleWhite = Color(0xffffffff);

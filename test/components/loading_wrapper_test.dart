@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:possystem/components/loading_wrapper.dart';
+import 'package:shrimpai_pos/components/loading_wrapper.dart';
 
 void main() {
   group('Widget LoadingWrapper', () {

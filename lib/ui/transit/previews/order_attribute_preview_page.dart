@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/models/order_attribute_value_widget.dart';
-import 'package:possystem/components/style/outlined_text.dart';
-import 'package:possystem/models/order/order_attribute.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/models/order_attribute_value_widget.dart';
+import 'package:shrimpai_pos/components/style/outlined_text.dart';
+import 'package:shrimpai_pos/models/order/order_attribute.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 import 'preview_page.dart';
 

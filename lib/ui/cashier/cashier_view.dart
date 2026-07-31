@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/components/dialog/confirm_dialog.dart';
-import 'package:possystem/components/style/buttons.dart';
-import 'package:possystem/components/style/route_buttons.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/components/tutorial.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/models/repository/cashier.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/dialog/confirm_dialog.dart';
+import 'package:shrimpai_pos/components/style/buttons.dart';
+import 'package:shrimpai_pos/components/style/route_buttons.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/components/tutorial.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/models/repository/cashier.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 import 'widgets/unit_list_tile.dart';
 

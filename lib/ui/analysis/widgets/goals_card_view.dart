@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/components/style/info_popup.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/analysis/ema_calculator.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/services/cache.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/analysis/widgets/reloadable_card.dart';
+import 'package:shrimpai_pos/components/style/info_popup.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/analysis/ema_calculator.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/services/cache.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/analysis/widgets/reloadable_card.dart';
 
 class GoalsCardView extends StatefulWidget {
   /// Help to calculate the EMA of the last 20 days.

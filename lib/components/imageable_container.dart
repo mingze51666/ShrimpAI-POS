@@ -2,8 +2,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/logger.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
 
 class ImageableContainer extends StatelessWidget {
   final ImageableController controller;

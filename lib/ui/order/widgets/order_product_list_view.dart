@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/style/image_holder.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/helpers/breakpoint.dart';
-import 'package:possystem/models/menu/product.dart';
-import 'package:possystem/models/repository/cart.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/order/order_page.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/style/image_holder.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/helpers/breakpoint.dart';
+import 'package:shrimpai_pos/models/menu/product.dart';
+import 'package:shrimpai_pos/models/repository/cart.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/order/order_page.dart';
 
 class OrderProductListView extends StatelessWidget {
   final List<Product> products;

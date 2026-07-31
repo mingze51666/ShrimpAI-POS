@@ -5,11 +5,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:googleapis/sheets/v4.dart' as gs;
 import 'package:mockito/mockito.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/exporter/google_sheet_exporter.dart';
-import 'package:possystem/ui/transit/google_sheet/spreadsheet_dialog.dart';
-import 'package:possystem/ui/transit/widgets.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/google_sheet_exporter.dart';
+import 'package:shrimpai_pos/ui/transit/google_sheet/spreadsheet_dialog.dart';
+import 'package:shrimpai_pos/ui/transit/widgets.dart';
 
 import '../../../mocks/mock_auth.dart';
 import '../../../mocks/mock_cache.dart';

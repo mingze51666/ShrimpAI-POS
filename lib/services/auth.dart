@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart';
-import 'package:possystem/helpers/logger.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
 
 class Auth {
   static Auth instance = Auth();

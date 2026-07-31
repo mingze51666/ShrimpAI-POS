@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/exporter/plain_text_exporter.dart';
-import 'package:possystem/ui/transit/order_widgets.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/plain_text_exporter.dart';
+import 'package:shrimpai_pos/ui/transit/order_widgets.dart';
 
 class ExportOrderHeader extends TransitOrderHeader {
   const ExportOrderHeader({super.key, required super.stateNotifier, required super.ranger, super.settings});

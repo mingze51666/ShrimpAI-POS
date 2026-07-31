@@ -1,10 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'package:possystem/models/model.dart';
-import 'package:possystem/models/objects/stock_object.dart';
-import 'package:possystem/models/repository/replenisher.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/models/stock/ingredient.dart';
-import 'package:possystem/services/storage.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/models/objects/stock_object.dart';
+import 'package:shrimpai_pos/models/repository/replenisher.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/models/stock/ingredient.dart';
+import 'package:shrimpai_pos/services/storage.dart';
 
 class Replenishment extends Model<ReplenishmentObject> with ModelStorage<ReplenishmentObject> {
   /// ingredient id => add number

@@ -1,15 +1,15 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/models/analysis/analysis.dart';
-import 'package:possystem/models/printer.dart';
-import 'package:possystem/models/repository/menu.dart';
-import 'package:possystem/models/repository/order_attributes.dart';
-import 'package:possystem/models/repository/quantities.dart';
-import 'package:possystem/models/repository/replenisher.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/models/repository/stock.dart';
-import 'package:possystem/models/stock/ingredient.dart';
-import 'package:possystem/models/stock/quantity.dart';
+import 'package:shrimpai_pos/models/analysis/analysis.dart';
+import 'package:shrimpai_pos/models/printer.dart';
+import 'package:shrimpai_pos/models/repository/menu.dart';
+import 'package:shrimpai_pos/models/repository/order_attributes.dart';
+import 'package:shrimpai_pos/models/repository/quantities.dart';
+import 'package:shrimpai_pos/models/repository/replenisher.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/models/repository/stock.dart';
+import 'package:shrimpai_pos/models/stock/ingredient.dart';
+import 'package:shrimpai_pos/models/stock/quantity.dart';
 
 import '../mocks/mock_database.dart';
 import '../mocks/mock_storage.dart';

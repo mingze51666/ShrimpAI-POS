@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:packages/bluetooth.dart' as bt;
-import 'package:possystem/components/imageable_container.dart';
-import 'package:possystem/services/bluetooth.dart';
+import 'package:shrimpai_pos/components/imageable_container.dart';
+import 'package:shrimpai_pos/services/bluetooth.dart';
 
 import 'mock_bluetooth.mocks.dart';
 

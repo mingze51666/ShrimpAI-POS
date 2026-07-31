@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:possystem/components/meta_block.dart';
-import 'package:possystem/components/models/order_loader.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/routes.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/components/meta_block.dart';
+import 'package:shrimpai_pos/components/models/order_loader.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/routes.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class HistoryOrderList extends StatelessWidget {
   final ValueNotifier<DateTimeRange> notifier;

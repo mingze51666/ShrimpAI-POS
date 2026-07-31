@@ -1,8 +1,8 @@
 import 'package:image/image.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart' hide XFile;
-import 'package:possystem/models/xfile.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class ImageDumper {
   static ImageDumper instance = const ._();

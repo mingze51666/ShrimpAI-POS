@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/models/objects/order_object.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/order_widgets.dart';
-import 'package:possystem/ui/transit/widgets.dart';
+import 'package:shrimpai_pos/models/objects/order_object.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/order_widgets.dart';
+import 'package:shrimpai_pos/ui/transit/widgets.dart';
 
 import '../../mocks/mock_cache.dart';
 import '../../mocks/mock_database.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:possystem/helpers/analysis/ema_calculator.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/models/repository/seller.dart';
-import 'package:possystem/ui/analysis/widgets/goals_card_view.dart';
+import 'package:shrimpai_pos/helpers/analysis/ema_calculator.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/models/repository/seller.dart';
+import 'package:shrimpai_pos/ui/analysis/widgets/goals_card_view.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../../mocks/mock_cache.dart';

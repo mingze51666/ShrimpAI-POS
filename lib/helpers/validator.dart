@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:possystem/translator.dart';
+import 'package:shrimpai_pos/translator.dart';
 
 class Validator {
   static String? Function(Object?) positiveNumber(

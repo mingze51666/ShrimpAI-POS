@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/dialog/confirm_dialog.dart';
-import 'package:possystem/components/style/hint_text.dart';
-import 'package:possystem/components/style/snackbar.dart';
-import 'package:possystem/constants/constant.dart';
-import 'package:possystem/models/model.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/components/dialog/confirm_dialog.dart';
+import 'package:shrimpai_pos/components/style/hint_text.dart';
+import 'package:shrimpai_pos/components/style/snackbar.dart';
+import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/models/model.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
 
 import 'ingredient_preview_page.dart';
 import 'order_attribute_preview_page.dart';

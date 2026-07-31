@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:possystem/routes.dart';
+import 'package:shrimpai_pos/routes.dart';
 
 class PopButton extends StatelessWidget {
   final String? title;

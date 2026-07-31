@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/components/loading_wrapper.dart';
-import 'package:possystem/components/style/pop_button.dart';
-import 'package:possystem/helpers/util.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/exporter/data_exporter.dart';
-import 'package:possystem/ui/transit/exporter/google_sheet_exporter.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
-import 'package:possystem/ui/transit/order_widgets.dart';
-import 'package:possystem/ui/transit/previews/preview_page.dart';
-import 'package:possystem/ui/transit/widgets.dart';
+import 'package:shrimpai_pos/components/loading_wrapper.dart';
+import 'package:shrimpai_pos/components/style/pop_button.dart';
+import 'package:shrimpai_pos/helpers/util.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/data_exporter.dart';
+import 'package:shrimpai_pos/ui/transit/exporter/google_sheet_exporter.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/ui/transit/order_widgets.dart';
+import 'package:shrimpai_pos/ui/transit/previews/preview_page.dart';
+import 'package:shrimpai_pos/ui/transit/widgets.dart';
 
 import 'csv/views.dart' as csv;
 import 'excel/views.dart' as excel;

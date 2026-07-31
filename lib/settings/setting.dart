@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/services/cache.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/services/cache.dart';
 
 abstract class Setting<T> extends ChangeNotifier {
   late T value;

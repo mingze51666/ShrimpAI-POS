@@ -2,10 +2,10 @@ import 'dart:math';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:possystem/helpers/logger.dart';
-import 'package:possystem/models/objects/cashier_object.dart';
-import 'package:possystem/services/storage.dart';
-import 'package:possystem/settings/currency_setting.dart';
+import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/models/objects/cashier_object.dart';
+import 'package:shrimpai_pos/services/storage.dart';
+import 'package:shrimpai_pos/settings/currency_setting.dart';
 
 class Cashier extends ChangeNotifier {
   static const _favoriteKey = 'favorites';

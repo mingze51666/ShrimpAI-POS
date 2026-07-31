@@ -1,7 +1,7 @@
 import 'package:excel/excel.dart' hide CellValue;
-import 'package:possystem/models/xfile.dart';
-import 'package:possystem/translator.dart';
-import 'package:possystem/ui/transit/formatter/formatter.dart';
+import 'package:shrimpai_pos/models/xfile.dart';
+import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/transit/formatter/formatter.dart';
 
 import 'data_exporter.dart';
 
