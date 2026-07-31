@@ -29,7 +29,8 @@ from datetime import datetime
 # ── 配置 ──────────────────────────────────────────────
 # LLM 提供方: "deepseek" | "ollama"
 LLM_PROVIDER = os.getenv("AI_LLM_PROVIDER", "deepseek")
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "DEEPSEEK_API_KEY_FROM_ENV")
+# ⚠️ 密钥只从环境变量读取，绝不硬编码进代码/仓库！
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
 DEEPSEEK_MODEL = os.getenv("AI_MODEL", "deepseek-chat")
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://192.168.1.29:11434")
 OLLAMA_MODEL = os.getenv("AI_MODEL", "qwen2.5:14b")
