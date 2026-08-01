@@ -48,6 +48,14 @@ class _MobileMoreViewState extends State<MobileMoreView> with AutomaticKeepAlive
                   subtitle: S.orderAttributeDescription,
                 ),
               ),
+              // 🦐 扫码订单入口（2026-08-01 新增，首页显眼位置）
+              _buildRouteTile(
+                id: 'scanOrders',
+                icon: Icons.qr_code_scanner,
+                route: Routes.scanOrders,
+                title: '扫码订单',
+                subtitle: '查看顾客扫码点餐的新订单，实时接单',
+              ),
               MenuTutorial(
                 child: _buildRouteTile(
                   id: 'menu',

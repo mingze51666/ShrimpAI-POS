@@ -1,41 +1,41 @@
 $prefix: setting
-tab: 設定
+tab: 设定
 version: 版本：{version}
 welcome: HI，{name}
 logoutBtn: 登出
 elf:
-  title: 建議
-  description: 使用 Google 表單提供回饋
+  title: 建议
+  description: 使用 Google 表单提供回馈
   content: |-
-    覺得這裡還少了什麼嗎？
-    歡迎[提供建議](https://forms.gle/R1vZDk9ztQLScUdb9)。
-    也可以來看看[排程中的功能](https://github.com/evan361425/flutter-pos-system/milestones)。
+    觉得这里还少了什么吗？
+    欢迎[提供建议](https://forms.gle/R1vZDk9ztQLScUdb9)。
+    也可以来看看[排程中的功能](https://github.com/evan361425/flutter-pos-system/milestones)。
 feature:
-  title: 其他設定
-  description: 外觀、語言、提示
+  title: 其他设定
+  description: 外观、语言、提示
 theme:
-  title: 調色盤
+  title: 调色盘
   name:
   - dark: 暗色模式
     light: 日光模式
-    system: 跟隨系統
+    system: 跟随系统
 language:
-  title: 語言
+  title: 语言
 checkoutWarning:
-  title: 收銀機提示
+  title: 收银机提示
   name:
-  - showAll: 全部顯示
-    onlyNotEnough: 僅不夠時顯示
-    hideAll: 全部隱藏
+  - showAll: 全部显示
+    onlyNotEnough: 仅不够时显示
+    hideAll: 全部隐藏
   tip:
   - showAll: |-
-      若使用小錢去找，顯示提示。
-      例如 5 塊錢不夠了，開始用 5 個 1 塊去找錢
-    onlyNotEnough: 當零錢不夠找的時候，顯示提示。
-    hideAll: 當點餐時，收銀機不會顯示任何提示
+      若使用小钱去找，显示提示。
+      例如 5 块钱不够了，开始用 5 个 1 块去找钱
+    onlyNotEnough: 当零钱不够找的时候，显示提示。
+    hideAll: 当点餐时，收银机不会显示任何提示
 orderAwakening:
-  title: 點餐時不關閉螢幕
-  description: 若取消，則會根據系統設定時間關閉螢幕
+  title: 点餐时不关闭萤幕
+  description: 若取消，则会根据系统设定时间关闭萤幕
 report:
-  title: 收集錯誤訊息和事件
-  description: 當應用程式發生錯誤時，寄送錯誤訊息，以幫助應用程式成長
+  title: 收集错误讯息和事件
+  description: 当应用程式发生错误时，寄送错误讯息，以帮助应用程式成长

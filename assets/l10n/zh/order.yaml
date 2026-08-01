@@ -1,160 +1,160 @@
 $prefix: order
-title: 點餐
-btn: 點餐
+title: 点餐
+btn: 点餐
 tutorial:
-  title: 開始點餐！
+  title: 开始点餐！
   content: |
-    一旦設定好菜單，就可以開始點餐囉
-    讓我們趕緊進去看看有什麼吧！
+    一旦设定好菜单，就可以开始点餐啰
+    让我们赶紧进去看看有什么吧！
   printerBtn:
-    title: 出單機異動
-    content: 出單機狀態出現異動，請查看。
+    title: 出单机异动
+    content: 出单机状态出现异动，请查看。
 snackbar:
   printer:
-    connected: 出單機連線成功：{names}
-    disconnected: 出單機「{name}」斷線
+    connected: 出单机连线成功：{names}
+    disconnected: 出单机「{name}」断线
   cashier:
-    notEnough: 收銀機錢不夠找囉！
-    usingSmallMoney: 收銀機使用小錢去找零
+    notEnough: 收银机钱不够找啰！
+    usingSmallMoney: 收银机使用小钱去找零
     usingSmallMoneyHelper: |-
-      找錢給顧客時，收銀機無法使用最適合的錢，就會顯示這個訊息。
+      找钱给顾客时，收银机无法使用最适合的钱，就会显示这个讯息。
 
-      例如，售價「65」，消費者支付「100」，此時應找「35」
-      如果收銀機只有兩個十元，且有三個以上的五元，就會顯示本訊息。
+      例如，售价「65」，消费者支付「100」，此时应找「35」
+      如果收银机只有两个十元，且有三个以上的五元，就会显示本讯息。
 
-      怎麼避免本提示：
-      • 到換錢頁面把各幣值補足。
-      • 到[設定頁]({link})關閉收銀機的相關提示。
+      怎么避免本提示：
+      • 到换钱页面把各币值补足。
+      • 到[设定页]({link})关闭收银机的相关提示。
 action:
-  checkout: 結帳
-  exchange: 換錢
-  stash: 暫存本次點餐
-  review: 訂單記錄
+  checkout: 结帐
+  exchange: 换钱
+  stash: 暂存本次点餐
+  review: 订单记录
 loader:
   meta:
-    totalRevenue: 總營收：{revenue}
-    totalCost: 總成本：{cost}
-    totalCount: 總數：{count}
-  empty: 查無點餐紀錄
+    totalRevenue: 总营收：{revenue}
+    totalCost: 总成本：{cost}
+    totalCount: 总数：{count}
+  empty: 查无点餐纪录
 catalogList:
-  empty: 尚未設定產品種類
+  empty: 尚未设定产品种类
 productList:
   view:
     helper:
-    - grid: 圖片
+    - grid: 图片
       list: 列表
-  noIngredient: 無設定成分
+  noIngredient: 无设定成分
 printer:
-  empty: 尚未設定出單機
+  empty: 尚未设定出单机
   divider:
     unused: 未使用
-    connecting: 連線中
-    connected: 已連線
+    connecting: 连线中
+    connected: 已连线
   error:
-    createReceipt: 無法產生出單資料
+    createReceipt: 无法产生出单资料
 cart:
   action:
     bulk: 批量操作
-    toggle: 反選
-    selectAll: 全選
+    toggle: 反选
+    selectAll: 全选
     discount: 打折
     _discount:
       $prefix: discount
       label: 折扣
-      hint: 例如：50，代表打五折（半價）
-      helper: 這裡的數字代表「折」，即，85 代表 85 折，總價乘 0.85。若需要準確的價錢請用「變價」。
+      hint: 例如：50，代表打五折（半价）
+      helper: 这里的数字代表「折」，即，85 代表 85 折，总价乘 0.85。若需要准确的价钱请用「变价」。
       suffix: 折
-    changePrice: 變價
+    changePrice: 变价
     _changePrice:
       $prefix: changePrice
-      label: 價錢
-      hint: 每項產品的價錢
+      label: 价钱
+      hint: 每项产品的价钱
       prefix: ''
       suffix: 元
-    changeCount: 變更數量
+    changeCount: 变更数量
     _changeCount:
       $prefix: changeCount
-      label: 數量
-      hint: 產品數量
-      suffix: 個
+      label: 数量
+      hint: 产品数量
+      suffix: 个
     free: 招待
-    delete: 刪除
+    delete: 删除
   snapshot:
-    empty: 尚未點餐
+    empty: 尚未点餐
   meta:
-    totalPrice: 總價：{price}
-    totalCount: 總數：{count}
+    totalPrice: 总价：{price}
+    totalCount: 总数：{count}
   product:
     price:
-    - '0': 免費
+    - '0': 免费
       other: '{price}元'
-    increase: 數量加一
-    defaultQuantity: 預設份量
+    increase: 数量加一
+    defaultQuantity: 预设份量
     ingredient: "{name}（{quantity}）"
   ingredient:
     status:
-    - emptyCart: 請選擇產品來設定其成分
-      differentProducts: 請選擇相同的產品來設定其成分
-      noNeedIngredient: 這個產品沒有可以設定的成分
+    - emptyCart: 请选择产品来设定其成分
+      differentProducts: 请选择相同的产品来设定其成分
+      noNeedIngredient: 这个产品没有可以设定的成分
   quantity:
-    notAble: 請選擇成分來設定份量
+    notAble: 请选择成分来设定份量
     label: '{name}（{amount}）'
-    defaultLabel: 預設值（{amount}）
+    defaultLabel: 预设值（{amount}）
 checkout:
-  emptyCart: 請先進行點單。
+  emptyCart: 请先进行点单。
   action:
-    stash: 暫存
-    confirm: 確認
+    stash: 暂存
+    confirm: 确认
   stash:
-    tab: 暫存
-    empty: 目前無任何暫存餐點。
-    noProducts: 沒有任何產品
+    tab: 暂存
+    empty: 目前无任何暂存餐点。
+    noProducts: 没有任何产品
     action:
-      checkout: 結帳
-      restore: 還原
+      checkout: 结帐
+      restore: 还原
     dialog:
-      calculator: 結帳計算機
+      calculator: 结帐计算机
       restore:
-        title: 還原暫存訂單
-        content: 此動作將會覆蓋掉現在購物車內的訂單。
+        title: 还原暂存订单
+        content: 此动作将会覆盖掉现在购物车内的订单。
       delete:
-        name: 訂單
+        name: 订单
   attribute:
-    tab: 顧客設定
+    tab: 顾客设定
     note:
-      title: 備註
-      hint: 一些關於此訂單的說明
+      title: 备注
+      hint: 一些关于此订单的说明
   details:
-    tab: 訂單細項
+    tab: 订单细项
     calculator:
       label:
-        paid: 付額
-        change: 找錢
+        paid: 付额
+        change: 找钱
     snapshot:
       label:
-        change: 找錢：{change}
+        change: 找钱：{change}
   snackbar:
-    paidFailed: 付額小於訂單總價，無法結帳。
+    paidFailed: 付额小于订单总价，无法结帐。
 objectView:
-  empty: 查無點餐紀錄
-  change: 找錢
+  empty: 查无点餐纪录
+  change: 找钱
   price:
-    total: 訂單總價：{price}
-    products: 產品總價
-    attributes: 顧客設定總價
+    total: 订单总价：{price}
+    products: 产品总价
+    attributes: 顾客设定总价
   cost: 成本
-  profit: 淨利
-  paid: 付額
-  note: 備註
+  profit: 净利
+  paid: 付额
+  note: 备注
   divider:
-    attribute: 顧客設定
-    product: 產品資訊
+    attribute: 顾客设定
+    product: 产品资讯
   product:
-    price: 總價
-    cost: 總成本
-    count: 總數
-    singlePrice: 單價
-    originalPrice: 折扣前單價
-    catalog: 產品種類
+    price: 总价
+    cost: 总成本
+    count: 总数
+    singlePrice: 单价
+    originalPrice: 折扣前单价
+    catalog: 产品种类
     ingredient: 成分
-    defaultQuantity: 預設
+    defaultQuantity: 预设

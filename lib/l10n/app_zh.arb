@@ -1,231 +1,407 @@
 {
   "@@locale": "zh",
   "@@author": "Lu Shueh Chou",
-  "settingTab": "設定",
-  "settingVersion": "版本：{version}",
-  "@settingVersion": {
-    "description": "Display the app version",
-    "placeholders": {
-      "version": {
-        "type": "String"
-      }
-    }
+  "menuTitle": "菜单",
+  "menuSubtitle": "产品种类、产品",
+  "menuTutorialTitle": "建立属于你的菜单",
+  "menuTutorialContent": "首先我们来开始建立一份菜单吧！",
+  "menuTutorialCreateExample": "帮助建立一份范例菜单以供测试。",
+  "menuSearchHint": "搜寻产品、成分、份量",
+  "menuSearchPrefix": "{name, select, ingredient{成分：} quantity{份量：} other{UNKNOWN}}",
+  "menuSearchNotFound": "搜寻不到相关资讯，打错字了吗？",
+  "menuExampleCatalogBurger": "汉堡",
+  "menuExampleCatalogDrink": "饮品",
+  "menuExampleCatalogSide": "点心",
+  "menuExampleCatalogOther": "其他",
+  "menuExampleProductCheeseBurger": "起司汉堡",
+  "menuExampleProductVeggieBurger": "蔬菜汉堡",
+  "menuExampleProductHamBurger": "火腿汉堡",
+  "menuExampleProductCola": "可乐",
+  "menuExampleProductCoffee": "咖啡",
+  "menuExampleProductFries": "薯条",
+  "menuExampleProductStraw": "吸管",
+  "menuExampleProductPlasticBag": "塑胶袋",
+  "menuExampleIngredientCheese": "起司",
+  "menuExampleIngredientLettuce": "莴苣",
+  "menuExampleIngredientTomato": "番茄",
+  "menuExampleIngredientBun": "面包",
+  "menuExampleIngredientChili": "辣酱",
+  "menuExampleIngredientHam": "火腿",
+  "menuExampleIngredientCola": "可乐",
+  "menuExampleIngredientCoffee": "滤挂咖啡包",
+  "menuExampleIngredientFries": "薯条",
+  "menuExampleIngredientStraw": "吸管",
+  "menuExampleIngredientPlasticBag": "塑胶袋",
+  "menuExampleQuantitySmall": "少量",
+  "menuExampleQuantityLarge": "增量",
+  "menuExampleQuantityNone": "无",
+  "menuCatalogEmptyBody": "我们会把相似「产品」放在「产品种类」中，\n到时候点餐会比较方便，例如：\n• 「起司汉堡」、「蔬菜汉堡」整合进「汉堡」\n• 「塑胶袋」、「环保杯」整合进「其他」",
+  "menuCatalogTitleCreate": "新增产品种类",
+  "@menuCatalogTitleCreate": {
+    "description": "FloatingActionButton description on the menu page"
   },
-  "settingWelcome": "HI，{name}",
-  "@settingWelcome": {
-    "description": "Display user's name",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "settingLogoutBtn": "登出",
-  "settingElfTitle": "建議",
-  "settingElfDescription": "使用 Google 表單提供回饋",
-  "settingElfContent": "覺得這裡還少了什麼嗎？\n歡迎[提供建議](https://forms.gle/R1vZDk9ztQLScUdb9)。\n也可以來看看[排程中的功能](https://github.com/evan361425/flutter-pos-system/milestones)。",
-  "settingFeatureTitle": "其他設定",
-  "settingFeatureDescription": "外觀、語言、提示",
-  "settingThemeTitle": "調色盤",
-  "settingThemeName": "{name, select, dark{暗色模式} light{日光模式} system{跟隨系統} other{UNKNOWN}}",
-  "@settingThemeName": {
-    "description": "Appearance of the app",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "settingLanguageTitle": "語言",
-  "settingCheckoutWarningTitle": "收銀機提示",
-  "settingCheckoutWarningName": "{name, select, showAll{全部顯示} onlyNotEnough{僅不夠時顯示} hideAll{全部隱藏} other{UNKNOWN}}",
-  "@settingCheckoutWarningName": {
-    "description": "Whether to display cash registry warnings",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "settingCheckoutWarningTip": "{name, select, showAll{若使用小錢去找，顯示提示。\n例如 5 塊錢不夠了，開始用 5 個 1 塊去找錢} onlyNotEnough{當零錢不夠找的時候，顯示提示。} hideAll{當點餐時，收銀機不會顯示任何提示} other{UNKNOWN}}",
-  "@settingCheckoutWarningTip": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "settingOrderAwakeningTitle": "點餐時不關閉螢幕",
-  "@settingOrderAwakeningTitle": {
-    "description": "Keep the screen on during ordering, even when idle"
-  },
-  "settingOrderAwakeningDescription": "若取消，則會根據系統設定時間關閉螢幕",
-  "settingReportTitle": "收集錯誤訊息和事件",
-  "settingReportDescription": "當應用程式發生錯誤時，寄送錯誤訊息，以幫助應用程式成長",
-  "stockTab": "庫存",
-  "stockUpdatedAt": "上次補貨時間：{updatedAt}",
-  "@stockUpdatedAt": {
-    "placeholders": {
-      "updatedAt": {
-        "type": "DateTime",
-        "format": "MMMEd"
-      }
-    }
-  },
-  "stockIngredientEmptyBody": "新增成份後，就可以開始追蹤這些成份的庫存囉！",
-  "stockIngredientTitleCreate": "新增成分",
-  "stockIngredientTitleUpdate": "編輯成分",
-  "stockIngredientTitleUpdateAmount": "編輯庫存",
-  "stockIngredientTutorialTitle": "新增成分",
-  "stockIngredientTutorialContent": "成份可以幫助我們確認產品的庫存。\n你可以在「產品」中設定成分，然後在這裡設定庫存。",
-  "stockIngredientDialogDeletionContent": "{count, plural, =0{目前無任何產品有本成分} other{將會一同刪除掉 {count} 個產品的成分}}",
-  "@stockIngredientDialogDeletionContent": {
-    "description": "Indicates how many products will be affected when deleting the ingredient",
+  "menuCatalogTitleUpdate": "编辑产品种类",
+  "menuCatalogTitleReorder": "排序产品种类",
+  "menuCatalogDialogDeletionContent": "{count, plural, =0{其内无任何产品} other{将会一同删除掉 {count} 个产品}}",
+  "@menuCatalogDialogDeletionContent": {
+    "description": "Warning message when deleting product categories on the menu page",
     "placeholders": {
       "count": {
         "type": "int"
       }
     }
   },
-  "stockIngredientProductsCount": "共有 {count} 個產品使用此成分",
-  "@stockIngredientProductsCount": {
-    "description": "When editing an ingredient, it indicates how many products are using it and allows for navigation to the product page",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "description": "Number of products"
-      }
-    }
+  "menuCatalogNameLabel": "产品种类名称",
+  "menuCatalogNameHint": "例如：汉堡",
+  "menuCatalogNameErrorRepeat": "名称重复了，请改个名字吧！",
+  "menuCatalogEmptyProducts": "尚未设定产品",
+  "menuProductHeaderInfo": "产品",
+  "@menuProductHeaderInfo": {
+    "description": "Displayed on the upper rectangle in homepage"
   },
-  "stockIngredientNameLabel": "成分名稱",
-  "stockIngredientNameHint": "例如：起司",
-  "stockIngredientNameErrorRepeat": "成分名稱重複",
-  "stockIngredientAmountLabel": "現有庫存",
-  "stockIngredientAmountMaxLabel": "最大庫存",
-  "stockIngredientAmountMaxHelper": "設定這個值可以幫助你一眼看出用了多少成分。\n填空或不填寫則每次增加庫存，都會自動設定這值，",
-  "stockIngredientRestockTitle": "每次補貨可以補貨多少成分。\n例如，每 30 份起司要價 100 元，「補貨單位」就填寫 30，「補貨單價」就填寫 100。\n\n這可以幫助你透過價錢快速補貨。",
-  "stockIngredientRestockPriceLabel": "補貨單價",
-  "stockIngredientRestockQuantityLabel": "補貨單位",
-  "stockIngredientRestockDialogTitle": "目前每{quantity}個要價{price}元",
-  "@stockIngredientRestockDialogTitle": {
-    "description": "Headline of the dialog for setting the restock price",
+  "menuProductEmptyBody": "「产品」是菜单里的基本单位，例如：\n「起司汉堡」、「可乐」",
+  "menuProductNotSelected": "请先选择产品种类",
+  "@menuProductNotSelected": {
+    "description": "When not selecting a category, the product list will not be displayed. This message will be displayed in the product list"
+  },
+  "menuProductTitleCreate": "新增产品",
+  "menuProductTitleUpdate": "编辑产品",
+  "menuProductTitleReorder": "排序产品",
+  "menuProductTitleUpdateImage": "更新照片",
+  "menuProductMetaTitle": "产品",
+  "@menuProductMetaTitle": {
+    "description": "Prefix for meta, so users know this is product meta info, not category"
+  },
+  "menuProductMetaPrice": "价格：{price}",
+  "@menuProductMetaPrice": {
+    "description": "Price of the product",
     "placeholders": {
-      "quantity": {
-        "type": "String"
-      },
       "price": {
-        "type": "String"
+        "type": "num",
+        "format": "compact"
       }
     }
   },
-  "stockIngredientRestockDialogSubtitle": "請輸入購買價格",
-  "@stockIngredientRestockDialogSubtitle": {
-    "description": "Helper text to remind users to enter the purchase price"
-  },
-  "stockIngredientRestockDialogQuantityTab": "數量",
-  "stockIngredientRestockDialogQuantityBtn": "使用數量",
-  "stockIngredientRestockDialogQuantityLabel": "現有庫存",
-  "stockIngredientRestockDialogQuantityHelper": "若沒有設定最大庫存量，增加本值會重設最大庫存量。",
-  "@stockIngredientRestockDialogQuantityHelper": {
-    "description": "Auxiliary text used for quickly increasing inventory"
-  },
-  "stockIngredientRestockDialogPriceTab": "價格",
-  "stockIngredientRestockDialogPriceBtn": "使用價錢",
-  "stockIngredientRestockDialogPriceLabel": "補貨價格",
-  "stockIngredientRestockDialogPriceEmptyBody": "趕緊設定單價，讓你可以利用補貨的金額直接算出補貨的量。",
-  "stockIngredientRestockDialogPriceOldAmount": "原始庫存",
-  "@stockIngredientRestockDialogPriceOldAmount": {
-    "description": "The original amount before the restock"
-  },
-  "stockReplenishmentButton": "採購",
-  "stockReplenishmentEmptyBody": "採購可以幫你快速調整成分的庫存",
-  "stockReplenishmentTitleList": "採購列表",
-  "stockReplenishmentTitleCreate": "新增採購",
-  "stockReplenishmentTitleUpdate": "編輯採購",
-  "stockReplenishmentMetaAffect": "會影響 {count} 項成分",
-  "@stockReplenishmentMetaAffect": {
-    "description": "Indicates in the replenishment list how many ingredients are affected",
+  "menuProductMetaCost": "成本：{cost}",
+  "@menuProductMetaCost": {
+    "description": "Cost of the product",
     "placeholders": {
-      "count": {
-        "type": "int"
+      "cost": {
+        "type": "num",
+        "format": "compact"
       }
     }
   },
-  "stockReplenishmentNever": "尚未補貨過",
-  "@stockReplenishmentNever": {
-    "description": "The stock page displays the last replenishment time; if never replenished, this text is set"
+  "menuProductMetaEmpty": "尚未设定成分",
+  "@menuProductMetaEmpty": {
+    "description": "Text displayed in the subtitle in the product list"
   },
-  "stockReplenishmentApplyPreview": "預覽",
-  "stockReplenishmentApplyConfirmButton": "套用",
-  "stockReplenishmentApplyConfirmTitle": "套用採購？",
-  "stockReplenishmentApplyConfirmColumn": "{value, select, name{名稱} amount{數量} other{UNKNOWN}}",
-  "@stockReplenishmentApplyConfirmColumn": {
+  "menuProductNameLabel": "产品名称",
+  "menuProductNameHint": "例如：起司汉堡",
+  "menuProductNameErrorRepeat": "产品名称重复",
+  "menuProductPriceLabel": "产品价格",
+  "menuProductPriceHelper": "订单页面会呈现的价钱",
+  "menuProductCostLabel": "产品成本",
+  "menuProductCostHelper": "用来算出利润，理应小于价钱",
+  "menuProductEmptyIngredients": "尚未设定成分",
+  "menuIngredientEmptyBody": "你可以在产品中设定成分等资讯，例如：\n「起司汉堡」有「起司」、「面包」等成分",
+  "menuIngredientTitleCreate": "新增成分",
+  "menuIngredientTitleUpdate": "编辑成分",
+  "menuIngredientTitleReorder": "排序成分",
+  "menuIngredientMetaAmount": "使用量：{amount}",
+  "@menuIngredientMetaAmount": {
     "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
-  "stockReplenishmentApplyConfirmHint": "選擇套用後，將會影響以下成分的庫存",
-  "stockReplenishmentTutorialTitle": "成份採購",
-  "stockReplenishmentTutorialContent": "透過採購，你不再需要一個一個去設定成分的庫存。\n馬上設定採購，一次調整多個成份吧！",
-  "stockReplenishmentNameLabel": "採購名稱",
-  "stockReplenishmentNameHint": "例如：Costco 採購",
-  "stockReplenishmentNameErrorRepeat": "採購名稱重複",
-  "stockReplenishmentIngredientsDivider": "成分",
-  "stockReplenishmentIngredientsHelper": "點選以設定不同成分欲採購的量",
-  "stockReplenishmentIngredientAmountHint": "設定增加／減少的量",
-  "stockQuantityTitle": "份量",
-  "stockQuantityDescription": "半糖、微糖等",
-  "stockQuantityTitleCreate": "新增份量",
-  "stockQuantityTitleUpdate": "編輯份量",
-  "stockQuantityEmptyBody": "份量可以快速調整成分的量，例如：\n半糖、微糖。",
-  "stockQuantityMetaProportion": "預設比例：{proportion}",
-  "@stockQuantityMetaProportion": {
-    "description": "Text explaining default ratios in subheadings of quantity items",
-    "placeholders": {
-      "proportion": {
+      "amount": {
         "type": "num",
         "format": "decimalPattern"
       }
     }
   },
-  "stockQuantityDialogDeletionContent": "{count, plural, =0{目前無任何產品成分有本份量} other{將會一同刪除掉 {count} 個產品成分的份量'}}",
-  "@stockQuantityDialogDeletionContent": {
-    "description": "Indicates how many product ingredients will be affected when deleting the quantity",
+  "menuIngredientSearchLabel": "搜寻成分",
+  "menuIngredientSearchHelper": "新增成分后，可至「库存」设定相关资讯。",
+  "menuIngredientSearchHint": "例如：起司",
+  "menuIngredientSearchAdd": "新增成分「{name}」",
+  "@menuIngredientSearchAdd": {
+    "description": "Button to add ingredient if search result not found",
     "placeholders": {
-      "count": {
-        "type": "int"
+      "name": {
+        "type": "String"
       }
     }
   },
-  "stockQuantityNameLabel": "份量名稱",
-  "stockQuantityNameHint": "例如：少量或多量",
-  "stockQuantityNameErrorRepeat": "份量名稱重複",
-  "stockQuantityProportionLabel": "預設比例",
-  "stockQuantityProportionHelper": "當產品成分使用此份量時，預設替該成分增加的比例。\n\n例如：此份量為「多量」預設份量為「1.5」，\n今有一產品「起司漢堡」的成分「起司」，每份漢堡會使用「2」單位的起司，\n當增加此份量時，則會自動替「起司」設定為「3」（2 * 1.5）的份量。\n\n若設為「1」則無任何影響。\n\n若設為「0」則代表將不會使用此成分",
-  "printerTitle": "出單機管理",
-  "printerDescription": "藍牙連線、出單設定",
-  "printerHeaderInfo": "出單機",
+  "menuIngredientSearchErrorEmpty": "必须设定成分，请点选以设定。",
+  "menuIngredientSearchErrorRepeat": "产品已经有相同的成分了，不能重复选取。",
+  "menuIngredientAmountLabel": "使用量",
+  "menuIngredientAmountHelper": "预设的使用量，若餐点可以调整该成分的使用量，请于成分的「份量」中设定。",
+  "menuQuantityTitleCreate": "新增份量",
+  "menuQuantityTitleUpdate": "编辑",
+  "menuQuantityMetaAmount": "使用量：{amount}",
+  "@menuQuantityMetaAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "num",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "menuQuantityMetaAdditionalPrice": "额外售价：{price}",
+  "@menuQuantityMetaAdditionalPrice": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "menuQuantityMetaAdditionalCost": "额外成本：{cost}",
+  "@menuQuantityMetaAdditionalCost": {
+    "placeholders": {
+      "cost": {
+        "type": "String"
+      }
+    }
+  },
+  "menuQuantitySearchLabel": "搜寻份量",
+  "menuQuantitySearchHelper": "新增成分份量后，可至「份量」设定相关资讯。",
+  "menuQuantitySearchHint": "例如：多量、少量",
+  "menuQuantitySearchAdd": "新增份量「{name}」",
+  "@menuQuantitySearchAdd": {
+    "description": "Button to add quantity if search result not found",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "menuQuantitySearchErrorEmpty": "必须设定份量，请点选以设定。",
+  "menuQuantitySearchErrorRepeat": "产品已经有相同的份量了，不能重复选取。",
+  "menuQuantityAmountLabel": "使用量",
+  "menuQuantityAdditionalPriceLabel": "额外售价",
+  "menuQuantityAdditionalPriceHelper": "设为 0 则代表加量（减量）不加价。",
+  "menuQuantityAdditionalCostLabel": "额外成本",
+  "menuQuantityAdditionalCostHelper": "预额外成本可以为负数，如「少量」会减少成分的使用，相对成本降低。",
+  "analysisTab": "统计",
+  "analysisHistoryBtn": "纪录",
+  "analysisHistoryTitle": "订单记录",
+  "analysisHistoryTitleEmpty": "查无点餐纪录",
+  "analysisHistoryCalendarTutorialTitle": "日历",
+  "analysisHistoryCalendarTutorialContent": "上下滑动可以调整周期单位，如月或周。\n左右滑动可以调整日期起讫。",
+  "analysisHistoryActionExport": "汇出",
+  "analysisHistoryActionClear": "清除订单纪录",
+  "analysisHistoryActionClearLastYear": "清除去年以前的订单",
+  "analysisHistoryActionClearLast6Months": "清除半年以前的订单",
+  "analysisHistoryActionClearCustom": "清除特定日期前的订单",
+  "analysisHistoryActionClearCustomSubtitle": "点击以选择日期",
+  "analysisHistoryActionClearSubtitle": "{date} 0点前",
+  "@analysisHistoryActionClearSubtitle": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      }
+    }
+  },
+  "analysisHistoryActionClearConfirmTitle": "确定要清除订单？",
+  "analysisHistoryActionClearConfirmContent": "确定要清除到 {date} 0点以前的订单纪录吗？\n这将会清除 {count} 笔订单。",
+  "@analysisHistoryActionClearConfirmContent": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      },
+      "count": {
+        "type": "int",
+        "format": "compactLong"
+      }
+    }
+  },
+  "analysisHistoryActionResetNo": "重置订单编号",
+  "analysisHistoryActionResetNoHint": "重置后编号将会从 1 开始，历史订单仍维持原本的编号。",
+  "analysisHistoryActionScheduleResetNo": "排程自动重置",
+  "analysisHistoryActionScheduleResetNoPeriod": "{name, select, everyXDays{每 X 天} everyXWeeks{每 X 周} xDayOfEachWeek{每周星期 X} xDayOfEachMonth{每月第 X 天} other{UNKNOWN}}",
+  "analysisHistoryActionScheduleResetNoTitle": "排程重置订单编号",
+  "analysisHistoryActionScheduleResetNoHint": "选择区间来安排未来的订单编号重置。",
+  "analysisHistoryActionScheduleResetNoNext": "下次重置日期：{date}",
+  "@analysisHistoryActionScheduleResetNoNext": {
+    "placeholders": {
+      "date": {
+        "type": "DateTime",
+        "format": "yMMMd"
+      }
+    }
+  },
+  "analysisHistoryActionScheduleResetNoWeekday": "{day}",
+  "@analysisHistoryActionScheduleResetNoWeekday": {
+    "placeholders": {
+      "day": {
+        "type": "DateTime",
+        "format": "EEEE"
+      }
+    }
+  },
+  "analysisHistoryActionScheduleResetNoMonthDay": "第 {day} 天",
+  "analysisHistoryActionScheduleResetNoMonthDayHint": "若选择第 31 天，则每月自动调整为最后一天，如 2 月和 4 月",
+  "analysisHistoryActionScheduleResetNoDaysEmpty": "无",
+  "analysisHistoryActionScheduleResetNoErrorDaysEmpty": "请至少选择一个日子",
+  "analysisHistoryActionTutorialTitle": "对订单做更多事",
+  "analysisHistoryActionTutorialContent": "你可以把订单汇出到外部档案，进行进一步分析或备份，\n或清除特定日期前的订单纪录，\n或排程自动重置订单编号。",
+  "analysisHistoryOrderListMetaNo": "编号：{no}",
+  "@analysisHistoryOrderListMetaNo": {
+    "description": "Order ID for specific order in the order list.",
+    "placeholders": {
+      "no": {
+        "type": "String"
+      }
+    }
+  },
+  "analysisHistoryOrderListMetaPrice": "售价：{price}",
+  "@analysisHistoryOrderListMetaPrice": {
+    "description": "Price of specific orders in the order list.",
+    "placeholders": {
+      "price": {
+        "type": "num",
+        "format": "compactCurrency",
+        "optionalParameters": {
+          "symbol": "$"
+        }
+      }
+    }
+  },
+  "analysisHistoryOrderListMetaPaid": "付额：{paid}",
+  "@analysisHistoryOrderListMetaPaid": {
+    "description": "Payment amount for specific orders in the order list.",
+    "placeholders": {
+      "paid": {
+        "type": "num",
+        "format": "compactCurrency",
+        "optionalParameters": {
+          "symbol": "$"
+        }
+      }
+    }
+  },
+  "analysisHistoryOrderListMetaProfit": "净利：{profit}",
+  "@analysisHistoryOrderListMetaProfit": {
+    "description": "Net profit for specific orders in the order list.",
+    "placeholders": {
+      "profit": {
+        "type": "num",
+        "format": "compactCurrency",
+        "optionalParameters": {
+          "symbol": "$"
+        }
+      }
+    }
+  },
+  "analysisHistoryOrderTitle": "订单细节",
+  "analysisHistoryOrderNotFound": "找不到相关订单",
+  "analysisHistoryOrderDeleteDialog": "确定要删除 {name} 的订单吗？\n将不会复原收银机和库存资料。\n此动作无法复原。",
+  "@analysisHistoryOrderDeleteDialog": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "analysisGoalsTitle": "本日总结",
+  "analysisGoalsCountTitle": "订单数",
+  "analysisGoalsCountDescription": "订单数反映了产品对顾客的吸引力。\n它代表了市场对你产品的需求程度，能帮助你了解何种产品或时段最受欢迎。\n高订单数可能意味著你的定价策略或行销活动取得成功，是商业模型有效性的指标之一。\n但要注意，单纯追求高订单数可能会忽略盈利能力。",
+  "analysisGoalsRevenueTitle": "营收",
+  "analysisGoalsRevenueDescription": "营收代表总销售额，是业务规模的指标。\n高营收可能显示了你的产品受欢迎且销售良好，但营收无法反映出业务的可持续性和盈利能力。\n有时候，为了提高营收，公司可能会采取降价等策略，这可能会对公司的盈利能力造成影响。",
+  "analysisGoalsProfitTitle": "净利",
+  "analysisGoalsProfitDescription": "净利是营业收入减去营业成本后的余额，是公司能否持续经营的关键。\n盈利直接反映了营运效率和成本管理能力。\n不同于营收，盈利考虑了生意的开支，包括原料成本、人力、租金等，\n这是一个更实际的指标，能帮助你评估经营是否有效且可持续。",
+  "analysisGoalsCostTitle": "成本",
+  "analysisGoalsAchievedRate": "利润达成\n{rate}",
+  "@analysisGoalsAchievedRate": {
+    "placeholders": {
+      "rate": {
+        "type": "String"
+      }
+    }
+  },
+  "analysisChartTitle": "图表分析",
+  "analysisChartTitleCreate": "新增图表",
+  "analysisChartTitleUpdate": "编辑图表",
+  "analysisChartTitleReorder": "排序图表",
+  "analysisChartTutorialTitle": "图表分析",
+  "analysisChartTutorialContent": "透过图表，你可以更直观地看到数据变化。\n现在就开始设计图表追踪你的销售状况吧！。",
+  "analysisChartCardEmptyData": "没有资料",
+  "analysisChartCardTitleUpdate": "编辑图表",
+  "analysisChartMetricName": "{name, select, revenue{营收} cost{成本} profit{净利} count{数量} other{UNKNOWN}}",
+  "@analysisChartMetricName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "analysisChartTargetName": "{name, select, order{订单} catalog{产品种类} product{产品} ingredient{成分} attribute{顾客属性} other{UNKNOWN}}",
+  "@analysisChartTargetName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "analysisChartRangeYesterday": "昨天",
+  "analysisChartRangeToday": "今天",
+  "analysisChartRangeLastWeek": "上周",
+  "analysisChartRangeThisWeek": "本周",
+  "analysisChartRangeLast7Days": "最近7日",
+  "analysisChartRangeLastMonth": "上月",
+  "analysisChartRangeThisMonth": "本月",
+  "analysisChartRangeLast30Days": "最近30日",
+  "analysisChartRangeTabName": "{name, select, day{日期} week{周} month{月} custom{自订} other{UNKNOWN}}",
+  "@analysisChartRangeTabName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "analysisChartModalNameLabel": "图表名称",
+  "analysisChartModalNameHint": "例如：每日营收",
+  "analysisChartModalIgnoreEmptyLabel": "忽略空资料",
+  "analysisChartModalIgnoreEmptyHelper": "某商品或指标在该时段没有资料，则不显示。",
+  "analysisChartModalDivider": "资料设定",
+  "analysisChartModalTypeLabel": "图表类型",
+  "analysisChartModalTypeName": "{name, select, cartesian{时序图} circular{圆饼图} other{UNKNOWN}}",
+  "@analysisChartModalTypeName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "analysisChartModalMetricLabel": "观看指标",
+  "analysisChartModalMetricHelper": "根据不同目的，选择不同指标类型。",
+  "analysisChartModalTargetLabel": "项目种类",
+  "analysisChartModalTargetHelper": "选择图表中要针对哪些资讯做分析。",
+  "analysisChartModalTargetErrorEmpty": "请选择一个项目种类",
+  "analysisChartModalTargetItemLabel": "项目选择",
+  "analysisChartModalTargetItemHelper": "你想要观察哪些项目的变化，例如区间内某商品的数量。",
+  "analysisChartModalTargetItemSelectAll": "全选",
+  "printerTitle": "出单机管理",
+  "printerDescription": "蓝牙连线、出单设定",
+  "printerHeaderInfo": "出单机",
   "@printerHeaderInfo": {
     "description": "Displayed on the upper in mobile view"
   },
-  "printerTitleCreate": "新增出單機",
-  "printerTitleUpdate": "編輯出單機",
-  "printerTitleSettings": "設定格式",
-  "printerBtnConnect": "建立連線",
-  "printerBtnDisconnect": "中斷連線",
-  "printerBtnTestPrint": "列印測試",
-  "printerBtnRetry": "重新連線",
+  "printerTitleCreate": "新增出单机",
+  "printerTitleUpdate": "编辑出单机",
+  "printerTitleSettings": "设定格式",
+  "printerBtnConnect": "建立连线",
+  "printerBtnDisconnect": "中断连线",
+  "printerBtnTestPrint": "列印测试",
+  "printerBtnRetry": "重新连线",
   "printerBtnPrint": "列印",
-  "printerStatusSuccess": "成功連結出單機",
-  "printerStatusConnecting": "連線中",
-  "printerStatusStandby": "尚未進行連線",
+  "printerStatusSuccess": "成功连结出单机",
+  "printerStatusConnecting": "连线中",
+  "printerStatusStandby": "尚未进行连线",
   "printerStatusPrinted": "列印完成",
-  "printerStatusName": "{name, select, good{正常} writeFailed{上次列印失敗} unrecoverable{錯誤，請重新啟動} paperJams{出單機卡紙} paperNotFound{缺紙} tooHot{出單機過熱} lowBattery{電量不足} uncovering{未蓋殼} noResponse{無回應} printing{列印中} unknown{未知} other{UNKNOWN}}",
+  "printerStatusName": "{name, select, good{正常} writeFailed{上次列印失败} unrecoverable{错误，请重新启动} paperJams{出单机卡纸} paperNotFound{缺纸} tooHot{出单机过热} lowBattery{电量不足} uncovering{未盖壳} noResponse{无回应} printing{列印中} unknown{未知} other{UNKNOWN}}",
   "printerSignalName": "{name, select, good{良好} normal{一般} weak{微弱} other{UNKNOWN}}",
-  "printerScanIng": "搜尋藍牙設備中...",
-  "printerScanCount": "搜尋到 {count} 個裝置",
+  "printerScanIng": "搜寻蓝牙设备中...",
+  "printerScanCount": "搜寻到 {count} 个装置",
   "@printerScanCount": {
     "placeholders": {
       "count": {
@@ -234,18 +410,18 @@
       }
     }
   },
-  "printerScanRetry": "重新搜尋",
-  "printerScanNotFound": "找不到裝置？",
-  "printerErrorNotSelect": "尚未選擇裝置",
-  "printerErrorNotSupportTitle": "裝置不相容",
-  "printerErrorNotSupportContent": "目前尚未支援此裝置，你可以[聯絡我們](mailto:evanlu361425@gmail.com)以取得協助。",
-  "printerErrorBluetoothOff": "藍牙未開啟",
-  "printerErrorDisconnected": "出單機已斷線",
-  "printerErrorTimeout": "出單機連線逾時",
-  "printerErrorCanceled": "出單機連線請求被中斷",
-  "printerErrorTimeoutMore": "可以嘗試以下操作：\n• 確認裝置是否開啟（通常裝置會閃爍）\n• 確認裝置是否在範圍內\n• 重新開啟藍牙",
-  "printerNameLabel": "出單機名稱",
-  "printerNameHint": "例如：廚房的出單機",
+  "printerScanRetry": "重新搜寻",
+  "printerScanNotFound": "找不到装置？",
+  "printerErrorNotSelect": "尚未选择装置",
+  "printerErrorNotSupportTitle": "装置不相容",
+  "printerErrorNotSupportContent": "目前尚未支援此装置，你可以[联络我们](mailto:evanlu361425@gmail.com)以取得协助。",
+  "printerErrorBluetoothOff": "蓝牙未开启",
+  "printerErrorDisconnected": "出单机已断线",
+  "printerErrorTimeout": "出单机连线逾时",
+  "printerErrorCanceled": "出单机连线请求被中断",
+  "printerErrorTimeoutMore": "可以尝试以下操作：\n• 确认装置是否开启（通常装置会闪烁）\n• 确认装置是否在范围内\n• 重新开启蓝牙",
+  "printerNameLabel": "出单机名称",
+  "printerNameHint": "例如：厨房的出单机",
   "printerNameHelper": "位置：{address}",
   "@printerNameHelper": {
     "placeholders": {
@@ -254,56 +430,166 @@
       }
     }
   },
-  "printerAutoConnLabel": "自動連線",
-  "printerAutoConnHelper": "當進入訂單頁時自動連線",
-  "printerTypeSelectTitle": "選擇出單機型號",
-  "printerTypeSelectHint": "目前僅支援以下型號的出單機。",
-  "printerTypeSelectFooter": "目前正在研發 Epson 出單機的支援，若需要其他機型請聯絡[我們](mailto:evanlu361425@gmail.com)。",
-  "printerTypeSelectLabel": "出單機型號",
-  "printerTypeSelectName": "{name, select, catPrinter{迷你口袋打印機} catPrinter2{迷你口袋打印機 2} xPrinter58{芯燁 58 系列} xPrinter76{芯燁 76 系列} xPrinter80{芯燁 80 系列} yokoscan58{優庫 58 系列} yokoscan80{優庫 80 系列} other{UNKNOWN}}",
-  "printerMetaConnected": "已連線",
-  "printerMetaExist": "已建立，無法新增",
-  "printerMetaHelper": "打開藍牙並確保出單機就在你旁邊",
-  "printerSettingsTitle": "設定出單機格式",
-  "printerSettingsPaddingLabel": "窄間距",
-  "printerSettingsPaddingHelper": "單子跟單子之間的空白會變少，較省紙張，但是撕紙時要小心",
-  "printerSettingsMore": "其他更多設定，敬請期待！",
-  "printerReceiptTitle": "交易明細",
-  "printerReceiptColumnName": "品項",
-  "printerReceiptColumnPrice": "單價",
-  "printerReceiptColumnCount": "數量",
-  "printerReceiptColumnTotal": "小計",
-  "printerReceiptColumnTime": "時間",
+  "printerAutoConnLabel": "自动连线",
+  "printerAutoConnHelper": "当进入订单页时自动连线",
+  "printerTypeSelectTitle": "选择出单机型号",
+  "printerTypeSelectHint": "目前仅支援以下型号的出单机。",
+  "printerTypeSelectFooter": "目前正在研发 Epson 出单机的支援，若需要其他机型请联络[我们](mailto:evanlu361425@gmail.com)。",
+  "printerTypeSelectLabel": "出单机型号",
+  "printerTypeSelectName": "{name, select, catPrinter{迷你口袋打印机} catPrinter2{迷你口袋打印机 2} xPrinter58{芯烨 58 系列} xPrinter76{芯烨 76 系列} xPrinter80{芯烨 80 系列} yokoscan58{优库 58 系列} yokoscan80{优库 80 系列} other{UNKNOWN}}",
+  "printerMetaConnected": "已连线",
+  "printerMetaExist": "已建立，无法新增",
+  "printerMetaHelper": "打开蓝牙并确保出单机就在你旁边",
+  "printerSettingsTitle": "设定出单机格式",
+  "printerSettingsPaddingLabel": "窄间距",
+  "printerSettingsPaddingHelper": "单子跟单子之间的空白会变少，较省纸张，但是撕纸时要小心",
+  "printerSettingsMore": "其他更多设定，敬请期待！",
+  "printerReceiptTitle": "交易明细",
+  "printerReceiptColumnName": "品项",
+  "printerReceiptColumnPrice": "单价",
+  "printerReceiptColumnCount": "数量",
+  "printerReceiptColumnTotal": "小计",
+  "printerReceiptColumnTime": "时间",
   "printerReceiptDiscountLabel": "折扣",
-  "printerReceiptDiscountOrigin": "原單價",
+  "printerReceiptDiscountOrigin": "原单价",
   "printerReceiptAddOnsLabel": "附加",
-  "printerReceiptAddOnsAdjustment": "調整金額",
-  "printerReceiptTotal": "總價",
-  "printerReceiptPaid": "付額",
-  "printerReceiptPrice": "總價",
-  "printerReceiptChange": "找錢",
-  "printerInfoTitle": "出單機資訊",
-  "printerInfoName": "名稱",
+  "printerReceiptAddOnsAdjustment": "调整金额",
+  "printerReceiptTotal": "总价",
+  "printerReceiptPaid": "付额",
+  "printerReceiptPrice": "总价",
+  "printerReceiptChange": "找钱",
+  "printerInfoTitle": "出单机资讯",
+  "printerInfoName": "名称",
   "printerInfoAddress": "位置",
-  "printerInfoSignal": "訊號強度",
-  "printerInfoStatus": "狀態",
-  "printerSupportedTitle": "支援的出單機",
-  "printerSupportedName": "{name, select, xPrinter58{芯燁 XPrinter} catPrinter{迷你口袋打印機} yokoscan58{優庫 printer} other{UNKNOWN}}",
-  "transitTitle": "資料轉移",
-  "transitDescription": "匯入、匯出店家資訊和訂單",
-  "transitDescriptionCsv": "用逗號分隔的列表，輕量級的匯出和匯入資料，幾乎兼容所有軟體。",
-  "transitDescriptionExcel": "Excel 可以離線匯出和匯入，容易與 Google 試算表和 Microsoft Excel 整合。",
-  "transitDescriptionGoogleSheet": "Google 試算表是一個強大的小型資料庫，匯出之後可以做很多客制化的分析！",
-  "transitDescriptionPlainText": "快速檢查、快速分享。",
-  "transitMethodTitle": "請選擇欲轉移的方式",
-  "transitMethodName": "{name, select, googleSheet{Google 試算表} plainText{純文字} excel{Excel 檔案} csv{CSV 檔案} other{UNKNOWN}}",
-  "transitCatalogTitle": "用 {name} 做什麼？",
-  "transitCatalogName": "{name, select, exportOrder{匯出訂單記錄} exportModel{匯出店家資訊} importModel{匯入店家資訊} other{UNKNOWN}}",
-  "transitCatalogHelper": "{name, select, exportOrder{訂單資訊可以讓你匯出到第三方位置後做更細緻的統計分析。} exportModel{商家資訊是用來把菜單、庫存等資訊備份到第三方位置。} importModel{同步資訊到此設備。} other{UNKNOWN}}",
-  "transitModelName": "{name, select, menu{菜單} stock{庫存} quantities{份量} replenisher{補貨} orderAttr{顧客設定} other{UNKNOWN}}",
-  "transitOrderName": "{name, select, basic{訂單} attr{顧客細項} product{產品細項} ingredient{成分細項} other{UNKNOWN}}",
-  "transitOrderSettingTitle": "訂單匯出設定",
-  "transitOrderSettingMetaOverwrite": "{value, select, true{會覆寫} false{不會覆寫} other{UNKNOWN}}",
+  "printerInfoSignal": "讯号强度",
+  "printerInfoStatus": "状态",
+  "printerSupportedTitle": "支援的出单机",
+  "printerSupportedName": "{name, select, xPrinter58{芯烨 XPrinter} catPrinter{迷你口袋打印机} yokoscan58{优库 printer} other{UNKNOWN}}",
+  "cashierTab": "收银",
+  "cashierUnitLabel": "币值：{unit}",
+  "@cashierUnitLabel": {
+    "placeholders": {
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "cashierCounterLabel": "数量",
+  "@cashierCounterLabel": {
+    "description": "设定币值数量时的标签"
+  },
+  "cashierToDefaultTitle": "设为预设",
+  "cashierToDefaultTutorialTitle": "收银机预设状态",
+  "cashierToDefaultTutorialContent": "在下面设定完收银机各币值的数量后，\n按这里设定预设状态！\n设定好的数量就会是各个币值状态条的「最大值」。",
+  "cashierToDefaultDialogTitle": "调整收银台预设？",
+  "cashierToDefaultDialogContent": "这将会把目前的收银机状态设定为预设状态。\n此动作将会覆盖掉先前的设定。",
+  "cashierChangerTitle": "换钱",
+  "cashierChangerButton": "套用",
+  "cashierChangerTutorialTitle": "收银机换钱",
+  "cashierChangerTutorialContent": "一百块换成 10 个十块之类。\n帮助快速调整收银机状态。",
+  "cashierChangerErrorNoSelection": "请选择要套用的组合",
+  "cashierChangerErrorNotEnough": "{unit} 元不够换",
+  "@cashierChangerErrorNotEnough": {
+    "placeholders": {
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "cashierChangerErrorInvalidHead": "{count} 个 {unit} 元没办法换",
+  "@cashierChangerErrorInvalidHead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "cashierChangerErrorInvalidBody": "{count} 个 {unit} 元",
+  "@cashierChangerErrorInvalidBody": {
+    "description": "Concatenated multiple lines after `invalidHead` to form a complete sentence.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "cashierChangerFavoriteTab": "常用",
+  "cashierChangerFavoriteHint": "选完后请点选「套用」来使用该组合",
+  "cashierChangerFavoriteEmptyBody": "这里可以帮助你快速转换不同币值",
+  "cashierChangerFavoriteItemFrom": "用 {count} 个 {unit} 元换",
+  "@cashierChangerFavoriteItemFrom": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "cashierChangerFavoriteItemTo": "{count} 个 {unit} 元",
+  "@cashierChangerFavoriteItemTo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "cashierChangerCustomTab": "自订",
+  "cashierChangerCustomAddBtn": "新增常用",
+  "cashierChangerCustomCountLabel": "数量",
+  "cashierChangerCustomUnitLabel": "币值",
+  "cashierChangerCustomUnitAddBtn": "新增币种",
+  "cashierChangerCustomDividerFrom": "拿",
+  "cashierChangerCustomDividerTo": "换",
+  "cashierSurplusTitle": "结余",
+  "cashierSurplusButton": "结余",
+  "cashierSurplusTutorialTitle": "每日结余",
+  "cashierSurplusTutorialContent": "结余可以帮助我们在每天打烊时，\n计算现有金额和预设金额的差异。",
+  "cashierSurplusErrorEmptyDefault": "尚未设定预设状态",
+  "cashierSurplusTableHint": "若你确认收银机的金钱都没问题之后就可以完成结余啰！",
+  "cashierSurplusColumnName": "{name, select, unit{单位} currentCount{现有} diffCount{差异} defaultCount{预设} other{UNKNOWN}}",
+  "cashierSurplusCounterLabel": "币值{unit}的数量",
+  "@cashierSurplusCounterLabel": {
+    "description": "Allow users to customize currency when surplus.",
+    "placeholders": {
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "cashierSurplusCounterShortLabel": "数量",
+  "@cashierSurplusCounterShortLabel": {
+    "description": "This is for display in error messages, e.g., \"Quantity cannot be 0\"."
+  },
+  "cashierSurplusCurrentTotalLabel": "现有总额",
+  "cashierSurplusCurrentTotalHelper": "现在收银机应该要有的总额。\n若你发现现金和这值对不上，想一想今天有没有用收银机的钱买东西？",
+  "cashierSurplusDiffTotalLabel": "差额",
+  "cashierSurplusDiffTotalHelper": "和收银机最一开始的总额的差额。\n这可以快速帮你了解今天收银机多了多少钱唷。",
+  "transitTitle": "资料转移",
+  "transitDescription": "汇入、汇出店家资讯和订单",
+  "transitDescriptionCsv": "用逗号分隔的列表，轻量级的汇出和汇入资料，几乎兼容所有软体。",
+  "transitDescriptionExcel": "Excel 可以离线汇出和汇入，容易与 Google 试算表和 Microsoft Excel 整合。",
+  "transitDescriptionGoogleSheet": "Google 试算表是一个强大的小型资料库，汇出之后可以做很多客制化的分析！",
+  "transitDescriptionPlainText": "快速检查、快速分享。",
+  "transitMethodTitle": "请选择欲转移的方式",
+  "transitMethodName": "{name, select, googleSheet{Google 试算表} plainText{纯文字} excel{Excel 档案} csv{CSV 档案} other{UNKNOWN}}",
+  "transitCatalogTitle": "用 {name} 做什么？",
+  "transitCatalogName": "{name, select, exportOrder{汇出订单记录} exportModel{汇出店家资讯} importModel{汇入店家资讯} other{UNKNOWN}}",
+  "transitCatalogHelper": "{name, select, exportOrder{订单资讯可以让你汇出到第三方位置后做更细致的统计分析。} exportModel{商家资讯是用来把菜单、库存等资讯备份到第三方位置。} importModel{同步资讯到此设备。} other{UNKNOWN}}",
+  "transitModelName": "{name, select, menu{菜单} stock{库存} quantities{份量} replenisher{补货} orderAttr{顾客设定} other{UNKNOWN}}",
+  "transitOrderName": "{name, select, basic{订单} attr{顾客细项} product{产品细项} ingredient{成分细项} other{UNKNOWN}}",
+  "transitOrderSettingTitle": "订单汇出设定",
+  "transitOrderSettingMetaOverwrite": "{value, select, true{会覆写} false{不会覆写} other{UNKNOWN}}",
   "@transitOrderSettingMetaOverwrite": {
     "placeholders": {
       "value": {
@@ -311,7 +597,7 @@
       }
     }
   },
-  "transitOrderSettingMetaTitlePrefix": "{value, select, true{有日期前綴} false{無日期前綴} other{UNKNOWN}}",
+  "transitOrderSettingMetaTitlePrefix": "{value, select, true{有日期前缀} false{无日期前缀} other{UNKNOWN}}",
   "@transitOrderSettingMetaTitlePrefix": {
     "placeholders": {
       "value": {
@@ -319,12 +605,12 @@
       }
     }
   },
-  "transitOrderSettingOverwriteLabel": "是否覆寫表單",
-  "transitOrderSettingOverwriteHint": "覆寫表單之後，將會從第一行開始匯出",
-  "transitOrderSettingTitlePrefixLabel": "加上日期前綴",
-  "transitOrderSettingTitlePrefixHint": "表單名稱前面加上日期前綴，例如：「0101 - 0131 訂單資料」",
-  "transitOrderSettingRecommendCombination": "不覆寫而改用附加的時候，建議表單名稱「不要」加上日期前綴",
-  "transitOrderMetaRange": "{range} 的訂單",
+  "transitOrderSettingOverwriteLabel": "是否覆写表单",
+  "transitOrderSettingOverwriteHint": "覆写表单之后，将会从第一行开始汇出",
+  "transitOrderSettingTitlePrefixLabel": "加上日期前缀",
+  "transitOrderSettingTitlePrefixHint": "表单名称前面加上日期前缀，例如：「0101 - 0131 订单资料」",
+  "transitOrderSettingRecommendCombination": "不覆写而改用附加的时候，建议表单名称「不要」加上日期前缀",
+  "transitOrderMetaRange": "{range} 的订单",
   "@transitOrderMetaRange": {
     "placeholders": {
       "range": {
@@ -333,7 +619,7 @@
       }
     }
   },
-  "transitOrderMetaRangeDays": "{days} 天的資料",
+  "transitOrderMetaRangeDays": "{days} 天的资料",
   "@transitOrderMetaRangeDays": {
     "placeholders": {
       "days": {
@@ -341,12 +627,12 @@
       }
     }
   },
-  "transitOrderCapacityTitle": "預估容量為：{size}",
-  "transitOrderCapacityContent": "過高的容量可能會讓執行錯誤，建議分次執行，不要一次匯出太多筆。",
-  "transitOrderCapacityOk": "容量剛好",
+  "transitOrderCapacityTitle": "预估容量为：{size}",
+  "transitOrderCapacityContent": "过高的容量可能会让执行错误，建议分次执行，不要一次汇出太多笔。",
+  "transitOrderCapacityOk": "容量刚好",
   "transitOrderCapacityWarn": "容量警告",
-  "transitOrderCapacityDanger": "容量危險",
-  "transitOrderItemMetaProductCount": "餐點數：{count}",
+  "transitOrderCapacityDanger": "容量危险",
+  "transitOrderItemMetaProductCount": "餐点数：{count}",
   "@transitOrderItemMetaProductCount": {
     "placeholders": {
       "count": {
@@ -354,7 +640,7 @@
       }
     }
   },
-  "transitOrderItemMetaPrice": "總價：{price}",
+  "transitOrderItemMetaPrice": "总价：{price}",
   "@transitOrderItemMetaPrice": {
     "placeholders": {
       "price": {
@@ -362,50 +648,50 @@
       }
     }
   },
-  "transitOrderItemDialogTitle": "訂單細節",
-  "transitExportTab": "匯出",
-  "transitExportFileDialogTitle": "選擇匯出的位置",
-  "transitExportBasicBtnCsv": "匯出成 CSV 檔",
-  "transitExportBasicBtnExcel": "匯出成 Excel 檔",
-  "transitExportBasicBtnGoogleSheet": "匯出至 Google 試算表",
-  "transitExportBasicBtnPlainText": "純文字拷貝",
-  "transitExportBasicFileName": "POS 系統資料",
-  "transitExportBasicSuccessCsv": "匯出成功",
-  "transitExportBasicSuccessExcel": "匯出成功",
-  "transitExportBasicSuccessGoogleSheet": "上傳成功",
-  "transitExportBasicSuccessPlainText": "拷貝成功",
-  "transitExportBasicSuccessActionGoogleSheet": "開啟表單",
-  "transitExportOrderTitleCsv": "匯出成 CSV 檔",
-  "transitExportOrderTitleExcel": "匯出成 Excel 檔",
-  "transitExportOrderTitleGoogleSheet": "匯出至 Google 試算表",
-  "transitExportOrderTitlePlainText": "純文字拷貝",
-  "transitExportOrderSubtitleCsv": "會有多個檔案，每個檔案包含不同的資料",
-  "transitExportOrderSubtitleExcel": "單一檔案內含工作表，每個工作表包含不同的資料",
-  "transitExportOrderSubtitleGoogleSheet": "上傳需要網路連線，且請求可能會被 Google 限制。\n若上傳失敗，請稍後再試或使用其他方式匯出。\n",
-  "transitExportOrderSubtitlePlainText": "適合用來簡單的分享或檢查資料",
-  "transitExportOrderFileName": "訂單資料",
-  "transitExportOrderProgressGoogleSheetOverwrite": "資料覆寫中",
-  "transitExportOrderProgressGoogleSheetAppend": "資料附加進既有資料中",
-  "transitExportOrderWarningMemoryGoogleSheet": "這裡的容量代表網路傳輸所消耗的量，實際佔用的雲端記憶體可能是此值的百分之一而已。\n詳細容量限制說明可以參考[本文件](https://developers.google.com/sheets/api/limits#quota)。\n",
-  "transitExportOrderSuccessCsv": "匯出成功",
-  "transitExportOrderSuccessExcel": "匯出成功",
-  "transitExportOrderSuccessGoogleSheet": "上傳成功",
-  "transitExportOrderSuccessPlainText": "拷貝成功",
-  "transitExportOrderSuccessActionGoogleSheet": "開啟表單",
-  "transitImportTab": "匯入",
-  "transitImportBtnCsv": "選擇 .csv 檔",
-  "transitImportBtnExcel": "選擇 .xlsx 檔",
-  "transitImportBtnGoogleSheet": "選擇 Google 試算表",
-  "transitImportBtnPlainTextAction": "點選以貼上文字",
-  "transitImportBtnPlainTextHint": "貼上複製而來的文字",
-  "transitImportBtnPlainTextHelper": "貼上文字後，會分析文字並決定匯入的是什麼種類的資訊。\n複製過大的文字可能會造成系統的崩潰。\n",
-  "transitImportModelSelectionLabel": "資料類型",
+  "transitOrderItemDialogTitle": "订单细节",
+  "transitExportTab": "汇出",
+  "transitExportFileDialogTitle": "选择汇出的位置",
+  "transitExportBasicBtnCsv": "汇出成 CSV 档",
+  "transitExportBasicBtnExcel": "汇出成 Excel 档",
+  "transitExportBasicBtnGoogleSheet": "汇出至 Google 试算表",
+  "transitExportBasicBtnPlainText": "纯文字拷贝",
+  "transitExportBasicFileName": "POS 系统资料",
+  "transitExportBasicSuccessCsv": "汇出成功",
+  "transitExportBasicSuccessExcel": "汇出成功",
+  "transitExportBasicSuccessGoogleSheet": "上传成功",
+  "transitExportBasicSuccessPlainText": "拷贝成功",
+  "transitExportBasicSuccessActionGoogleSheet": "开启表单",
+  "transitExportOrderTitleCsv": "汇出成 CSV 档",
+  "transitExportOrderTitleExcel": "汇出成 Excel 档",
+  "transitExportOrderTitleGoogleSheet": "汇出至 Google 试算表",
+  "transitExportOrderTitlePlainText": "纯文字拷贝",
+  "transitExportOrderSubtitleCsv": "会有多个档案，每个档案包含不同的资料",
+  "transitExportOrderSubtitleExcel": "单一档案内含工作表，每个工作表包含不同的资料",
+  "transitExportOrderSubtitleGoogleSheet": "上传需要网路连线，且请求可能会被 Google 限制。\n若上传失败，请稍后再试或使用其他方式汇出。\n",
+  "transitExportOrderSubtitlePlainText": "适合用来简单的分享或检查资料",
+  "transitExportOrderFileName": "订单资料",
+  "transitExportOrderProgressGoogleSheetOverwrite": "资料覆写中",
+  "transitExportOrderProgressGoogleSheetAppend": "资料附加进既有资料中",
+  "transitExportOrderWarningMemoryGoogleSheet": "这里的容量代表网路传输所消耗的量，实际占用的云端记忆体可能是此值的百分之一而已。\n详细容量限制说明可以参考[本文件](https://developers.google.com/sheets/api/limits#quota)。\n",
+  "transitExportOrderSuccessCsv": "汇出成功",
+  "transitExportOrderSuccessExcel": "汇出成功",
+  "transitExportOrderSuccessGoogleSheet": "上传成功",
+  "transitExportOrderSuccessPlainText": "拷贝成功",
+  "transitExportOrderSuccessActionGoogleSheet": "开启表单",
+  "transitImportTab": "汇入",
+  "transitImportBtnCsv": "选择 .csv 档",
+  "transitImportBtnExcel": "选择 .xlsx 档",
+  "transitImportBtnGoogleSheet": "选择 Google 试算表",
+  "transitImportBtnPlainTextAction": "点选以贴上文字",
+  "transitImportBtnPlainTextHint": "贴上复制而来的文字",
+  "transitImportBtnPlainTextHelper": "贴上文字后，会分析文字并决定汇入的是什么种类的资讯。\n复制过大的文字可能会造成系统的崩溃。\n",
+  "transitImportModelSelectionLabel": "资料类型",
   "transitImportModelSelectionAll": "全部",
-  "transitImportModelSelectionHint": "請先選擇資料類型來進行匯入",
-  "transitImportModelSelectionPlainTextHint": "請先輸入文字來進行匯入",
-  "transitImportProgressGoogleSheetStart": "拉取試算表資料中",
-  "transitImportProgressGoogleSheetPrepare": "取得試算表資訊中",
-  "transitImportErrorBasicColumnCount": "資料量不足，需要 {columns} 個欄位",
+  "transitImportModelSelectionHint": "请先选择资料类型来进行汇入",
+  "transitImportModelSelectionPlainTextHint": "请先输入文字来进行汇入",
+  "transitImportProgressGoogleSheetStart": "拉取试算表资料中",
+  "transitImportProgressGoogleSheetPrepare": "取得试算表资讯中",
+  "transitImportErrorBasicColumnCount": "资料量不足，需要 {columns} 个栏位",
   "@transitImportErrorBasicColumnCount": {
     "placeholders": {
       "columns": {
@@ -413,21 +699,21 @@
       }
     }
   },
-  "transitImportErrorBasicDuplicate": "將忽略本行，相同的項目已於前面出現",
-  "transitImportErrorCsvPickFile": "選擇檔案失敗",
-  "transitImportErrorExcelPickFile": "選擇檔案失敗",
-  "transitImportErrorGoogleSheetFetchDataTitle": "無法拉取試算表資料",
-  "transitImportErrorGoogleSheetFetchDataHelper": "別擔心，通常都可以簡單解決！\n可能的原因有：\n• 網路狀況不穩；\n• 尚未授權 POS 系統進行表單的讀取；\n• 試算表 ID 打錯了，請嘗試複製整個網址後貼上；\n• 該試算表被刪除了。",
-  "transitImportErrorGoogleSheetMissingTitle": "找不到表單 {name} 的資料",
-  "transitImportErrorGoogleSheetMissingHelper": "別擔心，通常都可以簡單解決！\n可能的原因有：\n• 該試算表沒有我們想要的表單；\n• 網路狀況不穩；\n• 尚未授權 POS 系統進行表單的讀取；\n• 試算表 ID 打錯了，請嘗試複製整個網址後貼上；\n• 該試算表被刪除了。",
-  "transitImportErrorPreviewNotFound": "找不到「{name}」的資料",
-  "transitImportErrorPlainTextNotFound": "這段文字無法匹配相應的服務，請參考匯出時的文字內容。",
-  "transitImportSuccess": "匯入成功",
-  "transitImportPreviewConfirmTitle": "確定匯入？",
-  "transitImportPreviewConfirmContent": "注意：匯入後將會把沒列到的資料移除，請確認是否執行！",
-  "transitImportPreviewConfirmBtn": "匯入資料",
-  "transitImportPreviewConfirmVerify": "確認資料",
-  "transitImportPreviewConfirmHint": "還差 {count} 種資料未確認。\n請確認資料是否正確，若有錯誤請取消操作並修正後重新匯入。\n",
+  "transitImportErrorBasicDuplicate": "将忽略本行，相同的项目已于前面出现",
+  "transitImportErrorCsvPickFile": "选择档案失败",
+  "transitImportErrorExcelPickFile": "选择档案失败",
+  "transitImportErrorGoogleSheetFetchDataTitle": "无法拉取试算表资料",
+  "transitImportErrorGoogleSheetFetchDataHelper": "别担心，通常都可以简单解决！\n可能的原因有：\n• 网路状况不稳；\n• 尚未授权 POS 系统进行表单的读取；\n• 试算表 ID 打错了，请尝试复制整个网址后贴上；\n• 该试算表被删除了。",
+  "transitImportErrorGoogleSheetMissingTitle": "找不到表单 {name} 的资料",
+  "transitImportErrorGoogleSheetMissingHelper": "别担心，通常都可以简单解决！\n可能的原因有：\n• 该试算表没有我们想要的表单；\n• 网路状况不稳；\n• 尚未授权 POS 系统进行表单的读取；\n• 试算表 ID 打错了，请尝试复制整个网址后贴上；\n• 该试算表被删除了。",
+  "transitImportErrorPreviewNotFound": "找不到「{name}」的资料",
+  "transitImportErrorPlainTextNotFound": "这段文字无法匹配相应的服务，请参考汇出时的文字内容。",
+  "transitImportSuccess": "汇入成功",
+  "transitImportPreviewConfirmTitle": "确定汇入？",
+  "transitImportPreviewConfirmContent": "注意：汇入后将会把没列到的资料移除，请确认是否执行！",
+  "transitImportPreviewConfirmBtn": "汇入资料",
+  "transitImportPreviewConfirmVerify": "确认资料",
+  "transitImportPreviewConfirmHint": "还差 {count} 种资料未确认。\n请确认资料是否正确，若有错误请取消操作并修正后重新汇入。\n",
   "@transitImportPreviewConfirmHint": {
     "placeholders": {
       "count": {
@@ -435,7 +721,7 @@
       }
     }
   },
-  "transitImportPreviewIngredientMetaAmount": "庫存：{amount}",
+  "transitImportPreviewIngredientMetaAmount": "库存：{amount}",
   "@transitImportPreviewIngredientMetaAmount": {
     "placeholders": {
       "amount": {
@@ -444,7 +730,7 @@
       }
     }
   },
-  "transitImportPreviewIngredientMetaMaxAmount": "{exist, plural, =0{未設定} other{最大值：{value}}}",
+  "transitImportPreviewIngredientMetaMaxAmount": "{exist, plural, =0{未设定} other{最大值：{value}}}",
   "@transitImportPreviewIngredientMetaMaxAmount": {
     "placeholders": {
       "exist": {
@@ -456,52 +742,52 @@
       }
     }
   },
-  "transitImportPreviewIngredientConfirm": "注意：匯入後，為了避免影響「菜單」的狀況，並不會把沒列出的成分移除。",
-  "transitImportPreviewQuantityConfirm": "注意：匯入後，為了避免影響「菜單」的狀況，並不會把沒列出的份量移除。",
-  "transitImportColumnStatus": "{name, select, normal{（一般）} staged{（新增）} stagedIng{（新的成分）} stagedQua{（新的份量）} updated{（異動）} other{UNKNOWN}}",
+  "transitImportPreviewIngredientConfirm": "注意：汇入后，为了避免影响「菜单」的状况，并不会把没列出的成分移除。",
+  "transitImportPreviewQuantityConfirm": "注意：汇入后，为了避免影响「菜单」的状况，并不会把没列出的份量移除。",
+  "transitImportColumnStatus": "{name, select, normal{（一般）} staged{（新增）} stagedIng{（新的成分）} stagedQua{（新的份量）} updated{（异动）} other{UNKNOWN}}",
   "@transitImportColumnStatus": {
     "description": "Additional status of the data displayed"
   },
-  "transitFormatFieldProductIngredientTitle": "成分資訊",
-  "transitFormatFieldProductIngredientNote": "產品全部成分的資訊，格式如下：\n- 成分1,預設使用量\n  + 份量a,額外使用量,額外價格,額外成本\n  + 份量b,額外使用量,額外價格,額外成本\n- 成分2,預設使用量",
-  "transitFormatFieldReplenishmentTitle": "補貨量",
-  "transitFormatFieldReplenishmentNote": "每次補貨時特定成分的量，格式如下：\n- 成分1,補貨量\n- 成分2,補貨量",
-  "transitFormatFieldAttributeOptionTitle": "顧客設定選項",
-  "transitFormatFieldAttributeOptionNote": "「選項值」會根據顧客設定種類不同而有不同意義，格式如下：\n- 選項1,是否為預設,選項值\n- 選項2,是否為預設,選項值",
-  "transitFormatFieldOrderNo": "編號",
-  "transitFormatFieldOrderTime": "時間",
-  "transitFormatFieldOrderPrice": "總價",
-  "transitFormatFieldOrderProductPrice": "產品總價",
-  "transitFormatFieldOrderPaid": "付額",
+  "transitFormatFieldProductIngredientTitle": "成分资讯",
+  "transitFormatFieldProductIngredientNote": "产品全部成分的资讯，格式如下：\n- 成分1,预设使用量\n  + 份量a,额外使用量,额外价格,额外成本\n  + 份量b,额外使用量,额外价格,额外成本\n- 成分2,预设使用量",
+  "transitFormatFieldReplenishmentTitle": "补货量",
+  "transitFormatFieldReplenishmentNote": "每次补货时特定成分的量，格式如下：\n- 成分1,补货量\n- 成分2,补货量",
+  "transitFormatFieldAttributeOptionTitle": "顾客设定选项",
+  "transitFormatFieldAttributeOptionNote": "「选项值」会根据顾客设定种类不同而有不同意义，格式如下：\n- 选项1,是否为预设,选项值\n- 选项2,是否为预设,选项值",
+  "transitFormatFieldOrderNo": "编号",
+  "transitFormatFieldOrderTime": "时间",
+  "transitFormatFieldOrderPrice": "总价",
+  "transitFormatFieldOrderProductPrice": "产品总价",
+  "transitFormatFieldOrderPaid": "付额",
   "transitFormatFieldOrderCost": "成本",
   "transitFormatFieldOrderProfit": "收入",
-  "transitFormatFieldOrderItemCount": "產品份數",
+  "transitFormatFieldOrderItemCount": "产品份数",
   "@transitFormatFieldOrderItemCount": {
     "description": "how many items in the order"
   },
-  "transitFormatFieldOrderTypeCount": "產品類數",
+  "transitFormatFieldOrderTypeCount": "产品类数",
   "@transitFormatFieldOrderTypeCount": {
     "description": "how many types of products in the order"
   },
-  "transitFormatFieldOrderAttributeTitle": "訂單顧客設定",
-  "transitFormatFieldOrderAttributeHeaderNo": "編號",
-  "transitFormatFieldOrderAttributeHeaderName": "設定類別",
-  "transitFormatFieldOrderAttributeHeaderOption": "選項",
-  "transitFormatFieldOrderProductTitle": "訂單產品細項",
-  "transitFormatFieldOrderProductHeaderNo": "編號",
-  "transitFormatFieldOrderProductHeaderName": "產品",
-  "transitFormatFieldOrderProductHeaderCatalog": "種類",
-  "transitFormatFieldOrderProductHeaderCount": "數量",
-  "transitFormatFieldOrderProductHeaderPrice": "單一售價",
-  "transitFormatFieldOrderProductHeaderCost": "單一成本",
-  "transitFormatFieldOrderProductHeaderOrigin": "單一原價",
-  "transitFormatFieldOrderIngredientTitle": "訂單成分細項",
-  "transitFormatFieldOrderIngredientHeaderNo": "編號",
+  "transitFormatFieldOrderAttributeTitle": "订单顾客设定",
+  "transitFormatFieldOrderAttributeHeaderNo": "编号",
+  "transitFormatFieldOrderAttributeHeaderName": "设定类别",
+  "transitFormatFieldOrderAttributeHeaderOption": "选项",
+  "transitFormatFieldOrderProductTitle": "订单产品细项",
+  "transitFormatFieldOrderProductHeaderNo": "编号",
+  "transitFormatFieldOrderProductHeaderName": "产品",
+  "transitFormatFieldOrderProductHeaderCatalog": "种类",
+  "transitFormatFieldOrderProductHeaderCount": "数量",
+  "transitFormatFieldOrderProductHeaderPrice": "单一售价",
+  "transitFormatFieldOrderProductHeaderCost": "单一成本",
+  "transitFormatFieldOrderProductHeaderOrigin": "单一原价",
+  "transitFormatFieldOrderIngredientTitle": "订单成分细项",
+  "transitFormatFieldOrderIngredientHeaderNo": "编号",
   "transitFormatFieldOrderIngredientHeaderName": "成分",
   "transitFormatFieldOrderIngredientHeaderQuantity": "份量",
-  "transitFormatFieldOrderIngredientHeaderAmount": "數量",
-  "transitFormatFieldOrderExpandableHint": "詳見下欄",
-  "transitFormatTextOrderPrice": "{hasProducts, plural, =0{共 {price} 元。} other{共 {price} 元，其中的 {productsPrice} 元是產品價錢。}}",
+  "transitFormatFieldOrderIngredientHeaderAmount": "数量",
+  "transitFormatFieldOrderExpandableHint": "详见下栏",
+  "transitFormatTextOrderPrice": "{hasProducts, plural, =0{共 {price} 元。} other{共 {price} 元，其中的 {productsPrice} 元是产品价钱。}}",
   "@transitFormatTextOrderPrice": {
     "placeholders": {
       "hasProducts": {
@@ -515,7 +801,7 @@
       }
     }
   },
-  "transitFormatTextOrderMoney": "付額 {paid} 元、成分 {cost} 元。",
+  "transitFormatTextOrderMoney": "付额 {paid} 元、成分 {cost} 元。",
   "@transitFormatTextOrderMoney": {
     "placeholders": {
       "paid": {
@@ -526,7 +812,7 @@
       }
     }
   },
-  "transitFormatTextOrderProductCount": "{count, plural, =0{沒有任何餐點。} =1{餐點有 {count} 份，內容為：\n{products}。} other{餐點有 {count} 份（{setCount} 種組合）包括：\n{products}。}}",
+  "transitFormatTextOrderProductCount": "{count, plural, =0{没有任何餐点。} =1{餐点有 {count} 份，内容为：\n{products}。} other{餐点有 {count} 份（{setCount} 种组合）包括：\n{products}。}}",
   "@transitFormatTextOrderProductCount": {
     "placeholders": {
       "count": {
@@ -540,7 +826,7 @@
       }
     }
   },
-  "transitFormatTextOrderProduct": "{hasIngredient, plural, =0{{product}（{catalog}）{count} 份共 {price} 元，沒有設定成分} other{{product}（{catalog}）{count} 份共 {price} 元，成份包括 {ingredients}}}",
+  "transitFormatTextOrderProduct": "{hasIngredient, plural, =0{{product}（{catalog}）{count} 份共 {price} 元，没有设定成分} other{{product}（{catalog}）{count} 份共 {price} 元，成份包括 {ingredients}}}",
   "@transitFormatTextOrderProduct": {
     "placeholders": {
       "hasIngredient": {
@@ -563,7 +849,7 @@
       }
     }
   },
-  "transitFormatTextOrderIngredient": "{amount, plural, =0{{ingredient}（{quantity}）} other{{ingredient}（{quantity}），使用 {amount} 個}}",
+  "transitFormatTextOrderIngredient": "{amount, plural, =0{{ingredient}（{quantity}）} other{{ingredient}（{quantity}），使用 {amount} 个}}",
   "@transitFormatTextOrderIngredient": {
     "description": "Details of ingredients and quantities for each product in the order list",
     "placeholders": {
@@ -579,8 +865,8 @@
       }
     }
   },
-  "transitFormatTextOrderNoQuantity": "預設份量",
-  "transitFormatTextOrderOrderAttribute": "顧客的 {options}",
+  "transitFormatTextOrderNoQuantity": "预设份量",
+  "transitFormatTextOrderOrderAttribute": "顾客的 {options}",
   "@transitFormatTextOrderOrderAttribute": {
     "placeholders": {
       "options": {
@@ -588,7 +874,7 @@
       }
     }
   },
-  "transitFormatTextOrderOrderAttributeItem": "{name} 為 {option}",
+  "transitFormatTextOrderOrderAttributeItem": "{name} 为 {option}",
   "@transitFormatTextOrderOrderAttributeItem": {
     "placeholders": {
       "name": {
@@ -599,7 +885,7 @@
       }
     }
   },
-  "transitFormatTextMenuHeader": "本菜單共有 {catalogs} 個產品種類、{products} 個產品。",
+  "transitFormatTextMenuHeader": "本菜单共有 {catalogs} 个产品种类、{products} 个产品。",
   "@transitFormatTextMenuHeader": {
     "placeholders": {
       "catalogs": {
@@ -610,11 +896,11 @@
       }
     }
   },
-  "transitFormatTextMenuHeaderPrefix": "本菜單",
+  "transitFormatTextMenuHeaderPrefix": "本菜单",
   "@transitFormatTextMenuHeaderPrefix": {
     "description": "This is used to check if this text is a menu"
   },
-  "transitFormatTextMenuCatalog": "第{index}個種類叫做 {catalog}，{details}。",
+  "transitFormatTextMenuCatalog": "第{index}个种类叫做 {catalog}，{details}。",
   "@transitFormatTextMenuCatalog": {
     "description": "Strings are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -629,7 +915,7 @@
       }
     }
   },
-  "transitFormatTextMenuCatalogDetails": "{count, plural, =0{沒有設定產品} other{共有 {count} 個產品}}",
+  "transitFormatTextMenuCatalogDetails": "{count, plural, =0{没有设定产品} other{共有 {count} 个产品}}",
   "@transitFormatTextMenuCatalogDetails": {
     "placeholders": {
       "count": {
@@ -637,7 +923,7 @@
       }
     }
   },
-  "transitFormatTextMenuProduct": "第{index}個產品叫做 {name}，其售價為 {price} 元，成本為 {cost} 元，{details}",
+  "transitFormatTextMenuProduct": "第{index}个产品叫做 {name}，其售价为 {price} 元，成本为 {cost} 元，{details}",
   "@transitFormatTextMenuProduct": {
     "description": "Strings are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -658,7 +944,7 @@
       }
     }
   },
-  "transitFormatTextMenuProductDetails": "{count, plural, =0{它沒有設定任何成份。} other{它的成份有 {count} 種：{names}。\n每份產品預設需要使用 {details}。}}",
+  "transitFormatTextMenuProductDetails": "{count, plural, =0{它没有设定任何成份。} other{它的成份有 {count} 种：{names}。\n每份产品预设需要使用 {details}。}}",
   "@transitFormatTextMenuProductDetails": {
     "placeholders": {
       "count": {
@@ -672,7 +958,7 @@
       }
     }
   },
-  "transitFormatTextMenuIngredient": "{amount} 個 {name}，{details}",
+  "transitFormatTextMenuIngredient": "{amount} 个 {name}，{details}",
   "@transitFormatTextMenuIngredient": {
     "description": "Strings are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -687,7 +973,7 @@
       }
     }
   },
-  "transitFormatTextMenuIngredientDetails": "{count, plural, =0{無法做份量調整} other{它還有 {count} 個不同份量 {quantities}}}",
+  "transitFormatTextMenuIngredientDetails": "{count, plural, =0{无法做份量调整} other{它还有 {count} 个不同份量 {quantities}}}",
   "@transitFormatTextMenuIngredientDetails": {
     "placeholders": {
       "count": {
@@ -698,7 +984,7 @@
       }
     }
   },
-  "transitFormatTextMenuQuantity": "每份產品改成使用 {amount} 個並調整產品售價 {price} 元和成本 {cost} 元",
+  "transitFormatTextMenuQuantity": "每份产品改成使用 {amount} 个并调整产品售价 {price} 元和成本 {cost} 元",
   "@transitFormatTextMenuQuantity": {
     "description": "Strings are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -713,7 +999,7 @@
       }
     }
   },
-  "transitFormatTextStockHeader": "本庫存共有 {count} 種成分。",
+  "transitFormatTextStockHeader": "本库存共有 {count} 种成分。",
   "@transitFormatTextStockHeader": {
     "placeholders": {
       "count": {
@@ -721,11 +1007,11 @@
       }
     }
   },
-  "transitFormatTextStockHeaderPrefix": "本庫存",
+  "transitFormatTextStockHeaderPrefix": "本库存",
   "@transitFormatTextStockHeaderPrefix": {
     "description": "This is used to check if this text is stock"
   },
-  "transitFormatTextStockIngredient": "第{index}個成分叫做 {name}，庫存現有 {amount} 個{details}。",
+  "transitFormatTextStockIngredient": "第{index}个成分叫做 {name}，库存现有 {amount} 个{details}。",
   "@transitFormatTextStockIngredient": {
     "description": "Strings are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -743,7 +1029,7 @@
       }
     }
   },
-  "transitFormatTextStockIngredientMaxAmount": "{exist, plural, =0{} other{，最大量有 {max} 個}}",
+  "transitFormatTextStockIngredientMaxAmount": "{exist, plural, =0{} other{，最大量有 {max} 个}}",
   "@transitFormatTextStockIngredientMaxAmount": {
     "description": "String(max) are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -755,7 +1041,7 @@
       }
     }
   },
-  "transitFormatTextStockIngredientRestockPrice": "{exist, plural, =0{} other{且每 {quantity} 個成本要價 {price} 元}}",
+  "transitFormatTextStockIngredientRestockPrice": "{exist, plural, =0{} other{且每 {quantity} 个成本要价 {price} 元}}",
   "@transitFormatTextStockIngredientRestockPrice": {
     "placeholders": {
       "exist": {
@@ -769,7 +1055,7 @@
       }
     }
   },
-  "transitFormatTextQuantitiesHeader": "共設定 {count} 種份量。",
+  "transitFormatTextQuantitiesHeader": "共设定 {count} 种份量。",
   "@transitFormatTextQuantitiesHeader": {
     "placeholders": {
       "count": {
@@ -777,11 +1063,11 @@
       }
     }
   },
-  "transitFormatTextQuantitiesHeaderSuffix": "種份量。",
+  "transitFormatTextQuantitiesHeaderSuffix": "种份量。",
   "@transitFormatTextQuantitiesHeaderSuffix": {
     "description": "This is used to check if this text is quantities"
   },
-  "transitFormatTextQuantitiesQuantity": "第{index}種份量叫做 {name}，預設會讓成分的份量乘以 {prop} 倍。",
+  "transitFormatTextQuantitiesQuantity": "第{index}种份量叫做 {name}，预设会让成分的份量乘以 {prop} 倍。",
   "@transitFormatTextQuantitiesQuantity": {
     "description": "Strings are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -796,7 +1082,7 @@
       }
     }
   },
-  "transitFormatTextReplenisherHeader": "共設定 {count} 種補貨方式。",
+  "transitFormatTextReplenisherHeader": "共设定 {count} 种补货方式。",
   "@transitFormatTextReplenisherHeader": {
     "placeholders": {
       "count": {
@@ -804,11 +1090,11 @@
       }
     }
   },
-  "transitFormatTextReplenisherHeaderSuffix": "種補貨方式。",
+  "transitFormatTextReplenisherHeaderSuffix": "种补货方式。",
   "@transitFormatTextReplenisherHeaderSuffix": {
     "description": "This is used to check if this text is replenishment quantity"
   },
-  "transitFormatTextReplenisherReplenishment": "第{index}個成分叫做 {name}，{details}。",
+  "transitFormatTextReplenisherReplenishment": "第{index}个成分叫做 {name}，{details}。",
   "@transitFormatTextReplenisherReplenishment": {
     "description": "Strings are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -823,7 +1109,7 @@
       }
     }
   },
-  "transitFormatTextReplenisherReplenishmentDetails": "{count, plural, =0{它並不會調整庫存} other{它會調整{count}種成份的庫存}}",
+  "transitFormatTextReplenisherReplenishmentDetails": "{count, plural, =0{它并不会调整库存} other{它会调整{count}种成份的库存}}",
   "@transitFormatTextReplenisherReplenishmentDetails": {
     "placeholders": {
       "count": {
@@ -831,7 +1117,7 @@
       }
     }
   },
-  "transitFormatTextOaHeader": "共設定 {count} 種顧客屬性。",
+  "transitFormatTextOaHeader": "共设定 {count} 种顾客属性。",
   "@transitFormatTextOaHeader": {
     "placeholders": {
       "count": {
@@ -839,11 +1125,11 @@
       }
     }
   },
-  "transitFormatTextOaHeaderSuffix": "種顧客屬性。",
+  "transitFormatTextOaHeaderSuffix": "种顾客属性。",
   "@transitFormatTextOaHeaderSuffix": {
     "description": "This is used to check if this text is customer settings"
   },
-  "transitFormatTextOaOa": "第{index}種屬性叫做 {name}，屬於 {mode} 類型，{details}。",
+  "transitFormatTextOaOa": "第{index}种属性叫做 {name}，属于 {mode} 类型，{details}。",
   "@transitFormatTextOaOa": {
     "description": "Strings are used so that regex can be inserted here during import to obtain information",
     "placeholders": {
@@ -861,7 +1147,7 @@
       }
     }
   },
-  "transitFormatTextOaOaDetails": "{count, plural, =0{它並沒有設定選項} other{它有 {count} 個選項}}",
+  "transitFormatTextOaOaDetails": "{count, plural, =0{它并没有设定选项} other{它有 {count} 个选项}}",
   "@transitFormatTextOaOaDetails": {
     "placeholders": {
       "count": {
@@ -869,8 +1155,8 @@
       }
     }
   },
-  "transitFormatTextOaDefaultOption": "預設",
-  "transitFormatTextOaModeValue": "選項的值為 {value}",
+  "transitFormatTextOaDefaultOption": "预设",
+  "transitFormatTextOaModeValue": "选项的值为 {value}",
   "@transitFormatTextOaModeValue": {
     "placeholders": {
       "value": {
@@ -879,45 +1165,149 @@
       }
     }
   },
-  "transitGoogleSheetDialogTitle": "提供 Google 試算表",
-  "transitGoogleSheetDialogCreate": "建立新的試算表",
-  "transitGoogleSheetDialogSelectExist": "選擇現有的試算表",
-  "transitGoogleSheetDialogConfirm": "確認",
-  "transitGoogleSheetDialogIdLabel": "試算表 ID 或網址",
-  "transitGoogleSheetDialogIdHelper": "試算表的 ID 是網址中的英文、數字、底線和減號的組合。\n例如，\"https://docs.google.com/spreadsheets/d/1a2b3c4d5e6f7g8h9i0j\" 的 ID 是 \"1a2b3c4d5e6f7g8h9i0j\"。\n使用現有的試算表將可能覆蓋選擇的工作表中的數據。",
-  "transitGoogleSheetProgressCreate": "建立試算表",
-  "transitGoogleSheetProgressFulfill": "在試算表中建立表單",
-  "transitGoogleSheetErrorCreateTitle": "無法建立試算表",
-  "transitGoogleSheetErrorCreateHelper": "別擔心，通常都可以簡單解決！\n可能的原因有：\n• 網路狀況不穩；\n• 尚未授權 POS 系統進行表單的編輯。",
-  "transitGoogleSheetErrorFulfillTitle": "無法在試算表中建立表單",
-  "transitGoogleSheetErrorFulfillHelper": "別擔心，通常都可以簡單解決！\n可能的原因有：\n• 網路狀況不穩；\n• 尚未授權 POS 系統進行表單的建立；\n• 試算表 ID 打錯了，請嘗試複製整個網址後貼上；\n• 該試算表被刪除了。",
-  "transitGoogleSheetErrorIdNotFound": "找不到試算表",
-  "transitGoogleSheetErrorIdNotFoundHelper": "別擔心，通常都可以簡單解決！\n可能的原因有：\n• 網路狀況不穩；\n• 尚未授權 POS 系統進行表單的讀取；\n• 試算表 ID 打錯了，請嘗試複製整個網址後貼上；\n• 該試算表被刪除了。",
-  "transitGoogleSheetErrorIdEmpty": "ID 不能為空",
-  "transitGoogleSheetErrorIdInvalid": "不合法的 ID，必須包含：\n• /spreadsheets/d/<ID>/\n• 或者直接給 ID（英文+數字+底線+減號的組合）",
-  "transitGoogleSheetErrorNetwork": "網路錯誤，無法連接到 Google 試算表。",
-  "appTitle": "POS 系統",
-  "actSuccess": "執行成功",
+  "transitGoogleSheetDialogTitle": "提供 Google 试算表",
+  "transitGoogleSheetDialogCreate": "建立新的试算表",
+  "transitGoogleSheetDialogSelectExist": "选择现有的试算表",
+  "transitGoogleSheetDialogConfirm": "确认",
+  "transitGoogleSheetDialogIdLabel": "试算表 ID 或网址",
+  "transitGoogleSheetDialogIdHelper": "试算表的 ID 是网址中的英文、数字、底线和减号的组合。\n例如，\"https://docs.google.com/spreadsheets/d/1a2b3c4d5e6f7g8h9i0j\" 的 ID 是 \"1a2b3c4d5e6f7g8h9i0j\"。\n使用现有的试算表将可能覆盖选择的工作表中的数据。",
+  "transitGoogleSheetProgressCreate": "建立试算表",
+  "transitGoogleSheetProgressFulfill": "在试算表中建立表单",
+  "transitGoogleSheetErrorCreateTitle": "无法建立试算表",
+  "transitGoogleSheetErrorCreateHelper": "别担心，通常都可以简单解决！\n可能的原因有：\n• 网路状况不稳；\n• 尚未授权 POS 系统进行表单的编辑。",
+  "transitGoogleSheetErrorFulfillTitle": "无法在试算表中建立表单",
+  "transitGoogleSheetErrorFulfillHelper": "别担心，通常都可以简单解决！\n可能的原因有：\n• 网路状况不稳；\n• 尚未授权 POS 系统进行表单的建立；\n• 试算表 ID 打错了，请尝试复制整个网址后贴上；\n• 该试算表被删除了。",
+  "transitGoogleSheetErrorIdNotFound": "找不到试算表",
+  "transitGoogleSheetErrorIdNotFoundHelper": "别担心，通常都可以简单解决！\n可能的原因有：\n• 网路状况不稳；\n• 尚未授权 POS 系统进行表单的读取；\n• 试算表 ID 打错了，请尝试复制整个网址后贴上；\n• 该试算表被删除了。",
+  "transitGoogleSheetErrorIdEmpty": "ID 不能为空",
+  "transitGoogleSheetErrorIdInvalid": "不合法的 ID，必须包含：\n• /spreadsheets/d/<ID>/\n• 或者直接给 ID（英文+数字+底线+减号的组合）",
+  "transitGoogleSheetErrorNetwork": "网路错误，无法连接到 Google 试算表。",
+  "orderAttributeTitle": "顾客设定",
+  "orderAttributeDescription": "内用、外带等帮助分析的资讯",
+  "orderAttributeTitleCreate": "新增顾客设定",
+  "orderAttributeTitleUpdate": "编辑顾客设定",
+  "orderAttributeTitleReorder": "排序顾客设定",
+  "orderAttributeEmptyBody": "顾客设定可以帮助我们统计哪些人来消费，例如：\n20-30岁、外带、上班族。",
+  "orderAttributeHeaderInfo": "顾客设定",
+  "@orderAttributeHeaderInfo": {
+    "description": "Displayed on the upper rectangle in homepage"
+  },
+  "orderAttributeTutorialTitle": "建立属于你的顾客设定",
+  "orderAttributeTutorialContent": "这里是用来设定顾客的资讯，例如：内用、外带、上班族等。\n这些资讯可以帮助我们统计哪些人来消费，进而做出更好的经营策略。",
+  "orderAttributeTutorialCreateExample": "帮助建立一份范例以供测试。",
+  "orderAttributeExampleAge": "年龄",
+  "orderAttributeExampleAgeChild": "小孩",
+  "orderAttributeExampleAgeAdult": "成人",
+  "orderAttributeExampleAgeSenior": "长者",
+  "orderAttributeExamplePlace": "位置",
+  "orderAttributeExamplePlaceTakeout": "外带",
+  "orderAttributeExamplePlaceDineIn": "内用",
+  "orderAttributeExampleEcoFriendly": "环保",
+  "orderAttributeExampleEcoFriendlyReusableBottle": "环保杯",
+  "orderAttributeExampleEcoFriendlyReusableBag": "环保袋",
+  "orderAttributeMetaMode": "种类：{name}",
+  "@orderAttributeMetaMode": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orderAttributeMetaDefault": "预设：{name}",
+  "@orderAttributeMetaDefault": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orderAttributeMetaNoDefault": "未设定预设",
+  "orderAttributeModeDivider": "顾客设定种类",
+  "orderAttributeModeName": "{name, select, statOnly{一般} changePrice{变价} changeDiscount{折扣} other{UNKNOWN}}",
+  "@orderAttributeModeName": {
+    "description": "Customer setting mode name"
+  },
+  "orderAttributeModeHelper": "{name, select, statOnly{一般的设定，选取时并不会影响点单价格。} changePrice{选取设定时，可能会影响价格。\n例如：外送 + 30块钱、环保杯 - 5块钱。} changeDiscount{选取设定时，会根据折扣影响总价。\n例如：内用 + 10% 服务费、亲友价 - 10%。} other{UNKNOWN}}",
+  "@orderAttributeModeHelper": {
+    "description": "Explanation of customer setting categories",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orderAttributeNameLabel": "顾客设定名称",
+  "orderAttributeNameHint": "例如：顾客年龄",
+  "orderAttributeNameErrorRepeat": "名称不能重复",
+  "orderAttributeOptionTitleCreate": "新增选项",
+  "orderAttributeOptionTitleUpdate": "编辑选项",
+  "orderAttributeOptionTitleReorder": "排序选项",
+  "orderAttributeOptionMetaDefault": "预设",
+  "orderAttributeOptionMetaOptionOf": "{name}的选项",
+  "@orderAttributeOptionMetaOptionOf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orderAttributeOptionNameLabel": "选项名称",
+  "orderAttributeOptionNameHelper": "以年龄为例，可能的选项有：\n- ⇣ 20\n- 20 - 30",
+  "orderAttributeOptionNameErrorRepeat": "名称不能重复",
+  "orderAttributeOptionModeTitle": "选项模式",
+  "orderAttributeOptionModeHelper": "{name, select, statOnly{因为本设定为「一般」故无须设定「折价」或「变价」} changePrice{订单时选择此项会套用此变价} changeDiscount{订单时选择此项会套用此折价} other{UNKNOWN}}",
+  "@orderAttributeOptionModeHelper": {
+    "description": "Explanation of mode",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orderAttributeOptionModeHint": "{name, select, statOnly{} changePrice{例如：-30 代表减少三十块} changeDiscount{例如：80 代表「八折」} other{UNKNOWN}}",
+  "@orderAttributeOptionModeHint": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orderAttributeOptionToDefaultLabel": "设为预设",
+  "orderAttributeOptionToDefaultHelper": "设定此选项为预设值，每个订单预设都会是使用这个选项。",
+  "orderAttributeOptionToDefaultConfirmChangeTitle": "覆盖选项预设？",
+  "orderAttributeOptionToDefaultConfirmChangeContent": "这么做会让「{name}」变成非预设值",
+  "@orderAttributeOptionToDefaultConfirmChangeContent": {
+    "description": "Prompt to ensure the user knows what the original default value was",
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "orderAttributeValueEmpty": "不影响价钱",
+  "orderAttributeValueFree": "免费",
+  "appTitle": "POS 系统",
+  "actSuccess": "执行成功",
   "@actSuccess": {
     "description": "Action executed successfully and displayed on the Snackbar."
   },
-  "actError": "錯誤",
+  "actError": "错误",
   "@actError": {
     "description": "Error message displayed on the Snackbar when an error occurs."
   },
-  "actMoreInfo": "說明",
+  "actMoreInfo": "说明",
   "@actMoreInfo": {
     "description": "Button on the Snackbar to show more details."
   },
-  "singleChoice": "一次只能選擇一種",
+  "singleChoice": "一次只能选择一种",
   "@singleChoice": {
     "description": "Reminder to the user that only one option can be selected at a time."
   },
-  "multiChoices": "可以選擇多種",
+  "multiChoices": "可以选择多种",
   "@multiChoices": {
     "description": "Reminder to the user that multiple options can be selected."
   },
-  "totalCount": "{count, plural, other{總共 {count} 項}}",
+  "totalCount": "{count, plural, other{总共 {count} 项}}",
   "@totalCount": {
     "description": "Total count displayed on the ListView.",
     "placeholders": {
@@ -927,7 +1317,7 @@
       }
     }
   },
-  "searchCount": "搜尋到 {count} 個結果",
+  "searchCount": "搜寻到 {count} 个结果",
   "@searchCount": {
     "description": "Total count displayed on the SearchScaffold.",
     "placeholders": {
@@ -937,7 +1327,7 @@
       }
     }
   },
-  "title": "{name, select, analysis{分析} stock{庫存} cashier{收銀} settings{設定} menu{菜單} printers{出單機} transit{資料轉移} orderAttributes{顧客設定} stockQuantities{份量} elf{建議} more{更多} debug{Debug} other{UNKNOWN}}",
+  "title": "{name, select, analysis{分析} stock{库存} cashier{收银} settings{设定} menu{菜单} printers{出单机} transit{资料转移} orderAttributes{顾客设定} stockQuantities{份量} elf{建议} more{更多} debug{Debug} other{UNKNOWN}}",
   "@title": {
     "placeholders": {
       "name": {
@@ -945,11 +1335,11 @@
       }
     }
   },
-  "dialogDeletionTitle": "刪除確認通知",
+  "dialogDeletionTitle": "删除确认通知",
   "@dialogDeletionTitle": {
     "description": "Title displayed on the DeleteDialog."
   },
-  "dialogDeletionContent": "確定要刪除「{name}」嗎？\n\n{more}此動作將無法復原！",
+  "dialogDeletionContent": "确定要删除「{name}」吗？\n\n{more}此动作将无法复原！",
   "@dialogDeletionContent": {
     "description": "Content displayed on the DeleteDialog.",
     "placeholders": {
@@ -964,16 +1354,16 @@
       }
     }
   },
-  "imageHolderCreate": "點選以新增圖片",
-  "imageHolderUpdate": "點擊以更新圖片",
+  "imageHolderCreate": "点选以新增图片",
+  "imageHolderUpdate": "点击以更新图片",
   "imageBtnCrop": "裁切",
-  "imageGalleryTitle": "圖片管理",
-  "imageGalleryEmpty": "點擊開始匯入你的第一張照片！",
-  "imageGalleryActionCreate": "新增圖片",
-  "imageGalleryActionDelete": "刪除",
-  "imageGallerySnackbarDeleteFailed": "有一個或多個圖片沒有刪成功。",
-  "imageGallerySelectionTitle": "選擇相片",
-  "imageGallerySelectionDeleteConfirm": "將會刪除 {count} 個圖片\n刪除之後會讓相關產品顯示不到圖片",
+  "imageGalleryTitle": "图片管理",
+  "imageGalleryEmpty": "点击开始汇入你的第一张照片！",
+  "imageGalleryActionCreate": "新增图片",
+  "imageGalleryActionDelete": "删除",
+  "imageGallerySnackbarDeleteFailed": "有一个或多个图片没有删成功。",
+  "imageGallerySelectionTitle": "选择相片",
+  "imageGallerySelectionDeleteConfirm": "将会删除 {count} 个图片\n删除之后会让相关产品显示不到图片",
   "@imageGallerySelectionDeleteConfirm": {
     "placeholders": {
       "count": {
@@ -982,17 +1372,17 @@
       }
     }
   },
-  "emptyBodyTitle": "哎呀！這裡還是空的",
+  "emptyBodyTitle": "哎呀！这里还是空的",
   "@emptyBodyTitle": {
     "description": "Text displayed on EmptyBody, informing the user that there are no items yet. This is the default text."
   },
-  "emptyBodyAction": "立即設定",
+  "emptyBodyAction": "立即设定",
   "btnNavTo": "查看",
   "@btnNavTo": {
     "description": "Button text to navigate to another screen in trailing."
   },
   "btnSignInWithGoogle": "使用 Google 登入",
-  "semanticsPercentileBar": "目前佔總數的 {percent}",
+  "semanticsPercentileBar": "目前占总数的 {percent}",
   "@semanticsPercentileBar": {
     "placeholders": {
       "percent": {
@@ -1001,7 +1391,7 @@
       }
     }
   },
-  "invalidIntegerType": "{field}必須是整數",
+  "invalidIntegerType": "{field}必须是整数",
   "@invalidIntegerType": {
     "description": "Warning message when the input is not an integer.",
     "placeholders": {
@@ -1010,7 +1400,7 @@
       }
     }
   },
-  "invalidNumberType": "{field}必須是數字",
+  "invalidNumberType": "{field}必须是数字",
   "@invalidNumberType": {
     "description": "Warning message when the input is not a number.",
     "placeholders": {
@@ -1019,7 +1409,7 @@
       }
     }
   },
-  "invalidNumberPositive": "{field}不能為負數",
+  "invalidNumberPositive": "{field}不能为负数",
   "@invalidNumberPositive": {
     "description": "Warning message when the input is not positive.",
     "placeholders": {
@@ -1028,7 +1418,7 @@
       }
     }
   },
-  "invalidNumberMaximum": "{field}不能超過 {maximum}",
+  "invalidNumberMaximum": "{field}不能超过 {maximum}",
   "@invalidNumberMaximum": {
     "description": "Warning message when the input exceeds the maximum value.",
     "placeholders": {
@@ -1042,7 +1432,7 @@
       }
     }
   },
-  "invalidNumberMinimum": "{field}不能低於 {minimum}",
+  "invalidNumberMinimum": "{field}不能低于 {minimum}",
   "@invalidNumberMinimum": {
     "description": "Warning message when the input is less than the minimum value.",
     "placeholders": {
@@ -1056,7 +1446,7 @@
       }
     }
   },
-  "invalidStringEmpty": "{field}不能為空",
+  "invalidStringEmpty": "{field}不能为空",
   "@invalidStringEmpty": {
     "description": "Warning message when no text is entered.",
     "placeholders": {
@@ -1065,7 +1455,7 @@
       }
     }
   },
-  "invalidStringMaximum": "{field}不能超過 {maximum} 個字",
+  "invalidStringMaximum": "{field}不能超过 {maximum} 个字",
   "@invalidStringMaximum": {
     "description": "Warning message when the input exceeds the maximum character limit.",
     "placeholders": {
@@ -1078,417 +1468,86 @@
       }
     }
   },
-  "singleMonth": "單月",
+  "singleMonth": "单月",
   "@singleMonth": {
     "description": "One of the units for calendar period conversion."
   },
-  "singleWeek": "單週",
+  "singleWeek": "单周",
   "@singleWeek": {
     "description": "One of the units for calendar period conversion."
   },
-  "twoWeeks": "雙週",
+  "twoWeeks": "双周",
   "@twoWeeks": {
     "description": "One of the units for calendar period conversion."
   },
-  "orderAttributeTitle": "顧客設定",
-  "orderAttributeDescription": "內用、外帶等幫助分析的資訊",
-  "orderAttributeTitleCreate": "新增顧客設定",
-  "orderAttributeTitleUpdate": "編輯顧客設定",
-  "orderAttributeTitleReorder": "排序顧客設定",
-  "orderAttributeEmptyBody": "顧客設定可以幫助我們統計哪些人來消費，例如：\n20-30歲、外帶、上班族。",
-  "orderAttributeHeaderInfo": "顧客設定",
-  "@orderAttributeHeaderInfo": {
-    "description": "Displayed on the upper rectangle in homepage"
+  "settingTab": "设定",
+  "settingVersion": "版本：{version}",
+  "@settingVersion": {
+    "description": "Display the app version",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
   },
-  "orderAttributeTutorialTitle": "建立屬於你的顧客設定",
-  "orderAttributeTutorialContent": "這裡是用來設定顧客的資訊，例如：內用、外帶、上班族等。\n這些資訊可以幫助我們統計哪些人來消費，進而做出更好的經營策略。",
-  "orderAttributeTutorialCreateExample": "幫助建立一份範例以供測試。",
-  "orderAttributeExampleAge": "年齡",
-  "orderAttributeExampleAgeChild": "小孩",
-  "orderAttributeExampleAgeAdult": "成人",
-  "orderAttributeExampleAgeSenior": "長者",
-  "orderAttributeExamplePlace": "位置",
-  "orderAttributeExamplePlaceTakeout": "外帶",
-  "orderAttributeExamplePlaceDineIn": "內用",
-  "orderAttributeExampleEcoFriendly": "環保",
-  "orderAttributeExampleEcoFriendlyReusableBottle": "環保杯",
-  "orderAttributeExampleEcoFriendlyReusableBag": "環保袋",
-  "orderAttributeMetaMode": "種類：{name}",
-  "@orderAttributeMetaMode": {
+  "settingWelcome": "HI，{name}",
+  "@settingWelcome": {
+    "description": "Display user's name",
     "placeholders": {
       "name": {
         "type": "String"
       }
     }
   },
-  "orderAttributeMetaDefault": "預設：{name}",
-  "@orderAttributeMetaDefault": {
+  "settingLogoutBtn": "登出",
+  "settingElfTitle": "建议",
+  "settingElfDescription": "使用 Google 表单提供回馈",
+  "settingElfContent": "觉得这里还少了什么吗？\n欢迎[提供建议](https://forms.gle/R1vZDk9ztQLScUdb9)。\n也可以来看看[排程中的功能](https://github.com/evan361425/flutter-pos-system/milestones)。",
+  "settingFeatureTitle": "其他设定",
+  "settingFeatureDescription": "外观、语言、提示",
+  "settingThemeTitle": "调色盘",
+  "settingThemeName": "{name, select, dark{暗色模式} light{日光模式} system{跟随系统} other{UNKNOWN}}",
+  "@settingThemeName": {
+    "description": "Appearance of the app",
     "placeholders": {
       "name": {
         "type": "String"
       }
     }
   },
-  "orderAttributeMetaNoDefault": "未設定預設",
-  "orderAttributeModeDivider": "顧客設定種類",
-  "orderAttributeModeName": "{name, select, statOnly{一般} changePrice{變價} changeDiscount{折扣} other{UNKNOWN}}",
-  "@orderAttributeModeName": {
-    "description": "Customer setting mode name"
-  },
-  "orderAttributeModeHelper": "{name, select, statOnly{一般的設定，選取時並不會影響點單價格。} changePrice{選取設定時，可能會影響價格。\n例如：外送 + 30塊錢、環保杯 - 5塊錢。} changeDiscount{選取設定時，會根據折扣影響總價。\n例如：內用 + 10% 服務費、親友價 - 10%。} other{UNKNOWN}}",
-  "@orderAttributeModeHelper": {
-    "description": "Explanation of customer setting categories",
+  "settingLanguageTitle": "语言",
+  "settingCheckoutWarningTitle": "收银机提示",
+  "settingCheckoutWarningName": "{name, select, showAll{全部显示} onlyNotEnough{仅不够时显示} hideAll{全部隐藏} other{UNKNOWN}}",
+  "@settingCheckoutWarningName": {
+    "description": "Whether to display cash registry warnings",
     "placeholders": {
       "name": {
         "type": "String"
       }
     }
   },
-  "orderAttributeNameLabel": "顧客設定名稱",
-  "orderAttributeNameHint": "例如：顧客年齡",
-  "orderAttributeNameErrorRepeat": "名稱不能重複",
-  "orderAttributeOptionTitleCreate": "新增選項",
-  "orderAttributeOptionTitleUpdate": "編輯選項",
-  "orderAttributeOptionTitleReorder": "排序選項",
-  "orderAttributeOptionMetaDefault": "預設",
-  "orderAttributeOptionMetaOptionOf": "{name}的選項",
-  "@orderAttributeOptionMetaOptionOf": {
+  "settingCheckoutWarningTip": "{name, select, showAll{若使用小钱去找，显示提示。\n例如 5 块钱不够了，开始用 5 个 1 块去找钱} onlyNotEnough{当零钱不够找的时候，显示提示。} hideAll{当点餐时，收银机不会显示任何提示} other{UNKNOWN}}",
+  "@settingCheckoutWarningTip": {
     "placeholders": {
       "name": {
         "type": "String"
       }
     }
   },
-  "orderAttributeOptionNameLabel": "選項名稱",
-  "orderAttributeOptionNameHelper": "以年齡為例，可能的選項有：\n- ⇣ 20\n- 20 - 30",
-  "orderAttributeOptionNameErrorRepeat": "名稱不能重複",
-  "orderAttributeOptionModeTitle": "選項模式",
-  "orderAttributeOptionModeHelper": "{name, select, statOnly{因為本設定為「一般」故無須設定「折價」或「變價」} changePrice{訂單時選擇此項會套用此變價} changeDiscount{訂單時選擇此項會套用此折價} other{UNKNOWN}}",
-  "@orderAttributeOptionModeHelper": {
-    "description": "Explanation of mode",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
+  "settingOrderAwakeningTitle": "点餐时不关闭萤幕",
+  "@settingOrderAwakeningTitle": {
+    "description": "Keep the screen on during ordering, even when idle"
   },
-  "orderAttributeOptionModeHint": "{name, select, statOnly{} changePrice{例如：-30 代表減少三十塊} changeDiscount{例如：80 代表「八折」} other{UNKNOWN}}",
-  "@orderAttributeOptionModeHint": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "orderAttributeOptionToDefaultLabel": "設為預設",
-  "orderAttributeOptionToDefaultHelper": "設定此選項為預設值，每個訂單預設都會是使用這個選項。",
-  "orderAttributeOptionToDefaultConfirmChangeTitle": "覆蓋選項預設？",
-  "orderAttributeOptionToDefaultConfirmChangeContent": "這麼做會讓「{name}」變成非預設值",
-  "@orderAttributeOptionToDefaultConfirmChangeContent": {
-    "description": "Prompt to ensure the user knows what the original default value was",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "orderAttributeValueEmpty": "不影響價錢",
-  "orderAttributeValueFree": "免費",
-  "menuTitle": "菜單",
-  "menuSubtitle": "產品種類、產品",
-  "menuTutorialTitle": "建立屬於你的菜單",
-  "menuTutorialContent": "首先我們來開始建立一份菜單吧！",
-  "menuTutorialCreateExample": "幫助建立一份範例菜單以供測試。",
-  "menuSearchHint": "搜尋產品、成分、份量",
-  "menuSearchPrefix": "{name, select, ingredient{成分：} quantity{份量：} other{UNKNOWN}}",
-  "menuSearchNotFound": "搜尋不到相關資訊，打錯字了嗎？",
-  "menuExampleCatalogBurger": "漢堡",
-  "menuExampleCatalogDrink": "飲品",
-  "menuExampleCatalogSide": "點心",
-  "menuExampleCatalogOther": "其他",
-  "menuExampleProductCheeseBurger": "起司漢堡",
-  "menuExampleProductVeggieBurger": "蔬菜漢堡",
-  "menuExampleProductHamBurger": "火腿漢堡",
-  "menuExampleProductCola": "可樂",
-  "menuExampleProductCoffee": "咖啡",
-  "menuExampleProductFries": "薯條",
-  "menuExampleProductStraw": "吸管",
-  "menuExampleProductPlasticBag": "塑膠袋",
-  "menuExampleIngredientCheese": "起司",
-  "menuExampleIngredientLettuce": "萵苣",
-  "menuExampleIngredientTomato": "番茄",
-  "menuExampleIngredientBun": "麵包",
-  "menuExampleIngredientChili": "辣醬",
-  "menuExampleIngredientHam": "火腿",
-  "menuExampleIngredientCola": "可樂",
-  "menuExampleIngredientCoffee": "濾掛咖啡包",
-  "menuExampleIngredientFries": "薯條",
-  "menuExampleIngredientStraw": "吸管",
-  "menuExampleIngredientPlasticBag": "塑膠袋",
-  "menuExampleQuantitySmall": "少量",
-  "menuExampleQuantityLarge": "增量",
-  "menuExampleQuantityNone": "無",
-  "menuCatalogEmptyBody": "我們會把相似「產品」放在「產品種類」中，\n到時候點餐會比較方便，例如：\n• 「起司漢堡」、「蔬菜漢堡」整合進「漢堡」\n• 「塑膠袋」、「環保杯」整合進「其他」",
-  "menuCatalogTitleCreate": "新增產品種類",
-  "@menuCatalogTitleCreate": {
-    "description": "FloatingActionButton description on the menu page"
-  },
-  "menuCatalogTitleUpdate": "編輯產品種類",
-  "menuCatalogTitleReorder": "排序產品種類",
-  "menuCatalogDialogDeletionContent": "{count, plural, =0{其內無任何產品} other{將會一同刪除掉 {count} 個產品}}",
-  "@menuCatalogDialogDeletionContent": {
-    "description": "Warning message when deleting product categories on the menu page",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "menuCatalogNameLabel": "產品種類名稱",
-  "menuCatalogNameHint": "例如：漢堡",
-  "menuCatalogNameErrorRepeat": "名稱重複了，請改個名字吧！",
-  "menuCatalogEmptyProducts": "尚未設定產品",
-  "menuProductHeaderInfo": "產品",
-  "@menuProductHeaderInfo": {
-    "description": "Displayed on the upper rectangle in homepage"
-  },
-  "menuProductEmptyBody": "「產品」是菜單裡的基本單位，例如：\n「起司漢堡」、「可樂」",
-  "menuProductNotSelected": "請先選擇產品種類",
-  "@menuProductNotSelected": {
-    "description": "When not selecting a category, the product list will not be displayed. This message will be displayed in the product list"
-  },
-  "menuProductTitleCreate": "新增產品",
-  "menuProductTitleUpdate": "編輯產品",
-  "menuProductTitleReorder": "排序產品",
-  "menuProductTitleUpdateImage": "更新照片",
-  "menuProductMetaTitle": "產品",
-  "@menuProductMetaTitle": {
-    "description": "Prefix for meta, so users know this is product meta info, not category"
-  },
-  "menuProductMetaPrice": "價格：{price}",
-  "@menuProductMetaPrice": {
-    "description": "Price of the product",
-    "placeholders": {
-      "price": {
-        "type": "num",
-        "format": "compact"
-      }
-    }
-  },
-  "menuProductMetaCost": "成本：{cost}",
-  "@menuProductMetaCost": {
-    "description": "Cost of the product",
-    "placeholders": {
-      "cost": {
-        "type": "num",
-        "format": "compact"
-      }
-    }
-  },
-  "menuProductMetaEmpty": "尚未設定成分",
-  "@menuProductMetaEmpty": {
-    "description": "Text displayed in the subtitle in the product list"
-  },
-  "menuProductNameLabel": "產品名稱",
-  "menuProductNameHint": "例如：起司漢堡",
-  "menuProductNameErrorRepeat": "產品名稱重複",
-  "menuProductPriceLabel": "產品價格",
-  "menuProductPriceHelper": "訂單頁面會呈現的價錢",
-  "menuProductCostLabel": "產品成本",
-  "menuProductCostHelper": "用來算出利潤，理應小於價錢",
-  "menuProductEmptyIngredients": "尚未設定成分",
-  "menuIngredientEmptyBody": "你可以在產品中設定成分等資訊，例如：\n「起司漢堡」有「起司」、「麵包」等成分",
-  "menuIngredientTitleCreate": "新增成分",
-  "menuIngredientTitleUpdate": "編輯成分",
-  "menuIngredientTitleReorder": "排序成分",
-  "menuIngredientMetaAmount": "使用量：{amount}",
-  "@menuIngredientMetaAmount": {
-    "placeholders": {
-      "amount": {
-        "type": "num",
-        "format": "decimalPattern"
-      }
-    }
-  },
-  "menuIngredientSearchLabel": "搜尋成分",
-  "menuIngredientSearchHelper": "新增成分後，可至「庫存」設定相關資訊。",
-  "menuIngredientSearchHint": "例如：起司",
-  "menuIngredientSearchAdd": "新增成分「{name}」",
-  "@menuIngredientSearchAdd": {
-    "description": "Button to add ingredient if search result not found",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "menuIngredientSearchErrorEmpty": "必須設定成分，請點選以設定。",
-  "menuIngredientSearchErrorRepeat": "產品已經有相同的成分了，不能重複選取。",
-  "menuIngredientAmountLabel": "使用量",
-  "menuIngredientAmountHelper": "預設的使用量，若餐點可以調整該成分的使用量，請於成分的「份量」中設定。",
-  "menuQuantityTitleCreate": "新增份量",
-  "menuQuantityTitleUpdate": "編輯",
-  "menuQuantityMetaAmount": "使用量：{amount}",
-  "@menuQuantityMetaAmount": {
-    "placeholders": {
-      "amount": {
-        "type": "num",
-        "format": "decimalPattern"
-      }
-    }
-  },
-  "menuQuantityMetaAdditionalPrice": "額外售價：{price}",
-  "@menuQuantityMetaAdditionalPrice": {
-    "placeholders": {
-      "price": {
-        "type": "String"
-      }
-    }
-  },
-  "menuQuantityMetaAdditionalCost": "額外成本：{cost}",
-  "@menuQuantityMetaAdditionalCost": {
-    "placeholders": {
-      "cost": {
-        "type": "String"
-      }
-    }
-  },
-  "menuQuantitySearchLabel": "搜尋份量",
-  "menuQuantitySearchHelper": "新增成分份量後，可至「份量」設定相關資訊。",
-  "menuQuantitySearchHint": "例如：多量、少量",
-  "menuQuantitySearchAdd": "新增份量「{name}」",
-  "@menuQuantitySearchAdd": {
-    "description": "Button to add quantity if search result not found",
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "menuQuantitySearchErrorEmpty": "必須設定份量，請點選以設定。",
-  "menuQuantitySearchErrorRepeat": "產品已經有相同的份量了，不能重複選取。",
-  "menuQuantityAmountLabel": "使用量",
-  "menuQuantityAdditionalPriceLabel": "額外售價",
-  "menuQuantityAdditionalPriceHelper": "設為 0 則代表加量（減量）不加價。",
-  "menuQuantityAdditionalCostLabel": "額外成本",
-  "menuQuantityAdditionalCostHelper": "預額外成本可以為負數，如「少量」會減少成分的使用，相對成本降低。",
-  "cashierTab": "收銀",
-  "cashierUnitLabel": "幣值：{unit}",
-  "@cashierUnitLabel": {
-    "placeholders": {
-      "unit": {
-        "type": "String"
-      }
-    }
-  },
-  "cashierCounterLabel": "數量",
-  "@cashierCounterLabel": {
-    "description": "設定幣值數量時的標籤"
-  },
-  "cashierToDefaultTitle": "設為預設",
-  "cashierToDefaultTutorialTitle": "收銀機預設狀態",
-  "cashierToDefaultTutorialContent": "在下面設定完收銀機各幣值的數量後，\n按這裡設定預設狀態！\n設定好的數量就會是各個幣值狀態條的「最大值」。",
-  "cashierToDefaultDialogTitle": "調整收銀臺預設？",
-  "cashierToDefaultDialogContent": "這將會把目前的收銀機狀態設定為預設狀態。\n此動作將會覆蓋掉先前的設定。",
-  "cashierChangerTitle": "換錢",
-  "cashierChangerButton": "套用",
-  "cashierChangerTutorialTitle": "收銀機換錢",
-  "cashierChangerTutorialContent": "一百塊換成 10 個十塊之類。\n幫助快速調整收銀機狀態。",
-  "cashierChangerErrorNoSelection": "請選擇要套用的組合",
-  "cashierChangerErrorNotEnough": "{unit} 元不夠換",
-  "@cashierChangerErrorNotEnough": {
-    "placeholders": {
-      "unit": {
-        "type": "String"
-      }
-    }
-  },
-  "cashierChangerErrorInvalidHead": "{count} 個 {unit} 元沒辦法換",
-  "@cashierChangerErrorInvalidHead": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "unit": {
-        "type": "String"
-      }
-    }
-  },
-  "cashierChangerErrorInvalidBody": "{count} 個 {unit} 元",
-  "@cashierChangerErrorInvalidBody": {
-    "description": "Concatenated multiple lines after `invalidHead` to form a complete sentence.",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "unit": {
-        "type": "String"
-      }
-    }
-  },
-  "cashierChangerFavoriteTab": "常用",
-  "cashierChangerFavoriteHint": "選完後請點選「套用」來使用該組合",
-  "cashierChangerFavoriteEmptyBody": "這裡可以幫助你快速轉換不同幣值",
-  "cashierChangerFavoriteItemFrom": "用 {count} 個 {unit} 元換",
-  "@cashierChangerFavoriteItemFrom": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "unit": {
-        "type": "String"
-      }
-    }
-  },
-  "cashierChangerFavoriteItemTo": "{count} 個 {unit} 元",
-  "@cashierChangerFavoriteItemTo": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      },
-      "unit": {
-        "type": "String"
-      }
-    }
-  },
-  "cashierChangerCustomTab": "自訂",
-  "cashierChangerCustomAddBtn": "新增常用",
-  "cashierChangerCustomCountLabel": "數量",
-  "cashierChangerCustomUnitLabel": "幣值",
-  "cashierChangerCustomUnitAddBtn": "新增幣種",
-  "cashierChangerCustomDividerFrom": "拿",
-  "cashierChangerCustomDividerTo": "換",
-  "cashierSurplusTitle": "結餘",
-  "cashierSurplusButton": "結餘",
-  "cashierSurplusTutorialTitle": "每日結餘",
-  "cashierSurplusTutorialContent": "結餘可以幫助我們在每天打烊時，\n計算現有金額和預設金額的差異。",
-  "cashierSurplusErrorEmptyDefault": "尚未設定預設狀態",
-  "cashierSurplusTableHint": "若你確認收銀機的金錢都沒問題之後就可以完成結餘囉！",
-  "cashierSurplusColumnName": "{name, select, unit{單位} currentCount{現有} diffCount{差異} defaultCount{預設} other{UNKNOWN}}",
-  "cashierSurplusCounterLabel": "幣值{unit}的數量",
-  "@cashierSurplusCounterLabel": {
-    "description": "Allow users to customize currency when surplus.",
-    "placeholders": {
-      "unit": {
-        "type": "String"
-      }
-    }
-  },
-  "cashierSurplusCounterShortLabel": "數量",
-  "@cashierSurplusCounterShortLabel": {
-    "description": "This is for display in error messages, e.g., \"Quantity cannot be 0\"."
-  },
-  "cashierSurplusCurrentTotalLabel": "現有總額",
-  "cashierSurplusCurrentTotalHelper": "現在收銀機應該要有的總額。\n若你發現現金和這值對不上，想一想今天有沒有用收銀機的錢買東西？",
-  "cashierSurplusDiffTotalLabel": "差額",
-  "cashierSurplusDiffTotalHelper": "和收銀機最一開始的總額的差額。\n這可以快速幫你了解今天收銀機多了多少錢唷。",
-  "orderTitle": "點餐",
-  "orderBtn": "點餐",
-  "orderTutorialTitle": "開始點餐！",
-  "orderTutorialContent": "一旦設定好菜單，就可以開始點餐囉\n讓我們趕緊進去看看有什麼吧！\n",
-  "orderTutorialPrinterBtnTitle": "出單機異動",
-  "orderTutorialPrinterBtnContent": "出單機狀態出現異動，請查看。",
-  "orderSnackbarPrinterConnected": "出單機連線成功：{names}",
+  "settingOrderAwakeningDescription": "若取消，则会根据系统设定时间关闭萤幕",
+  "settingReportTitle": "收集错误讯息和事件",
+  "settingReportDescription": "当应用程式发生错误时，寄送错误讯息，以帮助应用程式成长",
+  "orderTitle": "点餐",
+  "orderBtn": "点餐",
+  "orderTutorialTitle": "开始点餐！",
+  "orderTutorialContent": "一旦设定好菜单，就可以开始点餐啰\n让我们赶紧进去看看有什么吧！\n",
+  "orderTutorialPrinterBtnTitle": "出单机异动",
+  "orderTutorialPrinterBtnContent": "出单机状态出现异动，请查看。",
+  "orderSnackbarPrinterConnected": "出单机连线成功：{names}",
   "@orderSnackbarPrinterConnected": {
     "placeholders": {
       "names": {
@@ -1496,7 +1555,7 @@
       }
     }
   },
-  "orderSnackbarPrinterDisconnected": "出單機「{name}」斷線",
+  "orderSnackbarPrinterDisconnected": "出单机「{name}」断线",
   "@orderSnackbarPrinterDisconnected": {
     "placeholders": {
       "name": {
@@ -1504,9 +1563,9 @@
       }
     }
   },
-  "orderSnackbarCashierNotEnough": "收銀機錢不夠找囉！",
-  "orderSnackbarCashierUsingSmallMoney": "收銀機使用小錢去找零",
-  "orderSnackbarCashierUsingSmallMoneyHelper": "找錢給顧客時，收銀機無法使用最適合的錢，就會顯示這個訊息。\n\n例如，售價「65」，消費者支付「100」，此時應找「35」\n如果收銀機只有兩個十元，且有三個以上的五元，就會顯示本訊息。\n\n怎麼避免本提示：\n• 到換錢頁面把各幣值補足。\n• 到[設定頁]({link})關閉收銀機的相關提示。",
+  "orderSnackbarCashierNotEnough": "收银机钱不够找啰！",
+  "orderSnackbarCashierUsingSmallMoney": "收银机使用小钱去找零",
+  "orderSnackbarCashierUsingSmallMoneyHelper": "找钱给顾客时，收银机无法使用最适合的钱，就会显示这个讯息。\n\n例如，售价「65」，消费者支付「100」，此时应找「35」\n如果收银机只有两个十元，且有三个以上的五元，就会显示本讯息。\n\n怎么避免本提示：\n• 到换钱页面把各币值补足。\n• 到[设定页]({link})关闭收银机的相关提示。",
   "@orderSnackbarCashierUsingSmallMoneyHelper": {
     "placeholders": {
       "link": {
@@ -1514,14 +1573,14 @@
       }
     }
   },
-  "orderActionCheckout": "結帳",
+  "orderActionCheckout": "结帐",
   "@orderActionCheckout": {
     "description": "Proceed to the next step after confirming the items in your cart"
   },
-  "orderActionExchange": "換錢",
-  "orderActionStash": "暫存本次點餐",
-  "orderActionReview": "訂單記錄",
-  "orderLoaderMetaTotalRevenue": "總營收：{revenue}",
+  "orderActionExchange": "换钱",
+  "orderActionStash": "暂存本次点餐",
+  "orderActionReview": "订单记录",
+  "orderLoaderMetaTotalRevenue": "总营收：{revenue}",
   "@orderLoaderMetaTotalRevenue": {
     "description": "Total revenue from orders in the order list",
     "placeholders": {
@@ -1530,7 +1589,7 @@
       }
     }
   },
-  "orderLoaderMetaTotalCost": "總成本：{cost}",
+  "orderLoaderMetaTotalCost": "总成本：{cost}",
   "@orderLoaderMetaTotalCost": {
     "description": "Total cost from orders in the order list",
     "placeholders": {
@@ -1539,7 +1598,7 @@
       }
     }
   },
-  "orderLoaderMetaTotalCount": "總數：{count}",
+  "orderLoaderMetaTotalCount": "总数：{count}",
   "@orderLoaderMetaTotalCount": {
     "description": "Total number of orders in the order list",
     "placeholders": {
@@ -1549,39 +1608,39 @@
       }
     }
   },
-  "orderLoaderEmpty": "查無點餐紀錄",
-  "orderCatalogListEmpty": "尚未設定產品種類",
-  "orderProductListViewHelper": "{name, select, grid{圖片} list{列表} other{UNKNOWN}}",
+  "orderLoaderEmpty": "查无点餐纪录",
+  "orderCatalogListEmpty": "尚未设定产品种类",
+  "orderProductListViewHelper": "{name, select, grid{图片} list{列表} other{UNKNOWN}}",
   "@orderProductListViewHelper": {
     "description": "Product list display mode"
   },
-  "orderProductListNoIngredient": "無設定成分",
-  "orderPrinterEmpty": "尚未設定出單機",
+  "orderProductListNoIngredient": "无设定成分",
+  "orderPrinterEmpty": "尚未设定出单机",
   "orderPrinterDividerUnused": "未使用",
-  "orderPrinterDividerConnecting": "連線中",
-  "orderPrinterDividerConnected": "已連線",
-  "orderPrinterErrorCreateReceipt": "無法產生出單資料",
+  "orderPrinterDividerConnecting": "连线中",
+  "orderPrinterDividerConnected": "已连线",
+  "orderPrinterErrorCreateReceipt": "无法产生出单资料",
   "orderCartActionBulk": "批量操作",
-  "orderCartActionToggle": "反選",
-  "orderCartActionSelectAll": "全選",
+  "orderCartActionToggle": "反选",
+  "orderCartActionSelectAll": "全选",
   "orderCartActionDiscount": "打折",
   "orderCartActionDiscountLabel": "折扣",
-  "orderCartActionDiscountHint": "例如：50，代表打五折（半價）",
-  "orderCartActionDiscountHelper": "這裡的數字代表「折」，即，85 代表 85 折，總價乘 0.85。若需要準確的價錢請用「變價」。",
+  "orderCartActionDiscountHint": "例如：50，代表打五折（半价）",
+  "orderCartActionDiscountHelper": "这里的数字代表「折」，即，85 代表 85 折，总价乘 0.85。若需要准确的价钱请用「变价」。",
   "orderCartActionDiscountSuffix": "折",
-  "orderCartActionChangePrice": "變價",
-  "orderCartActionChangePriceLabel": "價錢",
-  "orderCartActionChangePriceHint": "每項產品的價錢",
+  "orderCartActionChangePrice": "变价",
+  "orderCartActionChangePriceLabel": "价钱",
+  "orderCartActionChangePriceHint": "每项产品的价钱",
   "orderCartActionChangePricePrefix": "",
   "orderCartActionChangePriceSuffix": "元",
-  "orderCartActionChangeCount": "變更數量",
-  "orderCartActionChangeCountLabel": "數量",
-  "orderCartActionChangeCountHint": "產品數量",
-  "orderCartActionChangeCountSuffix": "個",
+  "orderCartActionChangeCount": "变更数量",
+  "orderCartActionChangeCountLabel": "数量",
+  "orderCartActionChangeCountHint": "产品数量",
+  "orderCartActionChangeCountSuffix": "个",
   "orderCartActionFree": "招待",
-  "orderCartActionDelete": "刪除",
-  "orderCartSnapshotEmpty": "尚未點餐",
-  "orderCartMetaTotalPrice": "總價：{price}",
+  "orderCartActionDelete": "删除",
+  "orderCartSnapshotEmpty": "尚未点餐",
+  "orderCartMetaTotalPrice": "总价：{price}",
   "@orderCartMetaTotalPrice": {
     "description": "Total price of items in the cart",
     "placeholders": {
@@ -1590,7 +1649,7 @@
       }
     }
   },
-  "orderCartMetaTotalCount": "總數：{count}",
+  "orderCartMetaTotalCount": "总数：{count}",
   "@orderCartMetaTotalCount": {
     "description": "Total number of items in the cart",
     "placeholders": {
@@ -1600,7 +1659,7 @@
       }
     }
   },
-  "orderCartProductPrice": "{price, select, 0{免費} other{{price}元}}",
+  "orderCartProductPrice": "{price, select, 0{免费} other{{price}元}}",
   "@orderCartProductPrice": {
     "description": "Price of the product",
     "placeholders": {
@@ -1609,8 +1668,8 @@
       }
     }
   },
-  "orderCartProductIncrease": "數量加一",
-  "orderCartProductDefaultQuantity": "預設份量",
+  "orderCartProductIncrease": "数量加一",
+  "orderCartProductDefaultQuantity": "预设份量",
   "orderCartProductIngredient": "{name}（{quantity}）",
   "@orderCartProductIngredient": {
     "description": "Ingredients and quantities of each item in the product list when ordering",
@@ -1623,7 +1682,7 @@
       }
     }
   },
-  "orderCartIngredientStatus": "{status, select, emptyCart{請選擇產品來設定其成分} differentProducts{請選擇相同的產品來設定其成分} noNeedIngredient{這個產品沒有可以設定的成分} other{UNKNOWN}}",
+  "orderCartIngredientStatus": "{status, select, emptyCart{请选择产品来设定其成分} differentProducts{请选择相同的产品来设定其成分} noNeedIngredient{这个产品没有可以设定的成分} other{UNKNOWN}}",
   "@orderCartIngredientStatus": {
     "description": "Prompt to users during ordering if the selected product doesn't require ingredient settings",
     "placeholders": {
@@ -1632,7 +1691,7 @@
       }
     }
   },
-  "orderCartQuantityNotAble": "請選擇成分來設定份量",
+  "orderCartQuantityNotAble": "请选择成分来设定份量",
   "@orderCartQuantityNotAble": {
     "description": "During ordering, select the ingredient to set the quantity"
   },
@@ -1648,7 +1707,7 @@
       }
     }
   },
-  "orderCartQuantityDefaultLabel": "預設值（{amount}）",
+  "orderCartQuantityDefaultLabel": "预设值（{amount}）",
   "@orderCartQuantityDefaultLabel": {
     "description": "During ingredient setup, the quantity can be customized or set to default (no quantity used)",
     "placeholders": {
@@ -1658,25 +1717,25 @@
       }
     }
   },
-  "orderCheckoutEmptyCart": "請先進行點單。",
-  "orderCheckoutActionStash": "暫存",
-  "orderCheckoutActionConfirm": "確認",
-  "orderCheckoutStashTab": "暫存",
-  "orderCheckoutStashEmpty": "目前無任何暫存餐點。",
-  "orderCheckoutStashNoProducts": "沒有任何產品",
-  "orderCheckoutStashActionCheckout": "結帳",
-  "orderCheckoutStashActionRestore": "還原",
-  "orderCheckoutStashDialogCalculator": "結帳計算機",
-  "orderCheckoutStashDialogRestoreTitle": "還原暫存訂單",
-  "orderCheckoutStashDialogRestoreContent": "此動作將會覆蓋掉現在購物車內的訂單。",
-  "orderCheckoutStashDialogDeleteName": "訂單",
-  "orderCheckoutAttributeTab": "顧客設定",
-  "orderCheckoutAttributeNoteTitle": "備註",
-  "orderCheckoutAttributeNoteHint": "一些關於此訂單的說明",
-  "orderCheckoutDetailsTab": "訂單細項",
-  "orderCheckoutDetailsCalculatorLabelPaid": "付額",
-  "orderCheckoutDetailsCalculatorLabelChange": "找錢",
-  "orderCheckoutDetailsSnapshotLabelChange": "找錢：{change}",
+  "orderCheckoutEmptyCart": "请先进行点单。",
+  "orderCheckoutActionStash": "暂存",
+  "orderCheckoutActionConfirm": "确认",
+  "orderCheckoutStashTab": "暂存",
+  "orderCheckoutStashEmpty": "目前无任何暂存餐点。",
+  "orderCheckoutStashNoProducts": "没有任何产品",
+  "orderCheckoutStashActionCheckout": "结帐",
+  "orderCheckoutStashActionRestore": "还原",
+  "orderCheckoutStashDialogCalculator": "结帐计算机",
+  "orderCheckoutStashDialogRestoreTitle": "还原暂存订单",
+  "orderCheckoutStashDialogRestoreContent": "此动作将会覆盖掉现在购物车内的订单。",
+  "orderCheckoutStashDialogDeleteName": "订单",
+  "orderCheckoutAttributeTab": "顾客设定",
+  "orderCheckoutAttributeNoteTitle": "备注",
+  "orderCheckoutAttributeNoteHint": "一些关于此订单的说明",
+  "orderCheckoutDetailsTab": "订单细项",
+  "orderCheckoutDetailsCalculatorLabelPaid": "付额",
+  "orderCheckoutDetailsCalculatorLabelChange": "找钱",
+  "orderCheckoutDetailsSnapshotLabelChange": "找钱：{change}",
   "@orderCheckoutDetailsSnapshotLabelChange": {
     "description": "Change given by the cashier after the customer's payment",
     "placeholders": {
@@ -1685,10 +1744,10 @@
       }
     }
   },
-  "orderCheckoutSnackbarPaidFailed": "付額小於訂單總價，無法結帳。",
-  "orderObjectViewEmpty": "查無點餐紀錄",
-  "orderObjectViewChange": "找錢",
-  "orderObjectViewPriceTotal": "訂單總價：{price}",
+  "orderCheckoutSnackbarPaidFailed": "付额小于订单总价，无法结帐。",
+  "orderObjectViewEmpty": "查无点餐纪录",
+  "orderObjectViewChange": "找钱",
+  "orderObjectViewPriceTotal": "订单总价：{price}",
   "@orderObjectViewPriceTotal": {
     "description": "Total price information after ordering",
     "placeholders": {
@@ -1697,221 +1756,162 @@
       }
     }
   },
-  "orderObjectViewPriceProducts": "產品總價",
-  "orderObjectViewPriceAttributes": "顧客設定總價",
+  "orderObjectViewPriceProducts": "产品总价",
+  "orderObjectViewPriceAttributes": "顾客设定总价",
   "orderObjectViewCost": "成本",
-  "orderObjectViewProfit": "淨利",
-  "orderObjectViewPaid": "付額",
-  "orderObjectViewNote": "備註",
-  "orderObjectViewDividerAttribute": "顧客設定",
-  "orderObjectViewDividerProduct": "產品資訊",
-  "orderObjectViewProductPrice": "總價",
-  "orderObjectViewProductCost": "總成本",
-  "orderObjectViewProductCount": "總數",
-  "orderObjectViewProductSinglePrice": "單價",
-  "orderObjectViewProductOriginalPrice": "折扣前單價",
-  "orderObjectViewProductCatalog": "產品種類",
+  "orderObjectViewProfit": "净利",
+  "orderObjectViewPaid": "付额",
+  "orderObjectViewNote": "备注",
+  "orderObjectViewDividerAttribute": "顾客设定",
+  "orderObjectViewDividerProduct": "产品资讯",
+  "orderObjectViewProductPrice": "总价",
+  "orderObjectViewProductCost": "总成本",
+  "orderObjectViewProductCount": "总数",
+  "orderObjectViewProductSinglePrice": "单价",
+  "orderObjectViewProductOriginalPrice": "折扣前单价",
+  "orderObjectViewProductCatalog": "产品种类",
   "orderObjectViewProductIngredient": "成分",
-  "orderObjectViewProductDefaultQuantity": "預設",
-  "analysisTab": "統計",
-  "analysisHistoryBtn": "紀錄",
-  "analysisHistoryTitle": "訂單記錄",
-  "analysisHistoryTitleEmpty": "查無點餐紀錄",
-  "analysisHistoryCalendarTutorialTitle": "日曆",
-  "analysisHistoryCalendarTutorialContent": "上下滑動可以調整週期單位，如月或週。\n左右滑動可以調整日期起訖。",
-  "analysisHistoryActionExport": "匯出",
-  "analysisHistoryActionClear": "清除訂單紀錄",
-  "analysisHistoryActionClearLastYear": "清除去年以前的訂單",
-  "analysisHistoryActionClearLast6Months": "清除半年以前的訂單",
-  "analysisHistoryActionClearCustom": "清除特定日期前的訂單",
-  "analysisHistoryActionClearCustomSubtitle": "點擊以選擇日期",
-  "analysisHistoryActionClearSubtitle": "{date} 0點前",
-  "@analysisHistoryActionClearSubtitle": {
+  "orderObjectViewProductDefaultQuantity": "预设",
+  "stockTab": "库存",
+  "stockUpdatedAt": "上次补货时间：{updatedAt}",
+  "@stockUpdatedAt": {
     "placeholders": {
-      "date": {
+      "updatedAt": {
         "type": "DateTime",
-        "format": "yMMMd"
+        "format": "MMMEd"
       }
     }
   },
-  "analysisHistoryActionClearConfirmTitle": "確定要清除訂單？",
-  "analysisHistoryActionClearConfirmContent": "確定要清除到 {date} 0點以前的訂單紀錄嗎？\n這將會清除 {count} 筆訂單。",
-  "@analysisHistoryActionClearConfirmContent": {
+  "stockIngredientEmptyBody": "新增成份后，就可以开始追踪这些成份的库存啰！",
+  "stockIngredientTitleCreate": "新增成分",
+  "stockIngredientTitleUpdate": "编辑成分",
+  "stockIngredientTitleUpdateAmount": "编辑库存",
+  "stockIngredientTutorialTitle": "新增成分",
+  "stockIngredientTutorialContent": "成份可以帮助我们确认产品的库存。\n你可以在「产品」中设定成分，然后在这里设定库存。",
+  "stockIngredientDialogDeletionContent": "{count, plural, =0{目前无任何产品有本成分} other{将会一同删除掉 {count} 个产品的成分}}",
+  "@stockIngredientDialogDeletionContent": {
+    "description": "Indicates how many products will be affected when deleting the ingredient",
     "placeholders": {
-      "date": {
-        "type": "DateTime",
-        "format": "yMMMd"
-      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stockIngredientProductsCount": "共有 {count} 个产品使用此成分",
+  "@stockIngredientProductsCount": {
+    "description": "When editing an ingredient, it indicates how many products are using it and allows for navigation to the product page",
+    "placeholders": {
       "count": {
         "type": "int",
-        "format": "compactLong"
+        "description": "Number of products"
       }
     }
   },
-  "analysisHistoryActionResetNo": "重置訂單編號",
-  "analysisHistoryActionResetNoHint": "重置後編號將會從 1 開始，歷史訂單仍維持原本的編號。",
-  "analysisHistoryActionScheduleResetNo": "排程自動重置",
-  "analysisHistoryActionScheduleResetNoPeriod": "{name, select, everyXDays{每 X 天} everyXWeeks{每 X 週} xDayOfEachWeek{每週星期 X} xDayOfEachMonth{每月第 X 天} other{UNKNOWN}}",
-  "analysisHistoryActionScheduleResetNoTitle": "排程重置訂單編號",
-  "analysisHistoryActionScheduleResetNoHint": "選擇區間來安排未來的訂單編號重置。",
-  "analysisHistoryActionScheduleResetNoNext": "下次重置日期：{date}",
-  "@analysisHistoryActionScheduleResetNoNext": {
+  "stockIngredientNameLabel": "成分名称",
+  "stockIngredientNameHint": "例如：起司",
+  "stockIngredientNameErrorRepeat": "成分名称重复",
+  "stockIngredientAmountLabel": "现有库存",
+  "stockIngredientAmountMaxLabel": "最大库存",
+  "stockIngredientAmountMaxHelper": "设定这个值可以帮助你一眼看出用了多少成分。\n填空或不填写则每次增加库存，都会自动设定这值，",
+  "stockIngredientRestockTitle": "每次补货可以补货多少成分。\n例如，每 30 份起司要价 100 元，「补货单位」就填写 30，「补货单价」就填写 100。\n\n这可以帮助你透过价钱快速补货。",
+  "stockIngredientRestockPriceLabel": "补货单价",
+  "stockIngredientRestockQuantityLabel": "补货单位",
+  "stockIngredientRestockDialogTitle": "目前每{quantity}个要价{price}元",
+  "@stockIngredientRestockDialogTitle": {
+    "description": "Headline of the dialog for setting the restock price",
     "placeholders": {
-      "date": {
-        "type": "DateTime",
-        "format": "yMMMd"
-      }
-    }
-  },
-  "analysisHistoryActionScheduleResetNoWeekday": "{day}",
-  "@analysisHistoryActionScheduleResetNoWeekday": {
-    "placeholders": {
-      "day": {
-        "type": "DateTime",
-        "format": "EEEE"
-      }
-    }
-  },
-  "analysisHistoryActionScheduleResetNoMonthDay": "第 {day} 天",
-  "analysisHistoryActionScheduleResetNoMonthDayHint": "若選擇第 31 天，則每月自動調整為最後一天，如 2 月和 4 月",
-  "analysisHistoryActionScheduleResetNoDaysEmpty": "無",
-  "analysisHistoryActionScheduleResetNoErrorDaysEmpty": "請至少選擇一個日子",
-  "analysisHistoryActionTutorialTitle": "對訂單做更多事",
-  "analysisHistoryActionTutorialContent": "你可以把訂單匯出到外部檔案，進行進一步分析或備份，\n或清除特定日期前的訂單紀錄，\n或排程自動重置訂單編號。",
-  "analysisHistoryOrderListMetaNo": "編號：{no}",
-  "@analysisHistoryOrderListMetaNo": {
-    "description": "Order ID for specific order in the order list.",
-    "placeholders": {
-      "no": {
+      "quantity": {
         "type": "String"
-      }
-    }
-  },
-  "analysisHistoryOrderListMetaPrice": "售價：{price}",
-  "@analysisHistoryOrderListMetaPrice": {
-    "description": "Price of specific orders in the order list.",
-    "placeholders": {
+      },
       "price": {
+        "type": "String"
+      }
+    }
+  },
+  "stockIngredientRestockDialogSubtitle": "请输入购买价格",
+  "@stockIngredientRestockDialogSubtitle": {
+    "description": "Helper text to remind users to enter the purchase price"
+  },
+  "stockIngredientRestockDialogQuantityTab": "数量",
+  "stockIngredientRestockDialogQuantityBtn": "使用数量",
+  "stockIngredientRestockDialogQuantityLabel": "现有库存",
+  "stockIngredientRestockDialogQuantityHelper": "若没有设定最大库存量，增加本值会重设最大库存量。",
+  "@stockIngredientRestockDialogQuantityHelper": {
+    "description": "Auxiliary text used for quickly increasing inventory"
+  },
+  "stockIngredientRestockDialogPriceTab": "价格",
+  "stockIngredientRestockDialogPriceBtn": "使用价钱",
+  "stockIngredientRestockDialogPriceLabel": "补货价格",
+  "stockIngredientRestockDialogPriceEmptyBody": "赶紧设定单价，让你可以利用补货的金额直接算出补货的量。",
+  "stockIngredientRestockDialogPriceOldAmount": "原始库存",
+  "@stockIngredientRestockDialogPriceOldAmount": {
+    "description": "The original amount before the restock"
+  },
+  "stockReplenishmentButton": "采购",
+  "stockReplenishmentEmptyBody": "采购可以帮你快速调整成分的库存",
+  "stockReplenishmentTitleList": "采购列表",
+  "stockReplenishmentTitleCreate": "新增采购",
+  "stockReplenishmentTitleUpdate": "编辑采购",
+  "stockReplenishmentMetaAffect": "会影响 {count} 项成分",
+  "@stockReplenishmentMetaAffect": {
+    "description": "Indicates in the replenishment list how many ingredients are affected",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "stockReplenishmentNever": "尚未补货过",
+  "@stockReplenishmentNever": {
+    "description": "The stock page displays the last replenishment time; if never replenished, this text is set"
+  },
+  "stockReplenishmentApplyPreview": "预览",
+  "stockReplenishmentApplyConfirmButton": "套用",
+  "stockReplenishmentApplyConfirmTitle": "套用采购？",
+  "stockReplenishmentApplyConfirmColumn": "{value, select, name{名称} amount{数量} other{UNKNOWN}}",
+  "@stockReplenishmentApplyConfirmColumn": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "stockReplenishmentApplyConfirmHint": "选择套用后，将会影响以下成分的库存",
+  "stockReplenishmentTutorialTitle": "成份采购",
+  "stockReplenishmentTutorialContent": "透过采购，你不再需要一个一个去设定成分的库存。\n马上设定采购，一次调整多个成份吧！",
+  "stockReplenishmentNameLabel": "采购名称",
+  "stockReplenishmentNameHint": "例如：Costco 采购",
+  "stockReplenishmentNameErrorRepeat": "采购名称重复",
+  "stockReplenishmentIngredientsDivider": "成分",
+  "stockReplenishmentIngredientsHelper": "点选以设定不同成分欲采购的量",
+  "stockReplenishmentIngredientAmountHint": "设定增加／减少的量",
+  "stockQuantityTitle": "份量",
+  "stockQuantityDescription": "半糖、微糖等",
+  "stockQuantityTitleCreate": "新增份量",
+  "stockQuantityTitleUpdate": "编辑份量",
+  "stockQuantityEmptyBody": "份量可以快速调整成分的量，例如：\n半糖、微糖。",
+  "stockQuantityMetaProportion": "预设比例：{proportion}",
+  "@stockQuantityMetaProportion": {
+    "description": "Text explaining default ratios in subheadings of quantity items",
+    "placeholders": {
+      "proportion": {
         "type": "num",
-        "format": "compactCurrency",
-        "optionalParameters": {
-          "symbol": "$"
-        }
+        "format": "decimalPattern"
       }
     }
   },
-  "analysisHistoryOrderListMetaPaid": "付額：{paid}",
-  "@analysisHistoryOrderListMetaPaid": {
-    "description": "Payment amount for specific orders in the order list.",
+  "stockQuantityDialogDeletionContent": "{count, plural, =0{目前无任何产品成分有本份量} other{将会一同删除掉 {count} 个产品成分的份量'}}",
+  "@stockQuantityDialogDeletionContent": {
+    "description": "Indicates how many product ingredients will be affected when deleting the quantity",
     "placeholders": {
-      "paid": {
-        "type": "num",
-        "format": "compactCurrency",
-        "optionalParameters": {
-          "symbol": "$"
-        }
+      "count": {
+        "type": "int"
       }
     }
   },
-  "analysisHistoryOrderListMetaProfit": "淨利：{profit}",
-  "@analysisHistoryOrderListMetaProfit": {
-    "description": "Net profit for specific orders in the order list.",
-    "placeholders": {
-      "profit": {
-        "type": "num",
-        "format": "compactCurrency",
-        "optionalParameters": {
-          "symbol": "$"
-        }
-      }
-    }
-  },
-  "analysisHistoryOrderTitle": "訂單細節",
-  "analysisHistoryOrderNotFound": "找不到相關訂單",
-  "analysisHistoryOrderDeleteDialog": "確定要刪除 {name} 的訂單嗎？\n將不會復原收銀機和庫存資料。\n此動作無法復原。",
-  "@analysisHistoryOrderDeleteDialog": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "analysisGoalsTitle": "本日總結",
-  "analysisGoalsCountTitle": "訂單數",
-  "analysisGoalsCountDescription": "訂單數反映了產品對顧客的吸引力。\n它代表了市場對你產品的需求程度，能幫助你了解何種產品或時段最受歡迎。\n高訂單數可能意味著你的定價策略或行銷活動取得成功，是商業模型有效性的指標之一。\n但要注意，單純追求高訂單數可能會忽略盈利能力。",
-  "analysisGoalsRevenueTitle": "營收",
-  "analysisGoalsRevenueDescription": "營收代表總銷售額，是業務規模的指標。\n高營收可能顯示了你的產品受歡迎且銷售良好，但營收無法反映出業務的可持續性和盈利能力。\n有時候，為了提高營收，公司可能會採取降價等策略，這可能會對公司的盈利能力造成影響。",
-  "analysisGoalsProfitTitle": "淨利",
-  "analysisGoalsProfitDescription": "淨利是營業收入減去營業成本後的餘額，是公司能否持續經營的關鍵。\n盈利直接反映了營運效率和成本管理能力。\n不同於營收，盈利考慮了生意的開支，包括原料成本、人力、租金等，\n這是一個更實際的指標，能幫助你評估經營是否有效且可持續。",
-  "analysisGoalsCostTitle": "成本",
-  "analysisGoalsAchievedRate": "利潤達成\n{rate}",
-  "@analysisGoalsAchievedRate": {
-    "placeholders": {
-      "rate": {
-        "type": "String"
-      }
-    }
-  },
-  "analysisChartTitle": "圖表分析",
-  "analysisChartTitleCreate": "新增圖表",
-  "analysisChartTitleUpdate": "編輯圖表",
-  "analysisChartTitleReorder": "排序圖表",
-  "analysisChartTutorialTitle": "圖表分析",
-  "analysisChartTutorialContent": "透過圖表，你可以更直觀地看到數據變化。\n現在就開始設計圖表追蹤你的銷售狀況吧！。",
-  "analysisChartCardEmptyData": "沒有資料",
-  "analysisChartCardTitleUpdate": "編輯圖表",
-  "analysisChartMetricName": "{name, select, revenue{營收} cost{成本} profit{淨利} count{數量} other{UNKNOWN}}",
-  "@analysisChartMetricName": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "analysisChartTargetName": "{name, select, order{訂單} catalog{產品種類} product{產品} ingredient{成分} attribute{顧客屬性} other{UNKNOWN}}",
-  "@analysisChartTargetName": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "analysisChartRangeYesterday": "昨天",
-  "analysisChartRangeToday": "今天",
-  "analysisChartRangeLastWeek": "上週",
-  "analysisChartRangeThisWeek": "本週",
-  "analysisChartRangeLast7Days": "最近7日",
-  "analysisChartRangeLastMonth": "上月",
-  "analysisChartRangeThisMonth": "本月",
-  "analysisChartRangeLast30Days": "最近30日",
-  "analysisChartRangeTabName": "{name, select, day{日期} week{週} month{月} custom{自訂} other{UNKNOWN}}",
-  "@analysisChartRangeTabName": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "analysisChartModalNameLabel": "圖表名稱",
-  "analysisChartModalNameHint": "例如：每日營收",
-  "analysisChartModalIgnoreEmptyLabel": "忽略空資料",
-  "analysisChartModalIgnoreEmptyHelper": "某商品或指標在該時段沒有資料，則不顯示。",
-  "analysisChartModalDivider": "資料設定",
-  "analysisChartModalTypeLabel": "圖表類型",
-  "analysisChartModalTypeName": "{name, select, cartesian{時序圖} circular{圓餅圖} other{UNKNOWN}}",
-  "@analysisChartModalTypeName": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "analysisChartModalMetricLabel": "觀看指標",
-  "analysisChartModalMetricHelper": "根據不同目的，選擇不同指標類型。",
-  "analysisChartModalTargetLabel": "項目種類",
-  "analysisChartModalTargetHelper": "選擇圖表中要針對哪些資訊做分析。",
-  "analysisChartModalTargetErrorEmpty": "請選擇一個項目種類",
-  "analysisChartModalTargetItemLabel": "項目選擇",
-  "analysisChartModalTargetItemHelper": "你想要觀察哪些項目的變化，例如區間內某商品的數量。",
-  "analysisChartModalTargetItemSelectAll": "全選"
+  "stockQuantityNameLabel": "份量名称",
+  "stockQuantityNameHint": "例如：少量或多量",
+  "stockQuantityNameErrorRepeat": "份量名称重复",
+  "stockQuantityProportionLabel": "预设比例",
+  "stockQuantityProportionHelper": "当产品成分使用此份量时，预设替该成分增加的比例。\n\n例如：此份量为「多量」预设份量为「1.5」，\n今有一产品「起司汉堡」的成分「起司」，每份汉堡会使用「2」单位的起司，\n当增加此份量时，则会自动替「起司」设定为「3」（2 * 1.5）的份量。\n\n若设为「1」则无任何影响。\n\n若设为「0」则代表将不会使用此成分"
 }

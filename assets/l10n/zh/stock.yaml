@@ -1,120 +1,120 @@
 $prefix: stock
-tab: 庫存
-updatedAt: 上次補貨時間：{updatedAt}
+tab: 库存
+updatedAt: 上次补货时间：{updatedAt}
 ingredient:
-  emptyBody: 新增成份後，就可以開始追蹤這些成份的庫存囉！
+  emptyBody: 新增成份后，就可以开始追踪这些成份的库存啰！
   title:
     create: 新增成分
-    update: 編輯成分
-    updateAmount: 編輯庫存
+    update: 编辑成分
+    updateAmount: 编辑库存
   tutorial:
     title: 新增成分
     content: |-
-      成份可以幫助我們確認產品的庫存。
-      你可以在「產品」中設定成分，然後在這裡設定庫存。
+      成份可以帮助我们确认产品的库存。
+      你可以在「产品」中设定成分，然后在这里设定库存。
   dialogDeletionContent:
-  - =0: 目前無任何產品有本成分
-    other: 將會一同刪除掉 {count} 個產品的成分
-  productsCount: 共有 {count} 個產品使用此成分
+  - =0: 目前无任何产品有本成分
+    other: 将会一同删除掉 {count} 个产品的成分
+  productsCount: 共有 {count} 个产品使用此成分
   name:
-    label: 成分名稱
+    label: 成分名称
     hint: 例如：起司
     error:
-      repeat: 成分名稱重複
+      repeat: 成分名称重复
   amount:
-    label: 現有庫存
+    label: 现有库存
   amountMax:
-    label: 最大庫存
+    label: 最大库存
     helper: |-
-      設定這個值可以幫助你一眼看出用了多少成分。
-      填空或不填寫則每次增加庫存，都會自動設定這值，
+      设定这个值可以帮助你一眼看出用了多少成分。
+      填空或不填写则每次增加库存，都会自动设定这值，
   restockTitle: |-
-    每次補貨可以補貨多少成分。
-    例如，每 30 份起司要價 100 元，「補貨單位」就填寫 30，「補貨單價」就填寫 100。
+    每次补货可以补货多少成分。
+    例如，每 30 份起司要价 100 元，「补货单位」就填写 30，「补货单价」就填写 100。
 
-    這可以幫助你透過價錢快速補貨。
+    这可以帮助你透过价钱快速补货。
   restockPrice:
-    label: 補貨單價
+    label: 补货单价
   restockQuantity:
-    label: 補貨單位
+    label: 补货单位
   restockDialog:
     title:
-    - 目前每{quantity}個要價{price}元
-    subtitle: 請輸入購買價格
+    - 目前每{quantity}个要价{price}元
+    subtitle: 请输入购买价格
     quantity:
-      tab: 數量
-      btn: 使用數量
-      label: 現有庫存
-      helper: 若沒有設定最大庫存量，增加本值會重設最大庫存量。
+      tab: 数量
+      btn: 使用数量
+      label: 现有库存
+      helper: 若没有设定最大库存量，增加本值会重设最大库存量。
     price:
-      tab: 價格
-      btn: 使用價錢
-      label: 補貨價格
-      emptyBody: 趕緊設定單價，讓你可以利用補貨的金額直接算出補貨的量。
-      oldAmount: 原始庫存
+      tab: 价格
+      btn: 使用价钱
+      label: 补货价格
+      emptyBody: 赶紧设定单价，让你可以利用补货的金额直接算出补货的量。
+      oldAmount: 原始库存
 replenishment:
-  button: 採購
-  emptyBody: 採購可以幫你快速調整成分的庫存
+  button: 采购
+  emptyBody: 采购可以帮你快速调整成分的库存
   title:
-    list: 採購列表
-    create: 新增採購
-    update: 編輯採購
+    list: 采购列表
+    create: 新增采购
+    update: 编辑采购
   meta:
-    affect: 會影響 {count} 項成分
-  never: 尚未補貨過
+    affect: 会影响 {count} 项成分
+  never: 尚未补货过
   apply:
-    preview: 預覽
+    preview: 预览
     confirm:
       button: 套用
-      title: 套用採購？
+      title: 套用采购？
       column:
-      - name: 名稱
-        amount: 數量
-      hint: 選擇套用後，將會影響以下成分的庫存
+      - name: 名称
+        amount: 数量
+      hint: 选择套用后，将会影响以下成分的库存
   tutorial:
-    title: 成份採購
+    title: 成份采购
     content: |-
-      透過採購，你不再需要一個一個去設定成分的庫存。
-      馬上設定採購，一次調整多個成份吧！
+      透过采购，你不再需要一个一个去设定成分的库存。
+      马上设定采购，一次调整多个成份吧！
   name:
-    label: 採購名稱
-    hint: 例如：Costco 採購
+    label: 采购名称
+    hint: 例如：Costco 采购
     error:
-      repeat: 採購名稱重複
+      repeat: 采购名称重复
   ingredients:
     divider: 成分
-    helper: 點選以設定不同成分欲採購的量
+    helper: 点选以设定不同成分欲采购的量
   ingredientAmount:
-    hint: 設定增加／減少的量
+    hint: 设定增加／减少的量
 quantity:
   title: 份量
   description: 半糖、微糖等
   _title:
     $prefix: title
     create: 新增份量
-    update: 編輯份量
+    update: 编辑份量
   emptyBody: |-
-    份量可以快速調整成分的量，例如：
+    份量可以快速调整成分的量，例如：
     半糖、微糖。
   meta:
-    proportion: 預設比例：{proportion}
+    proportion: 预设比例：{proportion}
   dialogDeletionContent:
-  - =0: 目前無任何產品成分有本份量
-    other: 將會一同刪除掉 {count} 個產品成分的份量'
+  - =0: 目前无任何产品成分有本份量
+    other: 将会一同删除掉 {count} 个产品成分的份量'
   name:
-    label: 份量名稱
+    label: 份量名称
     hint: 例如：少量或多量
     error:
-      repeat: 份量名稱重複
+      repeat: 份量名称重复
   proportion:
-    label: 預設比例
+    label: 预设比例
     helper: |-
-      當產品成分使用此份量時，預設替該成分增加的比例。
+      当产品成分使用此份量时，预设替该成分增加的比例。
 
-      例如：此份量為「多量」預設份量為「1.5」，
-      今有一產品「起司漢堡」的成分「起司」，每份漢堡會使用「2」單位的起司，
-      當增加此份量時，則會自動替「起司」設定為「3」（2 * 1.5）的份量。
+      例如：此份量为「多量」预设份量为「1.5」，
+      今有一产品「起司汉堡」的成分「起司」，每份汉堡会使用「2」单位的起司，
+      当增加此份量时，则会自动替「起司」设定为「3」（2 * 1.5）的份量。
 
-      若設為「1」則無任何影響。
+      若设为「1」则无任何影响。
 
-      若設為「0」則代表將不會使用此成分
+      若设为「0」则代表将不会使用此成分

@@ -1,94 +1,94 @@
 $prefix: orderAttribute
-title: 顧客設定
-description: 內用、外帶等幫助分析的資訊
+title: 顾客设定
+description: 内用、外带等帮助分析的资讯
 _title:
   $prefix: title
-  create: 新增顧客設定
-  update: 編輯顧客設定
-  reorder: 排序顧客設定
+  create: 新增顾客设定
+  update: 编辑顾客设定
+  reorder: 排序顾客设定
 emptyBody: |-
-  顧客設定可以幫助我們統計哪些人來消費，例如：
-  20-30歲、外帶、上班族。
-headerInfo: 顧客設定
+  顾客设定可以帮助我们统计哪些人来消费，例如：
+  20-30岁、外带、上班族。
+headerInfo: 顾客设定
 tutorial:
-  title: 建立屬於你的顧客設定
+  title: 建立属于你的顾客设定
   content: |-
-    這裡是用來設定顧客的資訊，例如：內用、外帶、上班族等。
-    這些資訊可以幫助我們統計哪些人來消費，進而做出更好的經營策略。
-  createExample: 幫助建立一份範例以供測試。
+    这里是用来设定顾客的资讯，例如：内用、外带、上班族等。
+    这些资讯可以帮助我们统计哪些人来消费，进而做出更好的经营策略。
+  createExample: 帮助建立一份范例以供测试。
 example:
-  age: 年齡
+  age: 年龄
   _age:
     $prefix: age
     child: 小孩
     adult: 成人
-    senior: 長者
+    senior: 长者
   place: 位置
   _place:
     $prefix: place
-    takeout: 外帶
-    dineIn: 內用
-  ecoFriendly: 環保
+    takeout: 外带
+    dineIn: 内用
+  ecoFriendly: 环保
   _ecoFriendly:
     $prefix: ecoFriendly
-    reusableBottle: 環保杯
-    reusableBag: 環保袋
+    reusableBottle: 环保杯
+    reusableBag: 环保袋
 meta:
-  mode: 種類：{name}
-  default: 預設：{name}
-  noDefault: 未設定預設
+  mode: 种类：{name}
+  default: 预设：{name}
+  noDefault: 未设定预设
 mode:
-  divider: 顧客設定種類
+  divider: 顾客设定种类
   name:
   - statOnly: 一般
-    changePrice: 變價
+    changePrice: 变价
     changeDiscount: 折扣
   helper:
-  - statOnly: 一般的設定，選取時並不會影響點單價格。
+  - statOnly: 一般的设定，选取时并不会影响点单价格。
     changePrice: |-
-      選取設定時，可能會影響價格。
-      例如：外送 + 30塊錢、環保杯 - 5塊錢。
+      选取设定时，可能会影响价格。
+      例如：外送 + 30块钱、环保杯 - 5块钱。
     changeDiscount: |-
-      選取設定時，會根據折扣影響總價。
-      例如：內用 + 10% 服務費、親友價 - 10%。
+      选取设定时，会根据折扣影响总价。
+      例如：内用 + 10% 服务费、亲友价 - 10%。
 name:
-  label: 顧客設定名稱
-  hint: 例如：顧客年齡
+  label: 顾客设定名称
+  hint: 例如：顾客年龄
   error:
-    repeat: 名稱不能重複
+    repeat: 名称不能重复
 option:
   title:
-    create: 新增選項
-    update: 編輯選項
-    reorder: 排序選項
+    create: 新增选项
+    update: 编辑选项
+    reorder: 排序选项
   meta:
-    default: 預設
-    optionOf: '{name}的選項'
+    default: 预设
+    optionOf: '{name}的选项'
   name:
-    label: 選項名稱
+    label: 选项名称
     helper: |-
-      以年齡為例，可能的選項有：
+      以年龄为例，可能的选项有：
       - ⇣ 20
       - 20 - 30
     error:
-      repeat: 名稱不能重複
+      repeat: 名称不能重复
   mode:
-    title: 選項模式
+    title: 选项模式
     helper:
-    - statOnly: 因為本設定為「一般」故無須設定「折價」或「變價」
-      changePrice: 訂單時選擇此項會套用此變價
-      changeDiscount: 訂單時選擇此項會套用此折價
+    - statOnly: 因为本设定为「一般」故无须设定「折价」或「变价」
+      changePrice: 订单时选择此项会套用此变价
+      changeDiscount: 订单时选择此项会套用此折价
     hint:
     - statOnly: ''
-      changePrice: 例如：-30 代表減少三十塊
+      changePrice: 例如：-30 代表减少三十块
       changeDiscount: 例如：80 代表「八折」
   toDefault:
-    label: 設為預設
+    label: 设为预设
     helper: |-
-      設定此選項為預設值，每個訂單預設都會是使用這個選項。
+      设定此选项为预设值，每个订单预设都会是使用这个选项。
     confirmChange:
-      title: 覆蓋選項預設？
-      content: 這麼做會讓「{name}」變成非預設值
+      title: 覆盖选项预设？
+      content: 这么做会让「{name}」变成非预设值
 value:
-  empty: 不影響價錢
-  free: 免費
+  empty: 不影响价钱
+  free: 免费

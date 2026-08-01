@@ -1,71 +1,71 @@
-appTitle: POS 系統
+appTitle: POS 系统
 act:
-  success: 執行成功
-  error: 錯誤
-  moreInfo: 說明
-singleChoice: 一次只能選擇一種
-multiChoices: 可以選擇多種
+  success: 执行成功
+  error: 错误
+  moreInfo: 说明
+singleChoice: 一次只能选择一种
+multiChoices: 可以选择多种
 totalCount:
-- other: 總共 {count} 項
-searchCount: 搜尋到 {count} 個結果
+- other: 总共 {count} 项
+searchCount: 搜寻到 {count} 个结果
 title:
 - analysis: 分析
-  stock: 庫存
-  cashier: 收銀
-  settings: 設定
-  menu: 菜單
-  printers: 出單機
-  transit: 資料轉移
-  orderAttributes: 顧客設定
+  stock: 库存
+  cashier: 收银
+  settings: 设定
+  menu: 菜单
+  printers: 出单机
+  transit: 资料转移
+  orderAttributes: 顾客设定
   stockQuantities: 份量
-  elf: 建議
+  elf: 建议
   more: 更多
   debug: Debug
 dialog:
-  deletionTitle: 刪除確認通知
+  deletionTitle: 删除确认通知
   deletionContent: |-
-    確定要刪除「{name}」嗎？
+    确定要删除「{name}」吗？
 
-    {more}此動作將無法復原！
+    {more}此动作将无法复原！
 image:
   holder:
-    create: 點選以新增圖片
-    update: 點擊以更新圖片
+    create: 点选以新增图片
+    update: 点击以更新图片
   btn:
     crop: 裁切
   gallery:
-    title: 圖片管理
-    empty: 點擊開始匯入你的第一張照片！
+    title: 图片管理
+    empty: 点击开始汇入你的第一张照片！
     action:
-      create: 新增圖片
-      delete: 刪除
+      create: 新增图片
+      delete: 删除
     snackbar:
-      deleteFailed: 有一個或多個圖片沒有刪成功。
+      deleteFailed: 有一个或多个图片没有删成功。
     selection:
-      title: 選擇相片
+      title: 选择相片
       deleteConfirm: |-
-        將會刪除 {count} 個圖片
-        刪除之後會讓相關產品顯示不到圖片
+        将会删除 {count} 个图片
+        删除之后会让相关产品显示不到图片
 emptyBody:
-  title: 哎呀！這裡還是空的
-  action: 立即設定
+  title: 哎呀！这里还是空的
+  action: 立即设定
 btn:
   navTo: 查看
   signInWith:
     google: 使用 Google 登入
 semantics:
-  percentileBar: 目前佔總數的 {percent}
+  percentileBar: 目前占总数的 {percent}
 invalid:
   integer:
-    type: "{field}必須是整數"
+    type: "{field}必须是整数"
   number:
-    type: "{field}必須是數字"
-    positive: "{field}不能為負數"
-    maximum: "{field}不能超過 {maximum}"
-    minimum: "{field}不能低於 {minimum}"
+    type: "{field}必须是数字"
+    positive: "{field}不能为负数"
+    maximum: "{field}不能超过 {maximum}"
+    minimum: "{field}不能低于 {minimum}"
   string:
-    empty: "{field}不能為空"
-    maximum: "{field}不能超過 {maximum} 個字"
-singleMonth: 單月
-singleWeek: 單週
-twoWeeks: 雙週
+    empty: "{field}不能为空"
+    maximum: "{field}不能超过 {maximum} 个字"
+singleMonth: 单月
+singleWeek: 单周
+twoWeeks: 双周
