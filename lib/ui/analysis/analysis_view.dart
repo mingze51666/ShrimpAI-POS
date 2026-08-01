@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shrimpai_pos/components/menu_actions.dart';
 import 'package:shrimpai_pos/components/style/route_buttons.dart';
 import 'package:shrimpai_pos/components/tutorial.dart';
@@ -43,7 +44,10 @@ class _AnalysisViewState extends State<AnalysisView> with AutomaticKeepAliveClie
                     primary: false,
                     automaticallyImplyLeading: false, // avoid giving drawer's menu icon
                     title: Text(S.analysisChartTitle),
-                    actions: const [_MoreButton()],
+                    actions: const [
+                      _AiChatButton(),
+                      _MoreButton(),
+                    ],
                   ),
                   _buildChartHeader(),
                   _buildCharts(Analysis.instance.itemList, bp),
@@ -160,6 +164,20 @@ class _AnalysisViewState extends State<AnalysisView> with AutomaticKeepAliveClie
 
   void _updateRange(Duration dur) {
     range.value = Util.getDateRange(now: range.value.start.add(dur), days: interval);
+  }
+}
+
+class _AiChatButton extends StatelessWidget {
+  const _AiChatButton();
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      key: const Key('anal.ai'),
+      tooltip: 'AI 经营分析',
+      onPressed: () => context.go('${Routes.base}/anal/ai'),
+      icon: const Icon(Icons.auto_awesome),
+    );
   }
 }
 

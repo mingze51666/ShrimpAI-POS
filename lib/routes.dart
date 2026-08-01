@@ -17,6 +17,7 @@ import 'package:shrimpai_pos/models/repository/replenisher.dart';
 import 'package:shrimpai_pos/models/repository/stock.dart';
 import 'package:shrimpai_pos/services/cache.dart';
 import 'package:shrimpai_pos/translator.dart';
+import 'package:shrimpai_pos/ui/analysis/ai_chat_view.dart';
 import 'package:shrimpai_pos/ui/analysis/analysis_view.dart';
 import 'package:shrimpai_pos/ui/analysis/history_page.dart';
 import 'package:shrimpai_pos/ui/analysis/widgets/chart_modal.dart';
@@ -196,6 +197,12 @@ class Routes {
     path: 'anal',
     pageBuilder: _analBuilder,
     routes: [
+      GoRoute(
+        name: aiChat,
+        path: 'ai',
+        parentNavigatorKey: rootNavigatorKey,
+        pageBuilder: (ctx, state) => NoTransitionPage(child: _l(const AiChatView(), state)),
+      ),
       _createPrefixRoute(
         path: 'chart',
         prefix: 'anal',
@@ -699,6 +706,7 @@ class Routes {
   static const history = 'history';
   static const historyOrder = 'history.order';
   static const anal = 'anal';
+  static const aiChat = 'anal.ai';
   static const chartCreate = 'chart.create';
   static const chartUpdate = 'chart.update';
   static const chartReorder = 'chart.reorder';
