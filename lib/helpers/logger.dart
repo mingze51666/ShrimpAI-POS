@@ -27,7 +27,10 @@ class Log {
         }
       });
 
-      current = FirebaseAnalytics.instance.logEvent(name: event, parameters: filtered);
+      // 🔧 Web 端无 Firebase 时跳过，避免崩溃（2026-08-01）
+      if (!kIsWeb) {
+        current = FirebaseAnalytics.instance.logEvent(name: event, parameters: filtered);
+      }
     }
   }
 
@@ -39,7 +42,10 @@ class Log {
     out(error.toString(), code, error: error, stackTrace: stackTrace);
 
     if (forceSend || allowSendEvents) {
-      FirebaseCrashlytics.instance.recordError(error, stackTrace, reason: code);
+      // 🔧 Web 端无 Firebase 时跳过，避免崩溃（2026-08-01）
+      if (!kIsWeb) {
+        FirebaseCrashlytics.instance.recordError(error, stackTrace, reason: code);
+      }
     }
   }
 

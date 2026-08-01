@@ -64,22 +64,37 @@ void main() async {
       }
     }
 
-    await Database.instance.initialize(logWhenQuery: isLocalTest);
-    await Storage.instance.initialize();
-    await Cache.instance.initialize();
+    // 🔧 初始化链每步防御：任一步失败都不崩溃，保证页面能打开（2026-08-01）
+    Future<void> safeInit(String name, Future<void> Function() fn) async {
+      try {
+        await fn();
+        Log.out('init ok: $name', 'init');
+      } catch (e) {
+        Log.out('init failed: $name → $e', 'init');
+        // Web 端把错误显示在页面上方便排查
+        if (kIsWeb) {
+          // ignore: avoid_print
+          print('⚠️ init failed: $name → $e');
+        }
+      }
+    }
 
-    SettingsProvider.instance.initialize();
-    Log.allowSendEvents = CollectEventsSetting.instance.value;
+    await safeInit('Database', () => Database.instance.initialize(logWhenQuery: isLocalTest));
+    await safeInit('Storage', Storage.instance.initialize);
+    await safeInit('Cache', Cache.instance.initialize);
 
-    await Stock().initialize();
-    await Quantities().initialize();
-    await OrderAttributes().initialize();
-    await Replenisher().initialize();
-    await Cashier().reset();
-    await Analysis().initialize();
-    await Printers().initialize();
+    safeInit('Settings', () async => SettingsProvider.instance.initialize());
+    safeInit('Log', () async => Log.allowSendEvents = CollectEventsSetting.instance.value);
+
+    await safeInit('Stock', Stock().initialize);
+    await safeInit('Quantities', Quantities().initialize);
+    await safeInit('OrderAttributes', OrderAttributes().initialize);
+    await safeInit('Replenisher', Replenisher().initialize);
+    await safeInit('Cashier', Cashier().reset);
+    await safeInit('Analysis', Analysis().initialize);
+    await safeInit('Printers', Printers().initialize);
     // Last for setup ingredient and quantity
-    await Menu().initialize();
+    await safeInit('Menu', Menu().initialize);
 
     /// Why use provider?
     /// https://stackoverflow.com/questions/57157823/provider-vs-inheritedwidget
@@ -100,5 +115,13 @@ void main() async {
         child: const App(),
       ),
     );
-  }, (error, stack) => FirebaseCrashlytics.instance.recordError(error, stack, fatal: true));
+  }, (error, stack) {
+    // 🔧 Web 端无 Firebase，直接打印避免触发初始化崩溃（2026-08-01）
+    if (kIsWeb) {
+      // ignore: avoid_print
+      print('uncaught: $error');
+    } else {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    }
+  });
 }

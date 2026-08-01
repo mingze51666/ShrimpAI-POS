@@ -1,6 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:shrimpai_pos/helpers/logger.dart';
 import 'package:shrimpai_pos/models/xfile.dart';
 import 'package:sembast/sembast_io.dart';
+// 🔧 Web 端存储支持（2026-08-01 新增，修复 Web 版白屏）
+import 'package:sembast_web/sembast_web.dart' as sembast_web;
 
 class Storage {
   static Storage instance = Storage();
@@ -33,7 +36,10 @@ class Storage {
 
     final path = await getRootPath();
     Log.out('start', 'storage_initialize');
-    db = await (opener ?? databaseFactoryIo.openDatabase)(path);
+    // 🔧 Web 端用 IndexedDB 存储，本地用文件系统（2026-08-01）
+    db = kIsWeb
+        ? await sembast_web.databaseFactoryWeb.openDatabase(path)
+        : await (opener ?? databaseFactoryIo.openDatabase)(path);
   }
 
   Future<void> reset(Stores? storeId, [Future<void> Function(String path)? del]) async {
@@ -76,6 +82,8 @@ class Storage {
   }
 
   static Future<String> getRootPath() async {
+    // 🔧 Web 端用固定文件名（IndexedDB），不依赖文件系统（2026-08-01）
+    if (kIsWeb) return 'pos_system.db';
     final paths = (await XFile.getRootPath()).split(XFile.fs.path.separator)
       ..removeLast()
       ..add('databases');

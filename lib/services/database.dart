@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:shrimpai_pos/helpers/logger.dart';
 import 'package:shrimpai_pos/models/xfile.dart';
 import 'package:shrimpai_pos/services/database_migration_actions.dart';
 import 'package:shrimpai_pos/services/database_migrations.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:sqflite/sqlite_api.dart';
+// 🔧 Web 端 SQLite 支持（2026-08-01 新增，修复 Web 版白屏）
+import 'package:sqflite_common_ffi_web/sqflite_ffi_web.dart' as sqflite_web;
 // This only be used in dev.
 // ignore: depend_on_referenced_packages
 import 'package:sqflite_common/sqflite_logger.dart';
@@ -78,7 +81,10 @@ class Database {
     if (_initialized) return;
     _initialized = true;
 
-    factory ??= sqflite.databaseFactory;
+    factory ??= kIsWeb
+        // 🔧 Web 端用 ffi_web 工厂（IndexedDB 存储），修复启动崩溃（2026-08-01）
+        ? sqflite_web.databaseFactoryFfiWeb
+        : sqflite.databaseFactory;
     if (logWhenQuery) {
       // ignore: experimental_member_use
       factory = SqfliteDatabaseFactoryLogger(factory, options: SqfliteLoggerOptions(type: .all));
@@ -178,6 +184,8 @@ class Database {
   }
 
   static Future<String> getRootPath() async {
+    // 🔧 Web 端用固定文件名（IndexedDB），不依赖文件系统（2026-08-01）
+    if (kIsWeb) return 'pos_system.sqlite';
     final paths = (await XFile.getRootPath()).split(XFile.fs.path.separator)
       ..removeLast()
       ..add('databases');

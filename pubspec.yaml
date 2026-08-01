@@ -69,6 +69,8 @@ dependencies:
     git:
       url: https://github.com/evan361425/excel
       ref: patch-1
+  sqflite_common_ffi_web: ^1.1.1
+  sembast_web: ^2.4.4+1
 
 dev_dependencies:
   flutter_test:
