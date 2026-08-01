@@ -38,22 +38,29 @@ void main() async {
 
     // Web 端无 Firebase 配置，优雅跳过（移动端保持原逻辑）
     if (!kIsWeb) {
-      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-      Log.out('start with firebase: ${DefaultFirebaseOptions.currentPlatform.appId}', 'init');
+      // 🔧 真机容错：Firebase 占位配置可能导致初始化崩溃，失败时优雅跳过
+      // （Web 版已验证跳过；移动端无真实 Firebase 时不让它拖垮启动）
+      try {
+        await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+        Log.out('start with firebase: ${DefaultFirebaseOptions.currentPlatform.appId}', 'init');
 
-      // https://firebase.google.com/docs/crashlytics/get-started?platform=flutter&authuser=0&hl=zh-tw#configure-crash-handlers
-      // Pass all uncaught errors from the framework to Crashlytics.
-      FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-      // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
-      PlatformDispatcher.instance.onError = (error, stack) {
-        FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-        return true;
-      };
+        // https://firebase.google.com/docs/crashlytics/get-started?platform=flutter&authuser=0&hl=zh-tw#configure-crash-handlers
+        // Pass all uncaught errors from the framework to Crashlytics.
+        FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+        // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
+        PlatformDispatcher.instance.onError = (error, stack) {
+          FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+          return true;
+        };
 
-      if (kDebugMode) {
-        await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(false);
-        await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
-        await FirebaseInAppMessaging.instance.setMessagesSuppressed(true);
+        if (kDebugMode) {
+          await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(false);
+          await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
+          await FirebaseInAppMessaging.instance.setMessagesSuppressed(true);
+        }
+      } catch (e) {
+        // 无真实 Firebase 配置时：降级运行，不崩溃
+        Log.out('firebase init skipped: $e', 'init');
       }
     }
 
