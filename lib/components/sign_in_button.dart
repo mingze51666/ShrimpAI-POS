@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shrimpai_pos/helpers/logger.dart';
 import 'package:shrimpai_pos/services/auth.dart';
 import 'package:shrimpai_pos/translator.dart';
@@ -14,29 +14,28 @@ class SignInButton extends StatelessWidget {
   final EdgeInsetsGeometry padding;
 
   // if we are in local test it might be null, but it should be fine.
-  final Widget Function(User? user)? signedInWidgetBuilder;
+  final Widget Function(GoogleSignInAccount? user)? signedInWidgetBuilder;
 
   const SignInButton({super.key, this.padding = const .all(0), this.signedInWidget, this.signedInWidgetBuilder})
     : assert(signedInWidget != null || signedInWidgetBuilder != null);
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<firebase.User?>(
+    return StreamBuilder<GoogleSignInAccount?>(
       stream: Auth.instance.authStateChanges(),
       builder: (context, snapshot) {
-        // final user = User(displayName: 'Test User');
-        final user = User(user: snapshot.data);
+        final account = snapshot.data;
 
-        // User is not signed in
-        if (user.notSignedIn) {
+        // 未登录时显示 Google 登录按钮
+        if (account == null) {
           return Padding(
             padding: padding,
             child: const _GoogleSignInButton(key: Key('google_sign_in')),
           );
         }
 
-        // Render widget if authenticated
-        return signedInWidget ?? signedInWidgetBuilder!(user);
+        // 已登录时渲染业务组件
+        return signedInWidget ?? signedInWidgetBuilder!(account);
       },
     );
   }
@@ -147,7 +146,7 @@ class _GoogleSignInButtonState extends State<_GoogleSignInButton> {
       Log.err(e, 'login', stack);
       if (mounted) {
         setState(() {
-          error = e is firebase.FirebaseAuthException ? e.message : e.toString();
+          error = e is Exception ? e.toString() : e.toString();
         });
       }
     } finally {
@@ -156,16 +155,3 @@ class _GoogleSignInButtonState extends State<_GoogleSignInButton> {
   }
 }
 
-class User {
-  final firebase.User? user;
-
-  final String? _displayName;
-
-  String get displayName => user?.displayName ?? _displayName!;
-
-  final bool notSignedIn;
-
-  User({String? displayName, this.user})
-    : _displayName = displayName,
-      notSignedIn = user == null && displayName == null;
-}

@@ -1,9 +1,10 @@
 plugins {
   id "com.android.application"
+    // 🔧 Firebase 插件已全部移除（占位配置导致安卓启动崩溃，2026-08-01）
     // START: FlutterFire Configuration
-  id "com.google.gms.google-services"
-  id "com.google.firebase.crashlytics"
-  id 'com.google.firebase.firebase-perf'
+    // id "com.google.gms.google-services"
+    // id "com.google.firebase.crashlytics"
+    // id 'com.google.firebase.firebase-perf'
     // END: FlutterFire Configuration
   id "kotlin-android"
   id "dev.flutter.flutter-gradle-plugin"
