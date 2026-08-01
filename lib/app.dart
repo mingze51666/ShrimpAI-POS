@@ -8,6 +8,7 @@ import 'package:shrimpai_pos/l10n/gen/app_localizations.dart';
 
 import 'constants/app_themes.dart';
 import 'routes.dart';
+import 'services/firebase_guard.dart';
 import 'settings/language_setting.dart';
 import 'settings/settings_provider.dart';
 import 'settings/theme_setting.dart';
@@ -41,7 +42,8 @@ class App extends StatelessWidget {
       // onException: (context, state, route) => context.go('/pos'),
       debugLogDiagnostics: kDebugMode,
       observers: [
-        if (!kIsWeb) FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+        // 🔧 Firebase 未就绪时不访问 Analytics，避免崩溃（2026-08-01）
+        if (FirebaseGuard.ready) FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
         routeObserver,
       ],
     );

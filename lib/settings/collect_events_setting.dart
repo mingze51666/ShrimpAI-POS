@@ -1,7 +1,7 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_in_app_messaging/firebase_in_app_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'package:shrimpai_pos/helpers/logger.dart';
+import 'package:shrimpai_pos/services/firebase_guard.dart';
 import 'package:shrimpai_pos/settings/setting.dart';
 
 class CollectEventsSetting extends Setting<bool> {
@@ -28,8 +28,8 @@ class CollectEventsSetting extends Setting<bool> {
     // Do it first to make testing easier, because the rest future will not
     // complete.
     await service.set<bool>(key, data);
-    // 🔧 Web 端无 Firebase 时跳过，避免崩溃（2026-08-01）
-    if (!kIsWeb) {
+    // 🔧 Firebase 就绪时才设置，避免占位配置崩溃（2026-08-01）
+    if (FirebaseGuard.ready) {
       await Future.wait([
         FirebaseInAppMessaging.instance.setAutomaticDataCollectionEnabled(data),
         FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(data),

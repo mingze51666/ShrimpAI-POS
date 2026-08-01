@@ -25,6 +25,7 @@ import 'models/repository/seller.dart';
 import 'models/repository/stock.dart';
 import 'services/cache.dart';
 import 'services/database.dart';
+import 'services/firebase_guard.dart';
 import 'services/storage.dart';
 import 'settings/collect_events_setting.dart';
 import 'settings/settings_provider.dart';
@@ -35,25 +36,32 @@ void main() async {
     // https://stackoverflow.com/questions/57689492/flutter-unhandled-exception-servicesbinding-defaultbinarymessenger-was-accesse
     final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+    // 🔧 平台标志（2026-08-01）
+    FirebaseGuard.init(isWeb: kIsWeb);
 
-    // Web 端无 Firebase 配置，优雅跳过（移动端保持原逻辑）
+    // 🔧 真机容错：Firebase 占位配置可能导致初始化崩溃，失败时优雅跳过
+    // （Web 端无 Firebase；移动端占位配置初始化失败也不拖垮启动）
     if (!kIsWeb) {
-      // 🔧 真机容错：Firebase 占位配置可能导致初始化崩溃，失败时优雅跳过
-      // （Web 版已验证跳过；移动端无真实 Firebase 时不让它拖垮启动）
       try {
         await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
         Log.out('start with firebase: ${DefaultFirebaseOptions.currentPlatform.appId}', 'init');
+        // 🔧 标记 Firebase 就绪（2026-08-01）
+        FirebaseGuard.markReady();
 
         // https://firebase.google.com/docs/crashlytics/get-started?platform=flutter&authuser=0&hl=zh-tw#configure-crash-handlers
         // Pass all uncaught errors from the framework to Crashlytics.
-        FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+        if (FirebaseGuard.ready) {
+          FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+        }
         // Pass all uncaught asynchronous errors that aren't handled by the Flutter framework to Crashlytics
-        PlatformDispatcher.instance.onError = (error, stack) {
-          FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-          return true;
-        };
+        if (FirebaseGuard.ready) {
+          PlatformDispatcher.instance.onError = (error, stack) {
+            FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+            return true;
+          };
+        }
 
-        if (kDebugMode) {
+        if (kDebugMode && FirebaseGuard.ready) {
           await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(false);
           await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
           await FirebaseInAppMessaging.instance.setMessagesSuppressed(true);
@@ -116,12 +124,12 @@ void main() async {
       ),
     );
   }, (error, stack) {
-    // 🔧 Web 端无 Firebase，直接打印避免触发初始化崩溃（2026-08-01）
-    if (kIsWeb) {
+    // 🔧 Firebase 未就绪时不访问 Crashlytics，避免二次崩溃（2026-08-01）
+    if (FirebaseGuard.ready) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    } else {
       // ignore: avoid_print
       print('uncaught: $error');
-    } else {
-      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
     }
   });
 }

@@ -4,6 +4,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shrimpai_pos/constants/constant.dart';
+import 'package:shrimpai_pos/services/firebase_guard.dart';
 
 const _isDebug = kDebugMode || isLocalTest;
 
@@ -27,8 +28,8 @@ class Log {
         }
       });
 
-      // 🔧 Web 端无 Firebase 时跳过，避免崩溃（2026-08-01）
-      if (!kIsWeb) {
+      // 🔧 Firebase 就绪时才上报，避免占位配置崩溃（2026-08-01）
+      if (FirebaseGuard.ready) {
         current = FirebaseAnalytics.instance.logEvent(name: event, parameters: filtered);
       }
     }
@@ -42,8 +43,8 @@ class Log {
     out(error.toString(), code, error: error, stackTrace: stackTrace);
 
     if (forceSend || allowSendEvents) {
-      // 🔧 Web 端无 Firebase 时跳过，避免崩溃（2026-08-01）
-      if (!kIsWeb) {
+      // 🔧 Firebase 就绪时才上报，避免占位配置崩溃（2026-08-01）
+      if (FirebaseGuard.ready) {
         FirebaseCrashlytics.instance.recordError(error, stackTrace, reason: code);
       }
     }
