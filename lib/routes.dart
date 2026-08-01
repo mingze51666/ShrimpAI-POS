@@ -19,6 +19,7 @@ import 'package:shrimpai_pos/services/cache.dart';
 import 'package:shrimpai_pos/translator.dart';
 import 'package:shrimpai_pos/ui/analysis/ai_chat_view.dart';
 import 'package:shrimpai_pos/ui/analysis/analysis_view.dart';
+import 'package:shrimpai_pos/ui/scan_order/scan_order_view.dart';
 import 'package:shrimpai_pos/ui/analysis/history_page.dart';
 import 'package:shrimpai_pos/ui/analysis/widgets/chart_modal.dart';
 import 'package:shrimpai_pos/ui/analysis/widgets/chart_reorder.dart';
@@ -327,6 +328,12 @@ class Routes {
     path: 'cashier',
     pageBuilder: (ctx, state) => NoTransitionPage(child: _l(const CashierView(), state)),
     routes: [
+      GoRoute(
+        name: scanOrders,
+        path: 'scan-orders',
+        parentNavigatorKey: rootNavigatorKey,
+        pageBuilder: (ctx, state) => NoTransitionPage(child: _l(const ScanOrderView(), state)),
+      ),
       GoRoute(
         name: cashierChanger,
         path: 'changer',
@@ -699,6 +706,7 @@ class Routes {
   static const quantityCreate = 'quantity.create';
   static const quantityUpdate = 'quantity.update';
   static const cashier = 'cashier';
+  static const scanOrders = 'cashier.scan-orders';
   static const cashierChanger = 'cashier.changer';
   static const cashierSurplus = 'cashier.surplus';
   static const order = 'order';

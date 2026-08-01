@@ -63,6 +63,19 @@ class CashierView extends StatelessWidget {
           ButtonGroup(
             buttons: [
               Tutorial(
+                id: 'cashier.scan_orders',
+                title: '扫码订单',
+                message: '查看顾客扫码点餐的新订单',
+                preferVertical: true,
+                child: RouteIconButton(
+                  key: const Key('cashier.scan_orders'),
+                  route: Routes.scanOrders,
+                  icon: const Icon(Icons.qr_code_scanner),
+                  label: '扫码订单',
+                  popTrueShowSuccess: true,
+                ),
+              ),
+              Tutorial(
                 id: 'cashier.change',
                 title: S.cashierChangerTutorialTitle,
                 message: S.cashierChangerTutorialContent,
